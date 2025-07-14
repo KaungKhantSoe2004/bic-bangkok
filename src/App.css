@@ -1,6 +1,24 @@
 .App {
   text-align: center;
 }
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700;900&display=swap");
+
+/* Using Orbitron as a close alternative to Azonix */
+* {
+  font-family: "Fredoka", "Electro", monospace, sans-serif;
+}
+
+.azonix-font {
+  font-family: "Fredoka", "Electro", monospace, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.azonix-bold {
+  font-family: "Orbitron", "Electro", monospace, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +53,69 @@
   to {
     transform: rotate(360deg);
   }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes float-delay {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes text-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes line-expand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 6rem;
+    opacity: 1;
+  }
+}
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: float-delay 7s ease-in-out 1s infinite;
+}
+.animate-text-gradient {
+  background-size: 200% auto;
+  animation: text-gradient 8s linear infinite;
+}
+.animate-line-expand {
+  animation: line-expand 1s ease-out forwards;
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
 }
