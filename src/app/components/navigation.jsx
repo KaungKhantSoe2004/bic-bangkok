@@ -1,340 +1,253 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import {
+  FaGraduationCap,
+  FaChevronDown,
+  FaTimes,
+  FaBars,
+  FaHome,
+  FaInfoCircle,
+  FaUserGraduate,
+  FaEnvelope,
+} from "react-icons/fa";
 
-interface NavigationProps {
-  language: string;
-  setLanguage: (lang: string) => void;
-}
-
-export default function Navigation({ language, setLanguage }: NavigationProps) {
+export default function Navigation() {
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const translations = {
-    en: {
-      home: "HOME",
-      about: "ABOUT",
-      courses: "COURSES",
-      admission: "ADMISSION",
-      enquire: "ENQUIRE",
-      igcse: "IGCSE",
-      alevels: "A LEVELS",
-      ossd: "OSSD",
-      ged: "GED",
-    },
-    mm: {
-      home: "ပင်မစာမျက်နှာ",
-      about: "အကြောင်း",
-      courses: "သင်တန်းများ",
-      admission: "ဝင်ခွင့်",
-      enquire: "မေးမြန်းရန်",
-      igcse: "IGCSE",
-      alevels: "A Levels",
-      ossd: "OSSD",
-      ged: "GED",
-    },
-    th: {
-      home: "หน้าแรก",
-      about: "เกี่ยวกับ",
-      courses: "หลักสูตร",
-      admission: "การรับสมัคร",
-      enquire: "สอบถาม",
-      igcse: "IGCSE",
-      alevels: "A Levels",
-      ossd: "OSSD",
-      ged: "GED",
-    },
-  };
-  const t = translations[language];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const coursePages = ["/igcse", "/alevels", "/ossd", "/ged"];
 
+  const navItems = [
+    { path: "/", label: "HOME", icon: FaHome },
+    { path: "/about", label: "ABOUT", icon: FaInfoCircle },
+    { path: "/admission", label: "ADMISSION", icon: FaUserGraduate },
+  ];
+
+  const courses = [
+    {
+      key: "/igcse",
+      label: "IGCSE",
+      desc: "International General Certificate of Secondary Education",
+    },
+    {
+      key: "/alevels",
+      label: "A LEVELS",
+      desc: "Advanced Level Qualification",
+    },
+    {
+      key: "/ossd",
+      label: "OSSD",
+      desc: "Ontario Secondary School Diploma",
+    },
+    {
+      key: "/ged",
+      label: "GED",
+      desc: "General Educational Development",
+    },
+  ];
+
   return (
-    <nav className="bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-gray-900/98 backdrop-blur-md shadow-2xl border-b border-gray-700/50"
+          : "bg-gray-900/95 backdrop-blur-sm border-b border-gray-800/30"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center cursor-pointer group">
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-rose-500/20 to-rose-600/20 rounded-lg flex items-center justify-center mr-3 group-hover:scale-105 transition-transform duration-300 border border-gray-700 overflow-hidden">
+              <div className="w-14 h-14 bg-gradient-to-br from-rose-500/20 via-rose-400/10 to-rose-600/20 rounded-xl flex items-center justify-center mr-4 group-hover:scale-105 transition-all duration-300 border border-gray-700/50 overflow-hidden shadow-lg">
                 <img
-                  src={`./Bridge.jpg`}
+                  src="./logos.png"
                   alt="Bridge International College Logo"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -inset-1 bg-gradient-to-br from-rose-500/10 to-rose-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
             </div>
             <div className="text-gray-100">
-              <div className="text-xl font-bold leading-tight bg-gradient-to-r from-rose-400 to-rose-500 bg-clip-text text-transparent">
+              <div className="text-xl font-bold leading-tight bg-gradient-to-r from-rose-400 via-rose-300 to-rose-500 bg-clip-text text-transparent">
                 Bridge
               </div>
-              <div className="text-xs leading-tight text-gray-400 font-medium">
+              <div className="text-xs leading-tight text-gray-400 font-medium tracking-wide">
                 International College
               </div>
             </div>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <Link
-              to="/"
-              className={`text-gray-300 hover:text-rose-400 transition-all duration-200 font-medium text-sm relative group ${
-                location.pathname === "/" ? "text-rose-400" : ""
-              }`}
-            >
-              {t.home}
-              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 group-hover:w-full transition-all duration-300"></div>
-              {location.pathname === "/" && (
-                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-rose-400 to-rose-500"></div>
-              )}
-            </Link>
-            <Link
-              to="/about"
-              className={`text-gray-300 hover:text-rose-400 transition-all duration-200 font-medium text-sm relative group ${
-                location.pathname === "/about" ? "text-rose-400" : ""
-              }`}
-            >
-              {t.about}
-              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 group-hover:w-full transition-all duration-300"></div>
-              {location.pathname === "/about" && (
-                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-rose-400 to-rose-500"></div>
-              )}
-            </Link>
+          <div className="hidden lg:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`relative text-gray-300 hover:text-rose-400 transition-all duration-300 font-medium text-sm tracking-wide group flex items-center ${
+                  location.pathname === item.path ? "text-rose-400" : ""
+                }`}
+              >
+                <item.icon className="w-4 h-4 mr-2 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+                {item.label}
+                <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 group-hover:w-full transition-all duration-300 rounded-full"></div>
+                {location.pathname === item.path && (
+                  <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 rounded-full"></div>
+                )}
+              </Link>
+            ))}
 
-            {/* Courses Dropdown */}
+            {/* Courses Dropdown - Removed colors from items */}
             <div className="relative">
               <button
                 onMouseEnter={() => setIsCoursesOpen(true)}
                 onMouseLeave={() => setIsCoursesOpen(false)}
-                className={`text-gray-300 hover:text-rose-400 transition-all duration-200 font-medium text-sm relative group flex items-center ${
+                className={`relative text-gray-300 hover:text-rose-400 transition-all duration-300 font-medium text-sm tracking-wide group flex items-center ${
                   coursePages.includes(location.pathname) ? "text-rose-400" : ""
                 }`}
               >
-                {t.courses}
-                <svg
-                  className={`w-4 h-4 ml-1 transition-transform duration-200 ${
+                <FaGraduationCap className="w-4 h-4 mr-2 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+                COURSES
+                <FaChevronDown
+                  className={`w-3 h-3 ml-2 transition-transform duration-300 ${
                     isCoursesOpen ? "rotate-180" : ""
                   }`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 group-hover:w-full transition-all duration-300"></div>
+                />
+                <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 group-hover:w-full transition-all duration-300 rounded-full"></div>
                 {coursePages.includes(location.pathname) && (
-                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-rose-400 to-rose-500"></div>
+                  <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 rounded-full"></div>
                 )}
               </button>
+
               {isCoursesOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-56 bg-gray-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-gray-700 py-2 z-50 animate-fade-in"
+                  className="absolute top-full left-0 mt-3 w-80 bg-gray-800 rounded-xl shadow-2xl border border-gray-700/50 py-3 z-50"
                   onMouseEnter={() => setIsCoursesOpen(true)}
                   onMouseLeave={() => setIsCoursesOpen(false)}
                 >
-                  {[
-                    { key: "/igcse", label: t.igcse },
-                    { key: "/alevels", label: t.alevels },
-                    { key: "/ossd", label: t.ossd },
-                    { key: "/ged", label: t.ged },
-                  ].map((course) => (
-                    <Link
-                      key={course.key}
-                      to={course.key}
-                      className={`block w-full text-left px-4 py-2.5 text-sm transition-all duration-200 font-medium ${
-                        location.pathname === course.key
-                          ? "text-rose-400 bg-gray-700/50"
-                          : "text-gray-300 hover:text-rose-400 hover:bg-gray-700/50"
-                      }`}
-                      onClick={() => setIsCoursesOpen(false)}
-                    >
-                      {course.label}
-                    </Link>
-                  ))}
+                  <div className="px-4 py-2 border-b border-gray-700/50 mb-2">
+                    <h3 className="text-rose-400 font-semibold text-sm">
+                      Available Programs
+                    </h3>
+                  </div>
+                  <div className="space-y-2 px-2">
+                    {courses.map((course) => (
+                      <Link
+                        key={course.key}
+                        to={course.key}
+                        className={`block w-full text-left px-4 py-3 transition-all duration-200 rounded-lg mx-1 ${
+                          location.pathname === course.key
+                            ? "text-rose-400 bg-gray-700/50"
+                            : "text-gray-300 hover:bg-gray-700/50"
+                        }`}
+                        onClick={() => setIsCoursesOpen(false)}
+                      >
+                        <div className="font-semibold text-sm mb-1">
+                          {course.label}
+                        </div>
+                        <div className="text-xs text-gray-400">
+                          {course.desc}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
 
-            <Link
-              to="/admission"
-              className={`text-gray-300 hover:text-rose-400 transition-all duration-200 font-medium text-sm relative group ${
-                location.pathname === "/admission" ? "text-rose-400" : ""
-              }`}
-            >
-              {t.admission}
-              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 group-hover:w-full transition-all duration-300"></div>
-              {location.pathname === "/admission" && (
-                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-rose-400 to-rose-500"></div>
-              )}
-            </Link>
-
-            {/* Special Enquire Button */}
+            {/* Enquire Button */}
             <Link
               to="/enquire"
-              className="group relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 bg-gradient-to-r from-rose-500 to-rose-600 rounded-lg hover:from-rose-600 hover:to-rose-700 shadow-md hover:shadow-lg border border-rose-600/30"
+              className="group relative inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition-all duration-300 bg-gradient-to-r from-rose-500 to-rose-600 rounded-full hover:from-rose-400 hover:to-rose-500 shadow-lg hover:shadow-xl hover:shadow-rose-500/25 border border-rose-500/30 overflow-hidden transform hover:-translate-y-0.5"
             >
-              <span className="relative">{t.enquire}</span>
-              <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-rose-600 to-rose-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></span>
+              <FaEnvelope className="w-4 h-4 mr-2" />
+              <span className="relative z-10">ENQUIRE</span>
             </Link>
-
-            {/* Language Switcher */}
-            <div className="flex items-center space-x-1 bg-gray-800 rounded-lg p-1 border border-gray-700">
-              {[
-                { code: "en", label: "EN" },
-                { code: "mm", label: "MM" },
-                { code: "th", label: "TH" },
-              ].map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => setLanguage(lang.code)}
-                  className={`px-3 py-1 rounded-md text-xs font-medium transition-all duration-200 ${
-                    language === lang.code
-                      ? "bg-gray-700 text-rose-400 shadow-sm"
-                      : "text-gray-400 hover:text-gray-200 hover:bg-gray-700/50"
-                  }`}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-gray-300 focus:outline-none"
+            className="lg:hidden relative w-12 h-12 text-gray-300 focus:outline-none transition-all duration-300 hover:bg-gray-800/50 rounded-lg flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
-              <span
-                className={`bg-gray-300 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
-                  isMobileMenuOpen
-                    ? "rotate-45 translate-y-1.5"
-                    : "-translate-y-0.5"
-                }`}
-              ></span>
-              <span
-                className={`bg-gray-300 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-1.5 ${
-                  isMobileMenuOpen ? "opacity-0" : "opacity-100"
-                }`}
-              ></span>
-              <span
-                className={`bg-gray-300 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
-                  isMobileMenuOpen
-                    ? "-rotate-45 -translate-y-1.5"
-                    : "translate-y-0.5"
-                }`}
-              ></span>
-            </div>
+            {isMobileMenuOpen ? (
+              <FaTimes className="w-5 h-5" />
+            ) : (
+              <FaBars className="w-5 h-5" />
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-gray-800/95 backdrop-blur-sm rounded-lg mt-2 mb-4 border border-gray-700 shadow-xl">
-            <div className="flex flex-col space-y-1 p-4">
-              <Link
-                to="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === "/"
-                    ? "text-rose-400 bg-gray-700/50"
-                    : "text-gray-300 hover:text-rose-400 hover:bg-gray-700/50"
-                }`}
-              >
-                {t.home}
-              </Link>
-              <Link
-                to="/about"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === "/about"
-                    ? "text-rose-400 bg-gray-700/50"
-                    : "text-gray-300 hover:text-rose-400 hover:bg-gray-700/50"
-                }`}
-              >
-                {t.about}
-              </Link>
+          <div className="lg:hidden fixed inset-0 z-40 mt-20 bg-gray-900/95 backdrop-blur-md overflow-y-auto pb-20">
+            <div className="container mx-auto px-4 py-6">
+              {/* Mobile Navigation Items */}
+              <div className="space-y-2 mb-6">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      location.pathname === item.path
+                        ? "text-rose-400 bg-gray-700/50 border-l-4 border-rose-400"
+                        : "text-gray-300 hover:text-rose-400 hover:bg-gray-700/30"
+                    }`}
+                  >
+                    <item.icon className="w-4 h-4 mr-3" />
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
 
-              {/* Mobile Courses */}
-              <div className="px-4 py-3">
-                <div className="text-gray-300 font-medium mb-2">
-                  {t.courses}
+              {/* Mobile Courses Section - Removed colors */}
+              <div className="mb-6">
+                <div className="flex items-center px-4 py-3 text-gray-300 font-semibold text-sm border-b border-gray-700/50 mb-3">
+                  <FaGraduationCap className="w-4 h-4 mr-3" />
+                  COURSES
                 </div>
-                <div className="space-y-1">
-                  {[
-                    { key: "/igcse", label: t.igcse },
-                    { key: "/alevels", label: t.alevels },
-                    { key: "/ossd", label: t.ossd },
-                    { key: "/ged", label: t.ged },
-                  ].map((course) => (
+                <div className="space-y-2">
+                  {courses.map((course) => (
                     <Link
                       key={course.key}
                       to={course.key}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block px-4 py-2.5 rounded-lg text-sm transition-colors ${
+                      className={`block px-4 py-3 rounded-lg transition-all duration-200 ${
                         location.pathname === course.key
                           ? "text-rose-400 bg-gray-700/50"
-                          : "text-gray-300 hover:text-rose-400 hover:bg-gray-700/50"
+                          : "text-gray-300 hover:bg-gray-700/50"
                       }`}
                     >
-                      {course.label}
+                      <div className="font-medium text-sm">{course.label}</div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        {course.desc}
+                      </div>
                     </Link>
                   ))}
                 </div>
               </div>
 
-              <Link
-                to="/admission"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === "/admission"
-                    ? "text-rose-400 bg-gray-700/50"
-                    : "text-gray-300 hover:text-rose-400 hover:bg-gray-700/50"
-                }`}
-              >
-                {t.admission}
-              </Link>
+              {/* Mobile Enquire Button */}
               <Link
                 to="/enquire"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-2 px-4 py-3 rounded-lg text-sm font-medium text-white bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-center border border-rose-600/30"
+                className="flex items-center justify-center w-full px-6 py-4 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 rounded-full border border-rose-500/30 shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
               >
-                {t.enquire}
+                <FaEnvelope className="w-4 h-4 mr-2" />
+                ENQUIRE
               </Link>
-
-              {/* Mobile Language Switcher */}
-              <div className="px-4 py-3">
-                <div className="text-gray-300 font-medium mb-2">Language</div>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { code: "en", name: "English" },
-                    { code: "mm", name: "မြန်မာ" },
-                    { code: "th", name: "ไทย" },
-                  ].map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => {
-                        setLanguage(lang.code);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className={`px-3 py-2 rounded-md text-xs font-medium transition-all ${
-                        language === lang.code
-                          ? "bg-gray-700 text-rose-400 border border-gray-600"
-                          : "text-gray-300 hover:bg-gray-700/50 border border-gray-700"
-                      }`}
-                    >
-                      {lang.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         )}
