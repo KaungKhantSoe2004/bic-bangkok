@@ -1153,6 +1153,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="w-screen relative">
+        {/* Full background image */}
+        <img
+          src="./cstu.jpg"
+          alt="Trust us to guide your academic journey"
+          className="w-screen h-auto object-cover"
+        />
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* Text content */}
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <div className="text-center max-w-4xl space-y-8 z-10">
+            <h2 className="text-6xl md:text-7xl font-lora font-extrabold  text-gray-300  leading-tight drop-shadow-lg">
+              Trust Us to Guide Your Academic Journey
+            </h2>
+            <p className="text-2xl md:text-3xl font-manrope font-bold text-brand-beige leading-relaxed drop-shadow-md">
+              Join a community where your success is our priority. We offer
+              personalized learning, state-of-the-art facilities, and a
+              supportive environment that nurtures every student’s potential.
+            </p>
+
+            <Link
+              to="/apply"
+              className="inline-block bg-brand-red hover:bg-red-700 text-white font-manrope font-extrabold text-xl px-10 py-5 rounded-xl shadow-lg transition-all hover-lift"
+            >
+              Apply Now
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <div className="relative z-10"></div>
     </div>
   );
