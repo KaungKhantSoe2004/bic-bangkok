@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
 :root {
   --dark-primary: #010507;
   --dark-blue: #061930;
@@ -29,7 +29,14 @@ body {
 .font-myanmar {
   font-family: "Noto Sans Myanmar", sans-serif;
 }
+.font-manrope {
+  font-family: "Manrope", sans-serif;
+}
 
+.font-lora-semibold {
+  font-family: "Lora", serif;
+  font-weight: 600;
+}
 /* Custom Tailwind Classes */
 .bg-dark-primary {
   background-color: var(--dark-primary);
