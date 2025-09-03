@@ -1178,7 +1178,7 @@ export default function HomePage() {
 
             <Link
               to="/apply"
-              className="inline-block bg-brand-red hover:bg-red-700 text-white font-manrope font-extrabold text-xl px-10 py-5 rounded-xl shadow-lg transition-all hover-lift"
+              className="inline-block bg-brand-red hover:bg-red-700 text-white font-manrope font-extrabold text-xl px-10 py-5  shadow-lg transition-all hover-lift"
             >
               Apply Now
             </Link>
