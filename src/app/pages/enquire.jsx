@@ -36,29 +36,34 @@ export default function ContactPage() {
             alt="Bridge International School Campus Building"
             className="w-full h-full object-cover"
           />
-          <div
-            className="absolute bottom-0 left-0 w-full h-24 sm:h-32 md:h-48"
-            style={{
-              background: "#82062c",
-              clipPath: "polygon(0 100%, 0 0, 100% 100%, 100% 100%)",
-            }}
-          ></div>
+
+          {/* Elegant thin wave divider */}
+          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg
+              className="block w-full h-20 sm:h-24 md:h-28"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              viewBox="0 0 1200 120"
+            >
+              <path
+                d="M0,0 C300,30 900,30 1200,0 L1200,120 L0,120 Z"
+                fill="#82062c"
+              />
+            </svg>
+          </div>
         </div>
       </section>
 
       {/* Contact Information Section */}
-      <section className="w-full py-16 md:py-24 px-4 md:px-6 bg-grey-blue">
+      <section className="w-full py-16 md:py-24 px-4 md:px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 md:mb-20 space-y-5">
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-white leading-tight">
-              Get In{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-                Touch
-              </span>
+            <div className="w-20 h-1 bg-brand-red mx-auto"></div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-lora text-white leading-tight">
+              Get In <span className="text-brand-red">Touch</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-sans">
+            <p className="text-lg md:text-xl text-brand-beige max-w-3xl mx-auto leading-relaxed font-manrope">
               We'd love to hear from you. Reach out through any of these
               channels.
             </p>
@@ -67,9 +72,9 @@ export default function ContactPage() {
           {/* Contact Details Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* Address Card */}
-            <div className="group relative bg-blue-800 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-blue-750 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+            <div className="group relative bg-gray-800 p-8 text-center transition-all duration-300 hover:bg-gray-700 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl border border-gray-700">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-brand-red to-red-700 flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
                   <svg
                     className="w-8 h-8 md:w-9 md:h-9 text-white"
                     fill="none"
@@ -93,10 +98,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold font-lora text-white mb-4 group-hover:text-brand-red transition-colors duration-300">
                   Our Location
                 </h3>
-                <p className="text-gray-300 leading-relaxed font-sans text-md">
+                <p className="text-brand-beige leading-relaxed font-manrope text-md">
                   Wannasorn Building, 7th Floor
                   <br />
                   No. 35 อาคารวรรณสรณ์
@@ -109,9 +114,9 @@ export default function ContactPage() {
             </div>
 
             {/* Phone Card */}
-            <div className="group relative bg-blue-800 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-blue-750 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+            <div className="group relative bg-gray-800 p-8 text-center transition-all duration-300 hover:bg-gray-700 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl border border-gray-700">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-brand-red to-red-700 flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
                   <svg
                     className="w-8 h-8 md:w-9 md:h-9 text-white"
                     fill="none"
@@ -129,27 +134,27 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold font-lora text-white mb-4 group-hover:text-brand-red transition-colors duration-300">
                   Call Us
                 </h3>
-                <p className="text-gray-300 font-sans text-md">
+                <p className="text-brand-beige font-manrope text-md">
                   <a
                     href="tel:+66980904960"
-                    className="hover:text-blue-400 transition-colors duration-300 block py-2"
+                    className="hover:text-brand-red transition-colors duration-300 block py-2"
                   >
                     +66 98 090 4960
                   </a>
                 </p>
-                <p className="text-gray-400 text-sm mt-2 font-sans">
+                <p className="text-gray-400 text-sm mt-2 font-manrope">
                   Mon-Fri, 8:00 AM - 4:30 PM
                 </p>
               </div>
             </div>
 
             {/* Email Card */}
-            <div className="group relative bg-blue-800 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-blue-750 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+            <div className="group relative bg-gray-800 p-8 text-center transition-all duration-300 hover:bg-gray-700 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl border border-gray-700">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
+                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-brand-red to-red-700 flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
                   <svg
                     className="w-8 h-8 md:w-9 md:h-9 text-white"
                     fill="none"
@@ -167,18 +172,18 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold font-lora text-white mb-4 group-hover:text-brand-red transition-colors duration-300">
                   Email Us
                 </h3>
-                <p className="text-gray-300 font-sans text-md">
+                <p className="text-brand-beige font-manrope text-md">
                   <a
                     href="mailto:admin@bic-bangkok.com"
-                    className="hover:text-blue-400 transition-colors duration-300 break-all py-2 block"
+                    className="hover:text-brand-red transition-colors duration-300 break-all py-2 block"
                   >
                     admin@bic-bangkok.com
                   </a>
                 </p>
-                <p className="text-gray-400 text-sm mt-2 font-sans">
+                <p className="text-gray-400 text-sm mt-2 font-manrope">
                   We respond within 24 hours
                 </p>
               </div>
@@ -187,7 +192,7 @@ export default function ContactPage() {
 
           {/* Additional Information */}
           <div className="text-center mt-16 pt-8">
-            <p className="text-gray-400 font-sans">
+            <p className="text-gray-400 font-manrope">
               Follow us on social media for updates and news
             </p>
             <div className="flex justify-center space-x-5 mt-4">
@@ -196,6 +201,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
       {/* Find Us Section - Redesigned with Dark Theme */}
       <section className="w-full py-12 sm:py-16 md:py-32 px-4 md:px-6 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
@@ -300,7 +306,7 @@ export default function ContactPage() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
                       />
                     </svg>
                   </div>

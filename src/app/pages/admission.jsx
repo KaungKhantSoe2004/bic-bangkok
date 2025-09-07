@@ -50,7 +50,7 @@ export default function AdmissionsPage() {
         />
         <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative z-10 max-w-6xl mx-auto text-center px-4 md:px-6 space-y-4 md:space-y-8">
+        <div className="absolute z-10 max-w-6xl mx-auto text-center px-4 md:px-6 space-y-4 md:space-y-8">
           <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-lora font-bold leading-tight tracking-tight">
             <span className="text-brand-beige">JOIN A COMMUNITY WITH </span>
             <span className="text-brand-red">PURPOSE AND PASSION</span>
@@ -69,7 +69,7 @@ export default function AdmissionsPage() {
         {/* Left side: Image */}
         <div className="w-full lg:w-1/2 relative">
           <img
-            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            src="./exc.jpg"
             alt="Bridge International School Learning Environment"
             className="w-full h-full object-cover min-h-[300px] sm:min-h-[400px] lg:min-h-full"
           />
@@ -95,24 +95,22 @@ export default function AdmissionsPage() {
       {/* Entry Requirements Section */}
       <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-dark-primary">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12 md:mb-16 space-y-4 md:space-y-6">
-            <h2 className="text-3xl md:text-5xl font-lora font-bold text-brand-beige leading-tight">
+          <div className="text-center mb-12 md:mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-lora font-bold text-brand-beige leading-tight">
               Entry Requirements
             </h2>
-            <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-manrope">
-              Here's what you need to know before applying
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto font-manrope">
+              Everything you need to know before starting your application
             </p>
           </div>
 
-          {/* Requirements Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Age */}
-            <div className="group text-center space-y-4 md:space-y-6 bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 hover:border-brand-beige/50 transition-all duration-300">
-              <div className="flex justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-red flex items-center justify-center rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <div className="bg-gray-800 p-8 border-l-4 border-brand-red hover:bg-gray-700 transition-all duration-300">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-brand-red flex items-center justify-center">
                   <svg
-                    className="w-8 h-8 md:w-10 md:h-10 text-white"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -125,24 +123,25 @@ export default function AdmissionsPage() {
                     />
                   </svg>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-lora font-semibold text-brand-beige mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
-                  Age
+                <h3 className="text-xl font-lora font-bold text-brand-beige">
+                  Age Requirement
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-manrope">
-                  Applicants must be at least 15 years old to be eligible for
-                  enrollment.
+                <p className="text-gray-300 font-manrope">
+                  Applicants must be at least{" "}
+                  <span className="font-bold text-brand-beige">
+                    15 years old
+                  </span>{" "}
+                  to be eligible for enrollment.
                 </p>
               </div>
             </div>
 
             {/* English Level */}
-            <div className="group text-center space-y-4 md:space-y-6 bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 hover:border-brand-beige/50 transition-all duration-300">
-              <div className="flex justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-red flex items-center justify-center rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <div className="bg-gray-800 p-8 border-l-4 border-brand-red hover:bg-gray-700 transition-all duration-300">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-brand-red flex items-center justify-center">
                   <svg
-                    className="w-8 h-8 md:w-10 md:h-10 text-white"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -155,24 +154,23 @@ export default function AdmissionsPage() {
                     />
                   </svg>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-lora font-semibold text-brand-beige mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
-                  English Level
+                <h3 className="text-xl font-lora font-bold text-brand-beige">
+                  English Proficiency
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-manrope">
-                  Academic International English Language Testing System (IELTS)
-                  5.5.
+                <p className="text-gray-300 font-manrope">
+                  Academic{" "}
+                  <span className="font-bold text-brand-beige">IELTS 5.5</span>{" "}
+                  or equivalent English language proficiency required.
                 </p>
               </div>
             </div>
 
             {/* Entry Assessment */}
-            <div className="group text-center space-y-4 md:space-y-6 bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 hover:border-brand-beige/50 transition-all duration-300">
-              <div className="flex justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-red flex items-center justify-center rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <div className="bg-gray-800 p-8 border-l-4 border-brand-red hover:bg-gray-700 transition-all duration-300">
+              <div className="space-y-4">
+                <div className="w-12 h-12 bg-brand-red flex items-center justify-center">
                   <svg
-                    className="w-8 h-8 md:w-10 md:h-10 text-white"
+                    className="w-6 h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -185,14 +183,15 @@ export default function AdmissionsPage() {
                     />
                   </svg>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-lora font-semibold text-brand-beige mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
+                <h3 className="text-xl font-lora font-bold text-brand-beige">
                   Entry Assessment
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-manrope">
-                  You'll be asked to sit maths and science assessments, and an
-                  online Cognitive Abilities Test (CAT4).
+                <p className="text-gray-300 font-manrope">
+                  Complete{" "}
+                  <span className="font-bold text-brand-beige">
+                    maths & science
+                  </span>{" "}
+                  assessments plus online Cognitive Abilities Test.
                 </p>
               </div>
             </div>
@@ -201,70 +200,75 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Step-by-Step Process Section */}
-      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6">
+      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-black">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12 md:mb-16 space-y-4 md:space-y-6">
-            <h2 className="text-3xl md:text-5xl font-lora font-bold text-brand-beige leading-tight">
-              STEP-BY-STEP ADMISSIONS PROCESS
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-lora font-bold text-brand-beige leading-tight">
+              Step-by-Step Admissions Process
             </h2>
-            <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-manrope">
-              Ready to start your application? This is what you need to do.
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto font-manrope">
+              Follow these simple steps to begin your educational journey
             </p>
           </div>
 
-          {/* Process Steps */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {[
-              "Apply now",
-              "Make an enquiry",
-              "Send us your application",
-              "Assessment and interview",
-              "Offering you a place",
+              {
+                title: "Apply Now",
+                desc: "Submit your online application with required documents",
+              },
+              {
+                title: "Make an Enquiry",
+                desc: "Connect with our admissions team for guidance",
+              },
+              {
+                title: "Send Application",
+                desc: "Complete and submit all required documentation",
+              },
+              {
+                title: "Assessment & Interview",
+                desc: "Complete entrance tests and personal interview",
+              },
+              {
+                title: "Receive Your Offer",
+                desc: "Get your acceptance letter and enrollment details",
+              },
             ].map((step, index) => (
-              <div key={index} className="text-center space-y-4">
-                <div className="flex justify-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-red text-white flex items-center justify-center rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <span className="text-xl md:text-2xl font-bold font-lora">
-                      {index + 1}
-                    </span>
-                  </div>
+              <div key={index} className="text-center space-y-4 group">
+                <div className="w-16 h-16 bg-brand-red text-white flex items-center justify-center mx-auto font-bold text-xl font-manrope group-hover:bg-red-600 transition-colors duration-300">
+                  {index + 1}
                 </div>
-                <h3 className="text-lg md:text-xl font-lora font-semibold text-brand-beige">
-                  {step}
+                <h3 className="text-lg font-lora font-bold text-brand-beige">
+                  {step.title}
                 </h3>
+                <p className="text-sm text-gray-300 font-manrope">
+                  {step.desc}
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Getting Started */}
-          <div className="text-center">
-            <h3 className="text-xl md:text-2xl font-lora font-semibold text-brand-beige mb-6">
-              Getting started
-            </h3>
-            <Link
-              to="/enquire"
-              className="inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-brand-red hover:bg-red-700 text-white font-manrope font-semibold rounded-xl shadow-lg hover:shadow-brand-red/30 transition-all duration-300 hover-lift text-base md:text-lg"
-            >
-              START YOUR APPLICATION
-              <svg
-                className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          <div className="text-center mt-16">
+            <div className="bg-gray-800 p-8 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-lora font-bold text-brand-beige mb-4">
+                Ready to Begin?
+              </h3>
+              <p className="text-gray-300 mb-6 font-manrope">
+                Take the first step towards your future. Start your application
+                today.
+              </p>
+              <Link
+                to="/enquire"
+                className="inline-block px-8 py-4 bg-brand-red hover:bg-red-600 text-white font-manrope font-bold transition-colors duration-300 rounded-lg"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
+                START YOUR APPLICATION
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Frequently Asked Questions Section */}
       <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-dark-primary relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-red/10 rounded-full blur-xl"></div>
@@ -415,7 +419,7 @@ export default function AdmissionsPage() {
       {/* Final CTA Section */}
       <section className="w-screen relative">
         <img
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src="./contactbb.jpg"
           alt="Bridge International School Community"
           className="w-screen h-auto object-cover"
         />
