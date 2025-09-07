@@ -47,133 +47,155 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information Section */}
-      <section className="w-full py-12 sm:py-16 md:py-32 px-4 md:px-6 bg-dark-blue">
-        <div className="max-w-7xl mx-auto">
+      <section className="w-full py-16 md:py-24 px-4 md:px-6 bg-grey-blue">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12 md:mb-24 space-y-4 md:space-y-6">
-            <div className="w-16 md:w-20 h-1 bg-brand-red mx-auto"></div>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold font-lora text-white leading-tight">
-              Contact <span className="text-brand-red">Information</span>
+          <div className="text-center mb-16 md:mb-20 space-y-5">
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-white leading-tight">
+              Get In{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+                Touch
+              </span>
             </h2>
-            <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-manrope">
-              Reach out to us through any of the following channels
+            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-sans">
+              We'd love to hear from you. Reach out through any of these
+              channels.
             </p>
           </div>
 
           {/* Contact Details Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
-            {/* Address */}
-            <div className="group text-center space-y-4 md:space-y-6">
-              <div className="flex justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-red flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {/* Address Card */}
+            <div className="group relative bg-blue-800 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-blue-750 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
                   <svg
-                    className="w-8 h-8 md:w-10 md:h-10 text-white"
+                    className="w-8 h-8 md:w-9 md:h-9 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                     />
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-lora text-white mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
-                  Address
+                <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  Our Location
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-manrope">
+                <p className="text-gray-300 leading-relaxed font-sans text-md">
                   Wannasorn Building, 7th Floor
                   <br />
                   No. 35 อาคารวรรณสรณ์
                   <br />
                   Phaya Thai Rd, Thanon Phaya Thai
                   <br />
-                  Ratchathewi, Bangkok
+                  Ratchathewi, Bangkok 10400
                 </p>
               </div>
             </div>
 
-            {/* Phone */}
-            <div className="group text-center space-y-4 md:space-y-6">
-              <div className="flex justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-red flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+            {/* Phone Card */}
+            <div className="group relative bg-blue-800 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-blue-750 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
                   <svg
-                    className="w-8 h-8 md:w-10 md:h-10 text-white"
+                    className="w-8 h-8 md:w-9 md:h-9 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-lora text-white mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
-                  Phone
+                <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  Call Us
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-manrope">
+                <p className="text-gray-300 font-sans text-md">
                   <a
                     href="tel:+66980904960"
-                    className="hover:text-brand-red transition-colors duration-300"
+                    className="hover:text-blue-400 transition-colors duration-300 block py-2"
                   >
-                    +66 980904960
+                    +66 98 090 4960
                   </a>
+                </p>
+                <p className="text-gray-400 text-sm mt-2 font-sans">
+                  Mon-Fri, 8:00 AM - 4:30 PM
                 </p>
               </div>
             </div>
 
-            {/* Email */}
-            <div className="group text-center space-y-4 md:space-y-6">
-              <div className="flex justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-red flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+            {/* Email Card */}
+            <div className="group relative bg-blue-800 rounded-2xl p-8 text-center transition-all duration-300 hover:bg-blue-750 hover:transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 md:w-18 md:h-18 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300">
                   <svg
-                    className="w-8 h-8 md:w-10 md:h-10 text-white"
+                    className="w-8 h-8 md:w-9 md:h-9 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-lora text-white mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
-                  Email
+                <h3 className="text-xl sm:text-2xl font-bold font-serif text-white mb-4 group-hover:text-blue-400 transition-colors duration-300">
+                  Email Us
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-manrope">
+                <p className="text-gray-300 font-sans text-md">
                   <a
                     href="mailto:admin@bic-bangkok.com"
-                    className="hover:text-brand-red transition-colors duration-300 break-all"
+                    className="hover:text-blue-400 transition-colors duration-300 break-all py-2 block"
                   >
                     admin@bic-bangkok.com
                   </a>
                 </p>
+                <p className="text-gray-400 text-sm mt-2 font-sans">
+                  We respond within 24 hours
+                </p>
               </div>
+            </div>
+          </div>
+
+          {/* Additional Information */}
+          <div className="text-center mt-16 pt-8">
+            <p className="text-gray-400 font-sans">
+              Follow us on social media for updates and news
+            </p>
+            <div className="flex justify-center space-x-5 mt-4">
+              {/* Social media icons would go here */}
             </div>
           </div>
         </div>
       </section>
-
       {/* Find Us Section - Redesigned with Dark Theme */}
       <section className="w-full py-12 sm:py-16 md:py-32 px-4 md:px-6 bg-gradient-to-br from-black to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}

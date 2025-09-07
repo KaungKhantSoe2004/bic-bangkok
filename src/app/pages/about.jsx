@@ -61,7 +61,7 @@ export default function AboutPage() {
         </div>
 
         {/* Right side: Text content */}
-        <div className="w-full lg:w-1/2 bg-gray-900 flex items-center">
+        <div className="w-full lg:w-1/2 bg-dark-blue flex items-center">
           <div className="p-8 md:p-16 lg:p-20 space-y-8">
             <div className="space-y-4">
               <div className="w-16 h-1 bg-brand-red rounded-full"></div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
       {/* Philosophy Section */}
       <section className="w-full flex flex-col-reverse lg:flex-row items-stretch min-h-screen">
         {/* Left side: Text content */}
-        <div className="w-full lg:w-1/2 bg-gray-900 flex items-center">
+        <div className="w-full lg:w-1/2 bg-gray-800 flex items-center">
           <div className="p-8 md:p-16 lg:p-20 space-y-8">
             <div className="space-y-4">
               <div className="w-16 h-1 bg-brand-beige rounded-full"></div>
@@ -189,7 +189,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values Section */}
-      <section className="w-full py-20 md:py-32 px-4 md:px-6 bg-dark-blue relative">
+      <section className="w-full py-20 md:py-32 px-4 md:px-6 bg-gray-900 relative">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 md:mb-24 space-y-6">
@@ -499,7 +499,7 @@ export default function AboutPage() {
 
           {/* View All News Button */}
           <div className="text-center mt-12 md:mt-16">
-            <button className="group inline-flex items-center px-8 md:px-12 py-4 md:py-6 bg-transparent border-2 border-brand-red hover:bg-brand-red text-brand-red hover:text-white font-bold text-lg md:text-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+            <button className="group inline-flex items-center px-8 md:px-12 py-4 md:py-6 bg-transparent border-2 border-brand-red hover:bg-brand-red text-brand-red hover:text-white font-bold text-lg md:text-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 rounded-lg">
               View All News
               <svg
                 className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300"
@@ -546,7 +546,7 @@ export default function AboutPage() {
             <div className="pt-8">
               <Link
                 to="/apply"
-                className="group inline-flex items-center px-12 md:px-16 py-6 md:py-8 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-xl md:text-2xl shadow-2xl hover:shadow-brand-red/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-2 border-brand-red hover:border-brand-beige"
+                className="group inline-flex items-center px-12 md:px-16 py-6 md:py-8 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-xl md:text-2xl shadow-2xl hover:shadow-brand-red/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-2 border-brand-red hover:border-brand-beige rounded-lg"
               >
                 APPLY NOW
                 <svg
