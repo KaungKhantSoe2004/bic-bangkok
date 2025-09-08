@@ -1,12 +1,26 @@
+"use client";
+
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function ContactPage() {
   const form = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [isMailed, setIsMailed] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (isMailed || errorMessage) {
+      const timer = setTimeout(() => {
+        setIsMailed(false);
+        setErrorMessage("");
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isMailed, errorMessage]);
+
   const submit = (e) => {
     e.preventDefault(); // prevent page reload
     setIsLoading(true);
@@ -296,23 +310,25 @@ export default function ContactPage() {
                 </div>
                 <div className="absolute top-6 left-6 bg-gray-800/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-gray-600">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-brand-red to-red-600 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                        />
-                      </svg>
+                    <div className="flex-shrink-0">
+                      <div className="w-8 h-8 bg-gradient-to-r from-brand-red to-red-600 rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
                     </div>
                     <div>
-                      <h3 className="font-bold text-white font-lora text-sm">
+                      <h3 className="font-bold text-white font-lora text-sm md:text-base">
                         Wannasorn Building
                       </h3>
                       <p className="text-xs text-gray-300 font-manrope">
@@ -439,7 +455,7 @@ export default function ContactPage() {
             <div className="pt-2 md:pt-4">
               <Link
                 to="/visit"
-                className="group inline-flex items-center px-6 py-3 md:px-8 md:py-4 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="group inline-flex items-center px-6 py-3 md:px-8 md:py-4 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
               >
                 SCHEDULE A VISIT
                 <svg
@@ -475,6 +491,160 @@ export default function ContactPage() {
               to you promptly.
             </p>
           </div>
+
+          {isMailed && (
+            <div
+              style={{
+                marginBottom: "32px",
+                padding: "20px 24px",
+                background:
+                  "linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(21, 128, 61, 0.1) 100%)",
+                border: "1px solid rgba(34, 197, 94, 0.3)",
+                borderRadius: "12px",
+                backdropFilter: "blur(10px)",
+                boxShadow: "0 8px 32px rgba(34, 197, 94, 0.1)",
+                animation: "fadeIn 0.5s ease-out",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    background:
+                      "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 4px 12px rgba(34, 197, 94, 0.3)",
+                  }}
+                >
+                  <svg
+                    style={{ width: "20px", height: "20px", color: "white" }}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <h3
+                    style={{
+                      color: "#22c55e",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                      margin: "0 0 4px 0",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    Message Sent Successfully!
+                  </h3>
+                  <p
+                    style={{
+                      color: "#86efac",
+                      fontSize: "14px",
+                      margin: "0",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    Thank you for contacting us. We'll get back to you within 24
+                    hours.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {errorMessage && (
+            <div
+              style={{
+                marginBottom: "32px",
+                padding: "20px 24px",
+                background:
+                  "linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(185, 28, 28, 0.1) 100%)",
+                border: "1px solid rgba(239, 68, 68, 0.3)",
+                borderRadius: "12px",
+                backdropFilter: "blur(10px)",
+                boxShadow: "0 8px 32px rgba(239, 68, 68, 0.1)",
+                animation: "fadeIn 0.5s ease-out",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    background:
+                      "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 4px 12px rgba(239, 68, 68, 0.3)",
+                  }}
+                >
+                  <svg
+                    style={{ width: "20px", height: "20px", color: "white" }}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <h3
+                    style={{
+                      color: "#ef4444",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                      margin: "0 0 4px 0",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    Message Failed to Send
+                  </h3>
+                  <p
+                    style={{
+                      color: "#fca5a5",
+                      fontSize: "14px",
+                      margin: "0",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    {errorMessage.replace("❌ ", "")} Please try again or
+                    contact us directly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Contact Form */}
           <form ref={form} onSubmit={submit} className="space-y-6 md:space-y-8">
@@ -534,6 +704,24 @@ export default function ContactPage() {
               />
             </div>
 
+            {/* Subject */}
+            <div className="space-y-2">
+              <label
+                htmlFor="subject"
+                className="block text-white font-semibold font-manrope text-sm md:text-base"
+              >
+                Subject *
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                className="w-full px-3 py-3 md:px-4 md:py-4 bg-gray-800 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 transition-all duration-300 text-sm md:text-base"
+                placeholder="What is your inquiry about?"
+              />
+            </div>
+
             {/* Message */}
             <div className="space-y-2">
               <label
@@ -557,7 +745,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group inline-flex items-center px-8 py-3 md:px-12 md:py-4 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-lg md:text-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group inline-flex items-center px-8 py-3 md:px-12 md:py-4 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-lg md:text-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
               >
                 {isLoading ? "Sending..." : "SEND MESSAGE"}
                 {!isLoading && (
@@ -577,18 +765,6 @@ export default function ContactPage() {
                 )}
               </button>
             </div>
-
-            {/* Success / Error Message */}
-            {isMailed && (
-              <p className="text-center text-green-400 font-medium">
-                ✅ Your message has been sent successfully!
-              </p>
-            )}
-            {errorMessage && (
-              <p className="text-center text-red-400 font-medium">
-                {errorMessage}
-              </p>
-            )}
           </form>
         </div>
       </section>
