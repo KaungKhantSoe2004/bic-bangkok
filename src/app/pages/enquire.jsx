@@ -1,6 +1,39 @@
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 
 export default function ContactPage() {
+  const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMailed, setIsMailed] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const submit = (e) => {
+    e.preventDefault(); // prevent page reload
+    setIsLoading(true);
+    setIsMailed(false);
+    setErrorMessage("");
+
+    emailjs
+      .sendForm(
+        "service_q4hkje2", // your service ID
+        "template_cb400bp", // your template ID
+        form.current,
+        "taWHxGleX6BjcDvid" // your public key
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setIsMailed(true);
+          setIsLoading(false);
+          form.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          setErrorMessage("❌ Failed to send message. Please try again.");
+          setIsLoading(false);
+        }
+      );
+  };
   return (
     <div className="relative min-h-screen bg-dark-primary">
       {/* Hero Section - Contact Banner */}
@@ -444,7 +477,7 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <form className="space-y-6 md:space-y-8">
+          <form ref={form} onSubmit={submit} className="space-y-6 md:space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {/* Full Name */}
               <div className="space-y-2">
@@ -523,24 +556,39 @@ export default function ContactPage() {
             <div className="text-center pt-4 md:pt-6">
               <button
                 type="submit"
-                className="group inline-flex items-center px-8 py-3 md:px-12 md:py-4 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-lg md:text-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto justify-center"
+                disabled={isLoading}
+                className="group inline-flex items-center px-8 py-3 md:px-12 md:py-4 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-lg md:text-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 w-full sm:w-auto justify-center disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                SEND MESSAGE
-                <svg
-                  className="w-5 h-5 md:w-6 md:h-6 ml-2 md:ml-3 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                  />
-                </svg>
+                {isLoading ? "Sending..." : "SEND MESSAGE"}
+                {!isLoading && (
+                  <svg
+                    className="w-5 h-5 md:w-6 md:h-6 ml-2 md:ml-3 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    />
+                  </svg>
+                )}
               </button>
             </div>
+
+            {/* Success / Error Message */}
+            {isMailed && (
+              <p className="text-center text-green-400 font-medium">
+                ✅ Your message has been sent successfully!
+              </p>
+            )}
+            {errorMessage && (
+              <p className="text-center text-red-400 font-medium">
+                {errorMessage}
+              </p>
+            )}
           </form>
         </div>
       </section>
