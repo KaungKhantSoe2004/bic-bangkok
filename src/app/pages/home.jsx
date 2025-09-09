@@ -119,7 +119,94 @@ export default function HomePage() {
         subtitle="Discover an unparalleled educational experience in the heart of Bangkok."
       />
 
-      <section className="w-full flex flex-col md:flex-row items-stretch ">
+      <section className="w-full flex flex-col md:flex-row items-stretch">
+        {/* Left side: just an image */}
+        <div className="w-full md:w-1/2">
+          <img
+            src="./bbi.jpeg"
+            alt="Bridge International Bangkok"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Right side: background image + overlay + text */}
+        <div
+          className="w-full md:w-1/2 relative bg-cover bg-center"
+          style={{
+            backgroundImage: "url('./bridge-bg.jpg')",
+          }}
+        >
+          {/* Darker overlay */}
+          <div className="absolute inset-0 bg-dark-blue bg-opacity-80"></div>
+
+          {/* Text content */}
+          <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
+            <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
+              What is Bridge International?
+            </h2>
+            <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
+              Bridge International (BI) is a premier educational institution in
+              Bangkok, dedicated to guiding ambitious students toward top
+              universities around the world.
+            </p>
+            <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
+              We serve as a bridge between potential and opportunity, helping
+              students gain the academic foundation, skills, and confidence
+              needed for admission into leading universities in the UK, the
+              United States, Australia, New Zealand, Canada, Europe, and beyond.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
+              <Link
+                to="/about"
+                className="px-4 md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-lg shadow-md transition hover-lift font-manrope text-sm md:text-base"
+              >
+                Learn More
+              </Link>
+              <Link
+                to="/admissions"
+                className="px-4 md:px-6 py-2 md:py-3 bg-transparent border border-brand-beige hover:bg-brand-beige hover:text-dark-primary text-brand-beige font-semibold rounded-lg transition hover-lift font-manrope text-sm md:text-base"
+              >
+                Apply Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full flex flex-wrap">
+        {[
+          {
+            alt: "IGCSE",
+            src: "/IGCSE.jpg",
+          },
+          {
+            alt: "A Levels",
+            src: "/alevels.jpg",
+          },
+          {
+            alt: "OSSD",
+            src: "/ossd.jpg",
+          },
+          {
+            alt: "GED",
+            src: "/ged.jpg",
+          },
+        ].map(({ alt, src }) => (
+          <div
+            key={alt}
+            className="w-1/2 md:w-1/4 p-2 bg-black flex justify-center items-center filter grayscale hover:grayscale-0 transition duration-300"
+          >
+            <img
+              src={src || "/placeholder.svg"}
+              alt={alt}
+              className="max-w-full max-h-33 object-contain"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </section>
+
+      <section className="w-full flex flex-col md:flex-row items-stretch">
         {/* Left side: just an image */}
         <div className="w-full md:w-1/2">
           <img
@@ -140,62 +227,41 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black bg-opacity-80"></div>
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
-            <h2 className="text-2xl md:text-4xl font-lora-semibold leading-tight text-brand-beige">
+            <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
               What We Offer
             </h2>
             <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
-              We provide comprehensive, tailored solutions designed to help your
-              business thrive. From custom software development to automation
-              and cloud services, our expertise ensures scalable and efficient
+              We provide comprehensive educational programs designed to prepare
+              students for success at top international universities. Our expert
+              faculty and proven curriculum ensure exceptional academic
               outcomes.
             </p>
             <ul className="list-disc list-inside font-manrope text-gray-400 max-w-xl space-y-1 text-sm md:text-base">
-              <li>Custom software development</li>
-              <li>Automation and process optimization</li>
-              <li>Scalable cloud deployments</li>
-              <li>Real-time analytics and dashboards</li>
+              <li>IGCSE, A Levels, OSSD, and GED programs</li>
+              <li>University application guidance and support</li>
+              <li>Small class sizes with personalized attention</li>
+              <li>International faculty with proven expertise</li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
-              <button
+              <Link
+                to="/programs"
                 className="px-4 md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm md:text-base"
-                type="button"
               >
-                Get Started
-              </button>
-              <button
+                View Programs
+              </Link>
+              <Link
+                to="/admissions"
                 className="px-4 md:px-6 py-2 md:py-3 bg-transparent border border-brand-beige hover:bg-brand-beige hover:text-dark-primary text-brand-beige font-semibold rounded-xl transition hover-lift font-manrope text-sm md:text-base"
-                type="button"
               >
-                Learn More
-              </button>
+                Apply Now
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="w-full flex flex-wrap">
-        {[
-          { alt: "IGCSE", src: "/IGCSE.jpg" },
-          { alt: "A Levels", src: "/alevels.jpg" },
-          { alt: "OSSD", src: "/ossd.jpg" },
-          { alt: "GED", src: "/ged.jpg" },
-        ].map(({ alt, src }) => (
-          <div
-            key={alt}
-            className="w-1/2 md:w-1/4 p-2 bg-black flex justify-center items-center filter grayscale hover:grayscale-0 transition duration-300"
-          >
-            <img
-              src={src || "/placeholder.svg"}
-              alt={alt}
-              className="max-w-full max-h-33 object-contain"
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </section>
-
-      <section className="w-full flex flex-col md:flex-row items-stretch">
-        {/* Left side: just an image */}
+      <section className="w-full flex flex-col md:flex-row-reverse items-stretch">
+        {/* Image */}
         <div className="w-full md:w-1/2">
           <img
             src="./bginternational.webp"
@@ -203,15 +269,17 @@ export default function HomePage() {
             className="w-full h-full object-cover"
           />
         </div>
-        {/* Right side: background image + overlay + text */}
+
+        {/* Text with background */}
         <div
           className="w-full md:w-1/2 relative bg-cover bg-center"
           style={{
             backgroundImage: "url('./llion.jpg')",
           }}
         >
-          {/* Darker overlay */}
+          {/* Dark overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
             <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
@@ -234,7 +302,15 @@ export default function HomePage() {
       </section>
 
       <section className="w-full flex flex-col md:flex-row items-stretch">
-        {/* Left side: background image + overlay + text */}
+        {/* Left side: just an image */}
+        <div className="w-full md:w-1/2">
+          <img
+            src="./bgstudent.webp"
+            alt="What we offer"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Right side: background image + overlay + text */}
         <div
           className="w-full md:w-1/2 relative bg-cover bg-center"
           style={{
@@ -261,14 +337,6 @@ export default function HomePage() {
               goals and prepare for a global future.
             </p>
           </div>
-        </div>
-        {/* Right side: just an image */}
-        <div className="w-full md:w-1/2">
-          <img
-            src="./bgstudent.webp"
-            alt="What we offer"
-            className="w-full h-full object-cover"
-          />
         </div>
       </section>
 
@@ -541,6 +609,82 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why Bangkok Section */}
+      <section className="w-full">
+        <div
+          className="w-full relative bg-cover bg-center py-12 md:py-20"
+          style={{
+            backgroundImage: "url('./bangkok-bg.jpg')",
+          }}
+        >
+          {/* Darker overlay */}
+          <div className="absolute inset-0 bg-dark-blue bg-opacity-80"></div>
+          {/* Text content - centered */}
+          <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 text-center space-y-6 md:space-y-8">
+            <h2 className="text-3xl md:text-5xl font-lora font-semibold leading-tight text-brand-beige">
+              Why Bangkok?
+            </h2>
+            <div className="space-y-6 max-w-3xl mx-auto">
+              <div className="flex items-start space-x-4 text-left">
+                <div className="w-3 h-3 bg-brand-red rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-lg md:text-xl font-manrope text-gray-300">
+                  Bangkok offers a{" "}
+                  <span className="text-brand-beige font-semibold">
+                    safe, accessible, and culturally familiar environment
+                  </span>
+                  , making it the perfect first step for Myanmar students.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4 text-left">
+                <div className="w-3 h-3 bg-brand-red rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-lg md:text-xl font-manrope text-gray-300">
+                  It allows them to{" "}
+                  <span className="text-brand-beige font-semibold">
+                    build independence and adapt gradually
+                  </span>{" "}
+                  before transitioning to the UK.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4 text-left">
+                <div className="w-3 h-3 bg-brand-red rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-lg md:text-xl font-manrope text-gray-300">
+                  With its{" "}
+                  <span className="text-brand-beige font-semibold">
+                    close proximity, parents can easily visit
+                  </span>
+                  , offering added peace of mind.
+                </p>
+              </div>
+              <div className="flex items-start space-x-4 text-left">
+                <div className="w-3 h-3 bg-brand-red rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-lg md:text-xl font-manrope text-gray-300">
+                  As a{" "}
+                  <span className="text-brand-beige font-semibold">
+                    modern, global city with regional comfort
+                  </span>
+                  , Bangkok serves as an ideal launchpad for students to grow
+                  academically and personally on their international journey.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 pt-6">
+              <Link
+                to="/about"
+                className="px-6 md:px-8 py-3 md:py-4 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-base md:text-lg"
+              >
+                Discover More
+              </Link>
+              <Link
+                to="/contact"
+                className="px-6 md:px-8 py-3 md:py-4 bg-transparent border border-brand-beige hover:bg-brand-beige hover:text-dark-primary text-brand-beige font-semibold rounded-xl transition hover-lift font-manrope text-base md:text-lg"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* LEARN FROM THE BEST AT BI - Modern Card Layout */}
       <section
         className="w-full py-12 md:py-20 px-4 md:px-6 bg-cover bg-center bg-no-repeat relative"
@@ -553,15 +697,13 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Header + Text */}
           <div className="text-left mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-lora font-bold text-brand-beige mb-4 md:mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-lora font-extrabold text-gray-300 leading-tight drop-shadow-lg">
               LEARN FROM THE BEST AT BI
             </h2>
-            <p className="text-base md:text-xl font-manrope text-gray-300 max-w-4xl leading-relaxed">
-              Our faculty consists of internationally experienced educators who
-              are passionate about student success. They bring a wealth of
-              knowledge and a commitment to providing high-quality education
-              that prepares students for the challenges of higher education and
-              beyond.
+            <p className="text-lg md:text-2xl lg:text-3xl font-manrope font-bold text-brand-beige leading-relaxed drop-shadow-md">
+              Join a community where your success is our priority. We offer
+              personalized learning, state-of-the-art facilities, and a
+              supportive environment that nurtures every student's potential.
             </p>
           </div>
 

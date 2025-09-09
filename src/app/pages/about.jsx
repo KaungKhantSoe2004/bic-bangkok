@@ -188,6 +188,56 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Overview Section */}
+      <section className="w-full py-28 md:py-40 px-4 md:px-6 bg-dark-blue relative overflow-hidden">
+        {/* Background decorative glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-beige/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10 text-center">
+          {/* Header */}
+          <h2 className="text-5xl md:text-6xl font-bold font-lora text-white leading-tight tracking-tight mb-8">
+            <span className="text-brand-beige">Overview</span>
+          </h2>
+
+          {/* Single Paragraph */}
+          <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-manrope">
+            At{" "}
+            <span className="text-brand-red font-semibold">
+              Bridge International (BIC)
+            </span>
+            , we provide{" "}
+            <span className="text-brand-beige font-medium">
+              internationally recognized education
+            </span>{" "}
+            at affordable prices, driven by a strong ambition to cultivate
+            future leaders. Our programs are carefully designed to equip
+            students with the{" "}
+            <span className="text-brand-red font-semibold">
+              knowledge, skills, and experience
+            </span>{" "}
+            necessary to succeed academically and personally. We offer{" "}
+            <span className="text-brand-beige font-medium">
+              comprehensive support including university counseling, extra
+              academic assistance, volunteering opportunities, and
+              extracurricular activities
+            </span>
+            , while ensuring every student benefits from{" "}
+            <span className="text-brand-red font-semibold">
+              enhanced facilities, services, and networking programs
+            </span>{" "}
+            that prepare them for top universities worldwide.
+          </p>
+
+          {/* Decorative accent */}
+          <div className="flex justify-center items-center space-x-4 mt-12">
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-brand-beige to-transparent rounded-full"></div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Values Section */}
       <section className="w-full py-20 md:py-32 px-4 md:px-6 bg-gray-900 relative">
         <div className="max-w-7xl mx-auto">

@@ -9,6 +9,10 @@ import Footer from "./app/components/footer.jsx";
 import AboutPage from "./app/pages/about.jsx";
 import ContactPage from "./app/pages/enquire.jsx";
 import AdmissionsPage from "./app/pages/admission.jsx";
+import OssdPage from "./app/pages/ossd.jsx";
+import ALevelsPage from "./app/pages/alevels.jsx";
+import IGCSEPage from "./app/pages/igcse.jsx";
+import GEDPage from "./app/pages/ged.jsx";
 
 function App() {
   const [language, setLanguage] = useState("en");
@@ -20,10 +24,10 @@ function App() {
           <Route path="/" element={<HomePage language={language} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/enquire" element={<ContactPage />} />
-          <Route path="/igcse" element={<h1>IGCSE</h1>} />
-          <Route path="/alevels" element={<h1>A LEVELS</h1>} />
-          <Route path="/ossd" element={<h2>OSSD</h2>} />
-          <Route path="/ged" element={<h1>GED</h1>} />
+          <Route path="/igcse" element={<IGCSEPage />} />
+          <Route path="/alevels" element={<ALevelsPage />} />
+          <Route path="/ossd" element={<OssdPage />} />
+          <Route path="/ged" element={<GEDPage />} />
           <Route path="/admission" element={<AdmissionsPage />} />
         </Routes>
         <Footer language={language} />
