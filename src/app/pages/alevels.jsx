@@ -146,7 +146,7 @@ export default function ALevelsPage() {
           <div
             className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('./acourses.webp')`,
+              backgroundImage: `url('./clas.jpg')`,
             }}
           ></div>
         </div>
