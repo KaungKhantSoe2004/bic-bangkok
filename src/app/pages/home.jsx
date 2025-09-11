@@ -173,7 +173,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="w-full flex flex-wrap">
+      <section className="w-full bg-grey-blue flex flex-wrap">
         {[
           {
             alt: "IGCSE",
@@ -194,7 +194,7 @@ export default function HomePage() {
         ].map(({ alt, src }) => (
           <div
             key={alt}
-            className="w-1/2 md:w-1/4 p-2 bg-black flex justify-center items-center filter grayscale hover:grayscale-0 transition duration-300"
+            className="w-1/2 md:w-1/4 p-2 bg-grey-blue flex justify-center items-center filter grayscale hover:grayscale-0 transition duration-300"
           >
             <img
               src={src || "/placeholder.svg"}
@@ -224,7 +224,7 @@ export default function HomePage() {
           }}
         >
           {/* Darker overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+          <div className="absolute inset-0 bg-black/70 bg-opacity-80"></div>
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
             <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
@@ -237,10 +237,18 @@ export default function HomePage() {
               outcomes.
             </p>
             <ul className="list-disc list-inside font-manrope text-gray-400 max-w-xl space-y-1 text-sm md:text-base">
-              <li>IGCSE, A Levels, OSSD, and GED programs</li>
-              <li>University application guidance and support</li>
-              <li>Small class sizes with personalized attention</li>
-              <li>International faculty with proven expertise</li>
+              <li className=" text-brand-beige">
+                IGCSE, A Levels, OSSD, and GED programs
+              </li>
+              <li className=" text-brand-beige">
+                University application guidance and support
+              </li>
+              <li className=" text-brand-beige">
+                Small class sizes with personalized attention
+              </li>
+              <li className=" text-brand-beige">
+                International faculty with proven expertise
+              </li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
               <Link
@@ -261,7 +269,7 @@ export default function HomePage() {
       </section>
 
       <section className="w-full flex flex-col md:flex-row-reverse items-stretch">
-        {/* Image */}
+        {/* Right side: image */}
         <div className="w-full md:w-1/2">
           <img
             src="./bginternational.webp"
@@ -270,34 +278,25 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Text with background */}
-        <div
-          className="w-full md:w-1/2 relative bg-cover bg-center"
-          style={{
-            backgroundImage: "url('./llion.jpg')",
-          }}
-        >
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-
-          {/* Text content */}
-          <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
-            <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
-              University Preparation at BI
-            </h2>
-            <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
-              At BI, we are committed to fostering academic excellence through
-              our rigorous University preparation programmes:{" "}
-              <strong>GED</strong>, <strong>IGCSE</strong>, and
-              <strong> A Levels</strong> — all tailored for students aiming to
-              get into top international universities.
-            </p>
-            <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
-              Our vibrant campus, expert faculty, and cultural immersion
-              opportunities make BI the perfect place to achieve your academic
-              goals and prepare for a global future.
-            </p>
-          </div>
+        {/* Left side: text with bg-white/40 */}
+        <div className="w-full md:w-1/2 bg-dark-blue flex flex-col justify-center p-6 md:p-10 space-y-4 md:space-y-6">
+          <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
+            University Preparation at BI
+          </h2>
+          <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
+            At BI, we are committed to fostering academic excellence through our
+            rigorous University preparation programmes:{" "}
+            <strong className=" text-brand-red">GED</strong>,{" "}
+            <strong className=" text-brand-red">IGCSE</strong>, and
+            <strong className=" text-brand-red"> A Levels</strong> — all
+            tailored for students aiming to get into top international
+            universities.
+          </p>
+          <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
+            Our vibrant campus, expert faculty, and cultural immersion
+            opportunities make BI the perfect place to achieve your academic
+            goals and prepare for a global future.
+          </p>
         </div>
       </section>
 
@@ -310,33 +309,25 @@ export default function HomePage() {
             className="w-full h-full object-cover"
           />
         </div>
-        {/* Right side: background image + overlay + text */}
-        <div
-          className="w-full md:w-1/2 relative bg-cover bg-center"
-          style={{
-            backgroundImage: "url('./reversellion.jpg')",
-          }}
-        >
-          {/* Darker overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-          {/* Text content */}
-          <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
-            <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
-              Second One I Just Created
-            </h2>
-            <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
-              At BIC, we are committed to fostering academic excellence through
-              our rigorous University preparation programmes:{" "}
-              <strong>GED</strong>, <strong>IGCSE</strong>, and
-              <strong> A Levels</strong>, tailored for students who are aiming
-              to get into top international universities.
-            </p>
-            <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
-              Our vibrant campus, expert faculty, and cultural immersion
-              opportunities make BI the perfect place to achieve your academic
-              goals and prepare for a global future.
-            </p>
-          </div>
+
+        {/* Right side: semi-transparent white background */}
+        <div className="w-full md:w-1/2 bg- flex flex-col justify-center p-6 md:p-10 space-y-4 md:space-y-6">
+          <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
+            Second One I Just Created
+          </h2>
+          <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
+            At BIC, we are committed to fostering academic excellence through
+            our rigorous University preparation programmes:{" "}
+            <strong className=" text-brand-red">GED</strong>,{" "}
+            <strong className=" text-brand-red">IGCSE</strong>, and
+            <strong className=" text-brand-red"> A Levels</strong>, tailored for
+            students who are aiming to get into top international universities.
+          </p>
+          <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
+            Our vibrant campus, expert faculty, and cultural immersion
+            opportunities make BI the perfect place to achieve your academic
+            goals and prepare for a global future.
+          </p>
         </div>
       </section>
 
@@ -441,7 +432,7 @@ export default function HomePage() {
           }}
         >
           {/* Darker overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+          <div className="absolute inset-0 bg-white/40 bg-opacity-80"></div>
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
             <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
@@ -480,7 +471,7 @@ export default function HomePage() {
           }}
         >
           {/* Darker overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+          <div className="absolute inset-0 bg-white/40 bg-opacity-80"></div>
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
             <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
@@ -534,7 +525,7 @@ export default function HomePage() {
           }}
         >
           {/* Darker overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+          <div className="absolute inset-0 bg-white/40 bg-opacity-80"></div>
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
             <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
@@ -572,7 +563,7 @@ export default function HomePage() {
           }}
         >
           {/* Darker overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+          <div className="absolute inset-0 bg-white/40 bg-opacity-80"></div>
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
             <h2 className="text-2xl md:text-4xl font-lora font-semibold leading-tight text-brand-beige">
@@ -832,13 +823,13 @@ export default function HomePage() {
       <section className="w-full flex flex-col md:flex-row items-stretch">
         {/* Left side: background image + gray overlay + text */}
         <div
-          className="w-full md:w-1/2 relative bg-cover bg-center"
-          style={{
-            backgroundImage: "url('./memories.webp')",
-          }}
+          className="w-full md:w-1/2 relative bg-gray-900  bg-center"
+          // style={{
+          //   backgroundImage: "url('./memories.webp')",
+          // }}
         >
           {/* Gray overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+          <div className="absolute inset-0  bg-opacity-80"></div>
 
           {/* Text content */}
           <div className="relative z-10 p-6 md:p-10 flex flex-col justify-center h-full space-y-4 md:space-y-6">
@@ -856,7 +847,7 @@ export default function HomePage() {
         {/* Right side: just an image */}
         <div className="w-full md:w-1/2">
           <img
-            src="./trust.webp"
+            src="./memories.webp"
             alt="Trust Image"
             className="w-full h-full object-cover"
           />

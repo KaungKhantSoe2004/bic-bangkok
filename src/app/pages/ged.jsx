@@ -81,16 +81,6 @@ const GEDPage = () => {
         "Career growth",
       ],
     },
-    {
-      title: "Military Service",
-      description:
-        "The GED is accepted by all branches of the military, providing opportunities for service, training, and educational benefits through the GI Bill.",
-      highlights: [
-        "Military acceptance",
-        "Training programs",
-        "Educational benefits",
-      ],
-    },
   ];
 
   return (
@@ -283,14 +273,14 @@ const GEDPage = () => {
       </section>
 
       {/* Entry Requirements */}
-      <section className="py-16 md:py-20 lg:py-24 bg-black">
+      <section className="py-16 md:py-20 lg:py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-12 text-center text-brand-red">
             Entry Requirements
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-gradient-to-b from-gray-900 to-black border border-brand-beige/20">
+            <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
               <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="w-8 h-8 text-black"
@@ -311,7 +301,7 @@ const GEDPage = () => {
               </p>
             </div>
 
-            <div className="text-center p-8 bg-gradient-to-b from-gray-900 to-black border border-brand-beige/20">
+            <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
               <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="w-8 h-8 text-black"
@@ -334,7 +324,7 @@ const GEDPage = () => {
               </p>
             </div>
 
-            <div className="text-center p-8 bg-gradient-to-b from-gray-900 to-black border border-brand-beige/20">
+            <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
               <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg
                   className="w-8 h-8 text-black"

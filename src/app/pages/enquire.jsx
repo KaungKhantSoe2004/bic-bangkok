@@ -260,7 +260,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="text-center mb-12 md:mb-20 space-y-4 md:space-y-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-brand-red to-red-600 rounded-full mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-800 rounded-full mb-4">
               <svg
                 className="w-8 h-8 text-white"
                 fill="none"
@@ -478,7 +478,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="w-full py-12 sm:py-16 md:py-32 px-4 md:px-6 bg-dark-primary">
+      <section className="w-full py-12 sm:py-16 md:py-32 px-4 md:px-6 bg-gray-900">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 md:mb-16 space-y-4 md:space-y-6">

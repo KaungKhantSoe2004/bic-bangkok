@@ -48,7 +48,7 @@ export default function AdmissionsPage() {
           alt="Bridge International School Students"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-dark-blue"></div>
 
         <div className="absolute z-10 max-w-6xl mx-auto text-center px-4 md:px-6 space-y-4 md:space-y-8">
           <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-lora font-bold leading-tight tracking-tight">
@@ -93,7 +93,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Entry Requirements Section */}
-      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-dark-primary">
+      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-lora font-bold text-brand-beige leading-tight">
@@ -200,7 +200,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Step-by-Step Process Section */}
-      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-black">
+      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-dark-blue">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-lora font-bold text-brand-beige leading-tight">
@@ -269,7 +269,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* Frequently Asked Questions Section */}
-      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-dark-primary relative overflow-hidden">
+      <section className="w-full py-12 sm:py-16 md:py-20 px-4 md:px-6 bg-grey-900 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-red/10 rounded-full blur-xl"></div>
         <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-brand-gold/10 rounded-full blur-xl"></div>

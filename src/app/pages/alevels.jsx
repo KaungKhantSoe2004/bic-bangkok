@@ -163,7 +163,7 @@ export default function ALevelsPage() {
           ></div>
         </div>
 
-        <div className="lg:w-1/2 bg-gray-900 flex items-center">
+        <div className="lg:w-1/2 bg-dark-blue flex items-center">
           <div className="p-8 md:p-16">
             <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-8">
               GLOBAL STRATEGIC PATHWAY
@@ -180,7 +180,7 @@ export default function ALevelsPage() {
       </section>
 
       {/* Why A-Levels at BIC - Key Facts Section */}
-      <section className="bg-dark-blue py-16 md:py-24">
+      <section className="bg-gray-900 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red text-center mb-16">
             Why A-Levels at BIC?
@@ -226,7 +226,7 @@ export default function ALevelsPage() {
       </section>
 
       {/* Why A-Levels Benefits Section */}
-      <section className="bg-black py-16 md:py-24">
+      <section className="bg-dark-blue py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
@@ -284,7 +284,7 @@ export default function ALevelsPage() {
       </section>
 
       {/* A-Level Subjects Section */}
-      <section className="bg-dark-blue py-16 md:py-24">
+      <section className="bg-gray-900 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-6">
@@ -333,7 +333,7 @@ export default function ALevelsPage() {
       </section>
 
       {/* Entry Requirements Section */}
-      <section className="bg-black py-16 md:py-24">
+      <section className="bg-dark-blue py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-8">
           <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red text-center mb-16">
             Entry Requirements

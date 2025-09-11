@@ -69,7 +69,7 @@ const OssdPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-manrope">
+    <div className="min-h-screen bg-dark-blue text-white font-manrope">
       <section className="relative h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-end justify-start overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -139,7 +139,7 @@ const OssdPage = () => {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-dark-blue">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lora font-bold text-center mb-12 md:mb-20 text-brand-beige">
             Who do we work with?
@@ -325,7 +325,7 @@ const OssdPage = () => {
               {pathwayData[activePathway].courses.map((course, index) => (
                 <div
                   key={index}
-                  className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border-l-4 border-brand-red hover:border-brand-beige transition-all duration-500 p-6 hover:shadow-2xl hover:shadow-brand-red/20 hover:transform hover:-translate-y-2"
+                  className="group relative bg-gray-900 backdrop-blur-sm border-l-4 border-brand-red hover:border-brand-beige transition-all duration-500 p-6 hover:shadow-2xl hover:shadow-brand-red/20 hover:transform hover:-translate-y-2"
                   style={{
                     animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
                   }}
@@ -375,14 +375,14 @@ const OssdPage = () => {
         </div>
       </section>
 
-      <section className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-black to-gray-900">
+      <section className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lora font-bold text-center text-brand-red mb-12 md:mb-20">
             Entry Requirements
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-            <div className="bg-gradient-to-b from-gray-900 to-black p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group">
+            <div className="bg-dark-blue p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group">
               <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-beige flex items-center justify-center mx-auto mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500">
                 <svg
                   className="w-10 h-10 md:w-12 md:h-12 text-black"
@@ -410,7 +410,7 @@ const OssdPage = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-b from-gray-900 to-black p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group">
+            <div className="bg-dark-blue p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group">
               <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-beige flex items-center justify-center mx-auto mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500">
                 <svg
                   className="w-10 h-10 md:w-12 md:h-12 text-black"
@@ -437,7 +437,7 @@ const OssdPage = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-b from-gray-900 to-black p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group sm:col-span-2 lg:col-span-1">
+            <div className="bg-dark-blue p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group sm:col-span-2 lg:col-span-1">
               <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-beige flex items-center justify-center mx-auto mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500">
                 <svg
                   className="w-10 h-10 md:w-12 md:h-12 text-black"
@@ -494,7 +494,7 @@ const OssdPage = () => {
                   Why Choose OSSD?
                 </h2>
                 <div className="space-y-4 md:space-y-6">
-                  <div className="bg-black p-6 md:p-8 border-2 border-white/30 hover:border-brand-red transition-all duration-500 transform hover:translate-x-2 group">
+                  <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-brand-red transition-all duration-500 transform hover:translate-x-2 group">
                     <h3 className="text-xl md:text-2xl font-bold text-brand-beige mb-3 md:mb-4 group-hover:text-brand-beige transition-colors duration-300">
                       Global Recognition
                     </h3>
@@ -503,7 +503,7 @@ const OssdPage = () => {
                       League institutions
                     </p>
                   </div>
-                  <div className="bg-black p-6 md:p-8 border-2 border-white/30 hover:border-brand-beige transition-all duration-500 transform hover:translate-x-2 group">
+                  <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-brand-beige transition-all duration-500 transform hover:translate-x-2 group">
                     <h3 className="text-xl md:text-2xl font-bold text-brand-beige mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
                       Flexible Learning
                     </h3>
@@ -512,7 +512,7 @@ const OssdPage = () => {
                       diploma
                     </p>
                   </div>
-                  <div className="bg-black p-6 md:p-8 border-2 border-white/30 hover:border-white transition-all duration-500 transform hover:translate-x-2 group">
+                  <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-white transition-all duration-500 transform hover:translate-x-2 group">
                     <h3 className="text-xl md:text-2xl font-bold text-brand-beige mb-3 md:mb-4 group-hover:text-brand-beige transition-colors duration-300">
                       University Preparation
                     </h3>
