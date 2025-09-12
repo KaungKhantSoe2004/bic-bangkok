@@ -1,6 +1,232 @@
+"use client";
+
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function AboutPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 6000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const SkeletonLoader = () => (
+    <div className="relative min-h-screen bg-dark-primary">
+      {/* Hero Section Skeleton */}
+      <section className="relative w-full h-screen flex items-end justify-start overflow-hidden">
+        <div className="absolute inset-0 bg-gray-800 animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-shimmer"></div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-brand-red/10 to-black/90"></div>
+        <div className="relative z-10 max-w-2xl text-left px-6 md:px-12 pb-16 md:pb-24 space-y-6">
+          <div className="h-16 md:h-20 bg-gray-700 rounded-lg animate-pulse"></div>
+          <div className="w-24 h-1 bg-gray-600 rounded-full animate-pulse"></div>
+          <div className="space-y-3">
+            <div className="h-6 bg-gray-700 rounded animate-pulse"></div>
+            <div className="h-6 bg-gray-700 rounded animate-pulse w-4/5"></div>
+            <div className="h-6 bg-gray-700 rounded animate-pulse w-3/4"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Full Width Image Skeleton */}
+      <section className="w-full relative overflow-hidden">
+        <div className="relative h-[100vh] md:h-[100vh]">
+          <div className="w-full h-full bg-gray-800 animate-pulse relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-600 to-gray-800 animate-shimmer"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+          </div>
+          <div
+            className="absolute bottom-0 left-0 w-full h-40 md:h-48"
+            style={{
+              background: "#82062c",
+              clipPath: "polygon(0 100%, 0 0, 100% 100%, 100% 100%)",
+            }}
+          ></div>
+        </div>
+      </section>
+
+      {/* Founders Experience Skeleton */}
+      <section className="w-full flex flex-col lg:flex-row items-stretch min-h-screen">
+        <div className="w-full lg:w-1/2 relative">
+          <div className="w-full h-full bg-gray-800 animate-pulse min-h-[500px] lg:min-h-full relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 animate-shimmer"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-500/20 to-gray-600/30"></div>
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2 bg-dark-blue flex items-center">
+          <div className="p-8 md:p-16 lg:p-20 space-y-8 w-full">
+            <div className="space-y-4">
+              <div className="w-16 h-1 bg-gray-600 rounded-full animate-pulse"></div>
+              <div className="h-16 bg-gray-700 rounded-lg animate-pulse"></div>
+            </div>
+            <div className="space-y-3">
+              <div className="h-6 bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-5/6"></div>
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-4/5"></div>
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-3/4"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy Section Skeleton */}
+      <section className="w-full flex flex-col-reverse lg:flex-row items-stretch min-h-screen">
+        <div className="w-full lg:w-1/2 bg-gray-800 flex items-center">
+          <div className="p-8 md:p-16 lg:p-20 space-y-8 w-full">
+            <div className="space-y-4">
+              <div className="w-16 h-1 bg-gray-600 rounded-full animate-pulse"></div>
+              <div className="h-16 bg-gray-700 rounded-lg animate-pulse"></div>
+            </div>
+            <div className="space-y-3">
+              <div className="h-6 bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-5/6"></div>
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-4/5"></div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2 relative">
+          <div className="w-full h-full bg-gray-800 animate-pulse min-h-[500px] lg:min-h-full relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-l from-gray-700 via-gray-600 to-gray-700 animate-shimmer"></div>
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-gray-500/20 to-gray-600/30"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* History Section Skeleton */}
+      <section className="w-full flex flex-col lg:flex-row items-stretch min-h-screen">
+        <div className="w-full lg:w-1/2 relative">
+          <div className="w-full h-full bg-gray-800 animate-pulse min-h-[500px] lg:min-h-full relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 animate-shimmer"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-600/25"></div>
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2 relative bg-gray-900">
+          <div className="absolute inset-0 opacity-5">
+            <div className="w-full h-full bg-gray-700 animate-pulse relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-600 via-gray-500 to-gray-600 animate-shimmer"></div>
+            </div>
+          </div>
+          <div className="relative z-10 p-8 md:p-16 lg:p-20 flex flex-col justify-center h-full space-y-8">
+            <div className="space-y-4">
+              <div className="w-16 h-1 bg-gray-600 rounded-full animate-pulse"></div>
+              <div className="h-16 bg-gray-700 rounded-lg animate-pulse"></div>
+            </div>
+            <div className="space-y-3">
+              <div className="h-6 bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-5/6"></div>
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-4/5"></div>
+            </div>
+            <div className="pt-4">
+              <div className="h-6 bg-gray-700 rounded animate-pulse w-48"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section Skeleton */}
+      <section className="w-full py-20 md:py-32 px-4 md:px-6 bg-gray-900 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 md:mb-24 space-y-6">
+            <div className="w-20 h-1 bg-gray-600 mx-auto rounded-full animate-pulse"></div>
+            <div className="h-16 bg-gray-700 rounded-lg animate-pulse max-w-md mx-auto"></div>
+            <div className="h-6 bg-gray-700 rounded animate-pulse max-w-2xl mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20">
+            {[1, 2, 3, 4].map((item) => (
+              <div key={item} className="space-y-6">
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-gray-700 rounded-2xl animate-pulse"></div>
+                  <div className="flex-1 space-y-4">
+                    <div className="h-8 bg-gray-700 rounded animate-pulse"></div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-gray-700 rounded animate-pulse"></div>
+                      <div className="h-4 bg-gray-700 rounded animate-pulse w-5/6"></div>
+                      <div className="h-4 bg-gray-700 rounded animate-pulse w-4/5"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News Section Skeleton */}
+      <section className="w-full py-20 md:py-32 px-4 md:px-6 bg-dark-blue relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 md:mb-20 space-y-6">
+            <div className="w-20 h-1 bg-gray-600 mx-auto animate-pulse"></div>
+            <div className="h-16 bg-gray-700 rounded-lg animate-pulse max-w-md mx-auto"></div>
+            <div className="h-6 bg-gray-700 rounded animate-pulse max-w-2xl mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {[1, 2, 3].map((item) => (
+              <div
+                key={item}
+                className="bg-gray-900 overflow-hidden shadow-2xl"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <div className="w-full h-full bg-gray-800 animate-pulse relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-600 to-gray-800 animate-shimmer"></div>
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <div className="bg-gray-700 w-20 h-6 animate-pulse"></div>
+                  </div>
+                </div>
+                <div className="p-6 md:p-8 space-y-4">
+                  <div className="h-8 bg-gray-700 rounded animate-pulse"></div>
+                  <div className="space-y-2">
+                    <div className="h-4 bg-gray-700 rounded animate-pulse"></div>
+                    <div className="h-4 bg-gray-700 rounded animate-pulse w-5/6"></div>
+                    <div className="h-4 bg-gray-700 rounded animate-pulse w-4/5"></div>
+                  </div>
+                  <div className="flex items-center justify-between pt-4">
+                    <div className="h-4 bg-gray-700 rounded animate-pulse w-24"></div>
+                    <div className="w-8 h-8 bg-gray-700 animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section Skeleton */}
+      <section className="w-full relative min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-gray-800 animate-pulse relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-600 to-gray-900 animate-shimmer"></div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-brand-red/30 to-black/90"></div>
+        <div className="relative z-10 w-full py-20 md:py-32 px-4 md:px-6">
+          <div className="max-w-5xl mx-auto text-center space-y-10 md:space-y-12">
+            <div className="h-20 md:h-24 bg-gray-700 rounded-lg animate-pulse max-w-2xl mx-auto"></div>
+            <div className="space-y-3 max-w-4xl mx-auto">
+              <div className="h-8 bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-8 bg-gray-700 rounded animate-pulse w-5/6 mx-auto"></div>
+              <div className="h-8 bg-gray-700 rounded animate-pulse w-4/5 mx-auto"></div>
+            </div>
+            <div className="pt-8">
+              <div className="h-16 bg-gray-700 rounded-lg animate-pulse w-48 mx-auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+
+  if (isLoading) {
+    return <SkeletonLoader />;
+  }
+
   return (
     <div className="relative min-h-screen bg-dark-primary">
       {/* Hero Section - Our Story */}

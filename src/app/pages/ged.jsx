@@ -1,96 +1,119 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const GEDPage = () => {
-  const [activePathway, setActivePathway] = useState("College Preparation");
+  const [isLoading, setIsLoading] = useState(true);
 
-  const pathways = {
-    "College Preparation": [
-      "Mathematical Reasoning",
-      "Reasoning Through Language Arts",
-      "Science",
-      "Social Studies",
-      "College Readiness Skills",
-      "Study Skills & Time Management",
-      "Academic Writing",
-    ],
-    "Career Training": [
-      "Mathematical Reasoning",
-      "Reasoning Through Language Arts",
-      "Science",
-      "Social Studies",
-      "Workplace Communication",
-      "Professional Skills",
-      "Industry Certifications Prep",
-    ],
-    "University Bridge": [
-      "Mathematical Reasoning",
-      "Reasoning Through Language Arts",
-      "Science",
-      "Social Studies",
-      "Critical Thinking",
-      "Research Methods",
-      "Academic English",
-    ],
-    "Technical Pathway": [
-      "Mathematical Reasoning",
-      "Reasoning Through Language Arts",
-      "Science",
-      "Social Studies",
-      "Applied Mathematics",
-      "Technical Communication",
-      "Problem Solving",
-    ],
-  };
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
 
-  const postGEDPathways = [
+    console.log("[v0] GED page loading started");
+    const timer = setTimeout(() => {
+      console.log("[v0] GED page loading completed");
+      setIsLoading(false);
+    }, 1000); // Reduced from 1500ms to 1000ms
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const facilities = [
     {
-      title: "Community College",
-      description:
-        "Community colleges offer affordable, flexible pathways to higher education with associate degrees, certificates, and transfer programs to four-year universities.",
-      highlights: [
-        "Affordable tuition",
-        "Flexible scheduling",
-        "Transfer opportunities",
+      title: "Main Building",
+      mainImage:
+        "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      smallImages: [
+        "https://images.unsplash.com/photo-1497486751825-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       ],
     },
     {
-      title: "Four-Year Universities",
-      description:
-        "Many universities accept GED graduates for bachelor's degree programs, opening doors to advanced career opportunities and specialized fields of study.",
-      highlights: [
-        "Bachelor's degrees",
-        "Career advancement",
-        "Specialized programs",
+      title: "Library",
+      mainImage:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      smallImages: [
+        "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1524995997946-b7833e8f5577?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       ],
     },
     {
-      title: "Trade Schools",
-      description:
-        "Vocational and trade schools provide hands-on training in skilled trades, offering direct pathways to well-paying careers in growing industries.",
-      highlights: ["Hands-on training", "Industry skills", "Career-focused"],
+      title: "Lecture Room",
+      mainImage:
+        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      smallImages: [
+        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      ],
     },
     {
-      title: "Professional Certifications",
-      description:
-        "Industry-recognized certifications in fields like IT, healthcare, and business can lead to immediate employment opportunities and career growth.",
-      highlights: [
-        "Industry recognition",
-        "Immediate employment",
-        "Career growth",
+      title: "Accommodation",
+      mainImage:
+        "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      smallImages: [
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      ],
+    },
+    {
+      title: "Gymnasium",
+      mainImage:
+        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      smallImages: [
+        "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1524995997946-b7833e8f5577?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       ],
     },
   ];
 
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-900 text-white font-manrope">
+        {/* Hero Section Skeleton */}
+        <section className="relative h-screen overflow-hidden">
+          <div className="absolute inset-0 bg-gray-800 shimmer"></div>
+          <div className="relative z-10 h-full flex items-center justify-center">
+            <div className="text-center max-w-4xl mx-auto px-4">
+              <div className="h-16 bg-gray-700 rounded mb-6 shimmer"></div>
+              <div className="space-y-3">
+                <div className="h-6 bg-gray-700 rounded shimmer"></div>
+                <div className="h-6 bg-gray-700 rounded w-4/5 mx-auto shimmer"></div>
+                <div className="h-6 bg-gray-700 rounded w-3/5 mx-auto shimmer"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Content Sections Skeleton */}
+        <div className="space-y-16 py-16">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
+                <div className="h-64 bg-gray-800 rounded shimmer"></div>
+                <div className="space-y-4">
+                  <div className="h-8 bg-gray-700 rounded shimmer"></div>
+                  <div className="space-y-3">
+                    <div className="h-4 bg-gray-700 rounded shimmer"></div>
+                    <div className="h-4 bg-gray-700 rounded w-4/5 shimmer"></div>
+                    <div className="h-4 bg-gray-700 rounded w-3/5 shimmer"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-black text-white font-manrope">
-      {/* Hero Banner Section */}
+    <div className="min-h-screen bg-gray-900 text-white font-manrope">
+      {/* Hero Banner Section - IGCSE Style */}
       <section className="relative h-screen md:h-[80vh] lg:h-screen overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('./ged.jpg')`,
+            backgroundImage: `url('/ged.jpg')`,
           }}
         >
           <div className="absolute inset-0 bg-black/60"></div>
@@ -103,23 +126,21 @@ const GEDPage = () => {
                 GED
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
-                The General Educational Development (GED) test is a nationally
-                recognized high school equivalency credential. Our comprehensive
-                preparation program equips students with the knowledge and
-                skills needed to pass the GED and pursue their educational and
-                career goals.
+                Your Pathway to the World's Top Universities. The General
+                Educational Development (GED) is a globally recognized high
+                school equivalency credential designed for individuals who did
+                not complete traditional high school.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Full Width Image with Flow Animation */}
-      <section className="relative h-100 md:h-[700px] overflow-hidden">
+      <section className="relative h-96 md:h-[700px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transform transition-transform duration-[20s] ease-linear hover:scale-110"
           style={{
-            backgroundImage: `url('./GEDa.jpg')`,
+            backgroundImage: `url('./lett.jpeg')`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70"></div>
@@ -133,138 +154,258 @@ const GEDPage = () => {
         </div>
       </section>
 
-      {/* Our GED Programme Section */}
-      <section className="relative min-h-screen flex">
-        <div className="w-full lg:w-1/2 relative">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url('./GEDb.jpg')`,
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40"></div>
-          </div>
-        </div>
-
-        <div className="w-full lg:w-1/2 bg-dark-blue flex items-center">
-          <div className="p-8 md:p-12 lg:p-16 xl:p-20">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-brand-beige">
-              Our GED Programme
-            </h2>
-            <p className="text-lg md:text-xl text-white leading-relaxed mb-6">
-              The GED credential is accepted by 99% of colleges and universities
-              and recognized by employers nationwide. Our program covers all
-              four subject areas tested on the GED: Mathematical Reasoning,
-              Reasoning Through Language Arts, Science, and Social Studies.
-            </p>
-            <p className="text-lg md:text-xl text-white leading-relaxed">
-              With personalized instruction, flexible scheduling, and
-              comprehensive test preparation, we ensure every student is fully
-              prepared to succeed on the GED test and beyond.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Pathways Section */}
-      <section className="relative min-h-screen flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 bg-dark-blue flex items-center order-2 lg:order-1">
-          <div className="p-8 md:p-12 lg:p-16 xl:p-20">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-brand-red">
-              Pathways
-            </h2>
-            <p className="text-lg md:text-xl text-white leading-relaxed mb-6">
-              The GED opens doors to higher education, career advancement, and
-              personal growth. Whether your goal is college, trade school, or
-              immediate employment, the GED provides the foundation you need.
-            </p>
-            <p className="text-lg md:text-xl text-white leading-relaxed">
-              Our program not only prepares you for the test but also develops
-              critical thinking, problem-solving, and communication skills
-              essential for success in today's competitive world.
-            </p>
-          </div>
-        </div>
-
-        <div className="w-full lg:w-1/2 relative order-1 lg:order-2">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url('./gg.jpg')`,
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* GED Preparation Program */}
-      <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-brand-beige">
-            GED Preparation Program
-          </h2>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-lg md:text-xl text-white leading-relaxed">
-              At BIC, our GED preparation program is designed to meet students
-              where they are and guide them to success. With experienced
-              instructors, individualized learning plans, and comprehensive
-              practice materials, we provide the support and resources needed to
-              pass the GED test. Our holistic approach includes academic
-              preparation, test-taking strategies, and college and career
-              readiness skills to ensure long-term success.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Subjects/Pathways Section */}
+      {/* What is Bridge International Section */}
       <section className="py-16 md:py-20 lg:py-24 bg-dark-blue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-6 text-brand-beige">
-              GED Pathways
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-brand-beige">
+                What is Bridge International (BI)?
+              </h2>
+              <p className="text-lg md:text-xl text-white leading-relaxed mb-6">
+                Bridge International (BI) is a premier educational institution
+                in Bangkok, dedicated to guiding ambitious students toward top
+                universities around the world.
+              </p>
+              <p className="text-lg md:text-xl text-white leading-relaxed">
+                Open doors to universities worldwide including the US,
+                Switzerland, Singapore, Malaysia and Thailand.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src="./gg.jpg"
+                alt="Bridge International Campus"
+                className="w-full h-96 object-cover rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GED Program Overview */}
+      <section className="py-16 md:py-20 lg:py-24 bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-brand-red">
+              GED Program
             </h2>
-            <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
-              Choose a pathway that aligns with your goals and interests. Our
-              expert instructors will guide you through comprehensive
-              preparation in all subject areas.
+            <p className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed">
+              The General Educational Development (GED) is an American High
+              School diploma which is a globally recognized high school
+              equivalency credential. It is designed for individuals who did not
+              complete the traditional high school.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* GED Subjects Section */}
+      <section className="py-16 md:py-20 lg:py-24 bg-dark-blue">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-lora mb-8 text-brand-beige">
+              GED Subjects
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Master these four essential subjects to earn your GED credential
+              and unlock university opportunities
             </p>
           </div>
 
-          {/* Pathway Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {Object.keys(pathways).map((pathway) => (
-              <button
-                key={pathway}
-                onClick={() => setActivePathway(pathway)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                  activePathway === pathway
-                    ? "bg-brand-red text-white shadow-lg transform scale-105"
-                    : "bg-white/10 text-white hover:bg-white/20"
-                }`}
+          {/* Subjects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {[
+              {
+                number: "01",
+                title: "Reasoning Through Language Arts",
+                description:
+                  "Reading comprehension, writing skills, and language usage",
+              },
+              {
+                number: "02",
+                title: "Mathematical Reasoning",
+                description:
+                  "Algebra, geometry, statistics, and problem-solving",
+              },
+              {
+                number: "03",
+                title: "Science",
+                description:
+                  "Life science, physical science, and earth & space science",
+              },
+              {
+                number: "04",
+                title: "Social Studies",
+                description: "History, civics, geography, and economics",
+              },
+            ].map((subject, index) => (
+              <div
+                key={index}
+                className="relative bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                {pathway}
-              </button>
+                {/* Number Badge */}
+                <div className="absolute -left-4 top-8 w-20 h-16 bg-brand-red rounded-r-full flex items-center justify-center shadow-lg">
+                  <span className="text-brand-beige font-bold text-2xl ml-2">
+                    {subject.number}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="ml-12">
+                  <h3 className="text-2xl font-bold text-brand-beige mb-4 group-hover:text-brand-red transition-colors duration-300">
+                    {subject.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {subject.description}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Modules Display */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pathways[activePathway].map((subject, index) => (
+          {/* Program Details Header */}
+        </div>
+      </section>
+
+      <section className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-lora font-bold text-center text-brand-red mb-12 md:mb-20">
+            Entry Requirements
+          </h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+            <div className="bg-dark-blue p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group">
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-beige flex items-center justify-center mx-auto mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500">
+                <svg
+                  className="w-10 h-10 md:w-12 md:h-12 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-beige mb-4 md:mb-6 group-hover:text-white transition-colors duration-300">
+                Age
+              </h3>
+              <p className="text-white text-lg md:text-xl leading-relaxed">
+                Applicants must be at least{" "}
+                <span className="text-brand-beige font-bold text-2xl md:text-3xl bg-brand-beige/10 px-2 py-1">
+                  16 years old
+                </span>{" "}
+                to be eligible for enrollment.
+              </p>
+            </div>
+
+            <div className="bg-dark-blue p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group">
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-beige flex items-center justify-center mx-auto mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500">
+                <svg
+                  className="w-10 h-10 md:w-12 md:h-12 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13m6-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-beige mb-4 md:mb-6 group-hover:text-white transition-colors duration-300">
+                English Level
+              </h3>
+              <p className="text-white text-lg md:text-xl leading-relaxed">
+                English Proficiency Level{" "}
+                <span className="text-brand-beige font-bold text-2xl md:text-3xl bg-brand-beige/10 px-2 py-1">
+                  Intermediate
+                </span>
+              </p>
+            </div>
+
+            <div className="bg-dark-blue p-6 sm:p-8 md:p-10 text-center border-2 border-brand-beige/30 hover:border-brand-beige transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl hover:shadow-brand-beige/30 group sm:col-span-2 lg:col-span-1">
+              <div className="w-20 h-20 md:w-24 md:h-24 bg-brand-beige flex items-center justify-center mx-auto mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500">
+                <svg
+                  className="w-10 h-10 md:w-12 md:h-12 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-brand-beige mb-4 md:mb-6 group-hover:text-white transition-colors duration-300">
+                Academic
+              </h3>
+              <p className="text-white text-lg md:text-xl leading-relaxed">
+                Must pass the{" "}
+                <span className="text-brand-beige font-bold text-lg md:text-xl bg-brand-beige/10 px-2 py-1">
+                  entry test
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 lg:py-24 bg-dark-blue">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-lora mb-8 text-brand-beige">
+              Program Details
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Everything you need to know about the duration and intake schedule
+            </p>
+          </div>
+
+          {/* Program Cards */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                number: "01",
+                title: "Duration",
+                description: "6 months",
+              },
+              {
+                number: "02",
+                title: "Monthly Intakes",
+                description: "Every month, limited seats available",
+              },
+            ].map((item, index) => (
               <div
                 key={index}
-                className="bg-black/30 backdrop-blur-sm p-6 border border-brand-beige/20 hover:border-brand-beige/40 transition-all duration-300 hover:transform hover:scale-105"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                  animation: "fadeInUp 0.6s ease-out forwards",
-                }}
+                className="relative bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-brand-red rounded-full"></div>
-                  <h3 className="text-lg font-semibold text-white">
-                    {subject}
+                {/* Number Badge */}
+                <div className="absolute -left-4 top-8 w-20 h-16 bg-brand-red rounded-r-full flex items-center justify-center shadow-lg">
+                  <span className="text-brand-beige font-bold text-2xl ml-2">
+                    {item.number}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="ml-12">
+                  <h3 className="text-2xl font-bold text-brand-beige mb-4 group-hover:text-brand-red transition-colors duration-300">
+                    {item.title}
                   </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -272,123 +413,489 @@ const GEDPage = () => {
         </div>
       </section>
 
-      {/* Entry Requirements */}
       <section className="py-16 md:py-20 lg:py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-12 text-center text-brand-red">
-            Entry Requirements
-          </h2>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-lora mb-8 text-brand-beige">
+              School Fees
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Choose the plan that fits your visa requirements
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
-              <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg
-                  className="w-8 h-8 text-black"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-brand-beige mb-4">Age</h3>
-              <p className="text-white">
-                Applicants must be at least 16 years old and not enrolled in
-                high school.
-              </p>
-            </div>
+          {/* Fee Cards */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                number: "01",
+                title: "Without VISA",
+                description: "60,000 THB",
+              },
+              {
+                number: "02",
+                title: "With 9-Month VISA",
+                description: "90,000 THB",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="relative bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                {/* Number Badge */}
+                <div className="absolute -left-4 top-8 w-20 h-16 bg-brand-red rounded-r-full flex items-center justify-center shadow-lg">
+                  <span className="text-brand-beige font-bold text-2xl ml-2">
+                    {item.number}
+                  </span>
+                </div>
 
-            <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
-              <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg
-                  className="w-8 h-8 text-black"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                {/* Content */}
+                <div className="ml-12">
+                  <h3 className="text-2xl font-bold text-brand-beige mb-4 group-hover:text-brand-red transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-brand-beige mb-4">
-                English Level
-              </h3>
-              <p className="text-white">
-                Basic English proficiency required. ESL support available for
-                non-native speakers.
-              </p>
-            </div>
-
-            <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
-              <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg
-                  className="w-8 h-8 text-black"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-brand-beige mb-4">
-                Placement Assessment
-              </h3>
-              <p className="text-white">
-                Initial assessment to determine current skill level and create
-                personalized learning plan.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Pathways after GED - New Grid Design */}
-      <section className="bg-dark-blue py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red text-center mb-16">
-            Pathways after GED
-          </h2>
-
-          <div className="text-center mb-12">
-            <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
-              Earning your GED opens doors to numerous educational and career
-              opportunities. Here are some pathways to explore:
+      {/* Why Choose BI Section */}
+      <section className="py-16 md:py-20 lg:py-24 bg-dark-blue">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-white">
+              Why Choose BI?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Discover the advantages that make Bridge International your ideal
+              choice for GED preparation
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {postGEDPathways.map((pathway, index) => (
+            {[
+              {
+                number: "01",
+                title: "ED Visa Support",
+                description:
+                  "Complete visa assistance for international students with 9 months visa support available",
+              },
+              {
+                number: "02",
+                title: "Experienced Qualified Teachers",
+                description:
+                  "Expert instructors with proven track records in GED preparation and student success",
+              },
+              {
+                number: "03",
+                title: "Small Class Sizes",
+                description:
+                  "Personalized attention with limited students per class for optimal learning experience",
+              },
+              {
+                number: "04",
+                title: "University Admission Support",
+                description:
+                  "Comprehensive guidance for university applications to institutions worldwide",
+              },
+              {
+                number: "05",
+                title: "Safe and Supportive International Learning Environment",
+                description:
+                  "Multicultural campus with comprehensive student support and modern facilities",
+              },
+            ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-gray-900 p-8 border-l-4 border-brand-red hover:bg-gray-800 transition-all duration-300 group"
+                className="relative bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
-                <h3 className="text-xl font-bold text-brand-beige mb-4 group-hover:text-white transition-colors">
-                  {pathway.title}
-                </h3>
-                <p className="text-white text-sm leading-relaxed mb-6">
-                  {pathway.description}
-                </p>
+                {/* Number Badge */}
+                <div className="absolute -left-4 top-8 w-16 h-16 bg-red-800 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-yellow-200 font-bold text-xl">
+                    {feature.number}
+                  </span>
+                </div>
 
-                <div className="space-y-2">
-                  {pathway.highlights.map((highlight, idx) => (
-                    <div key={idx} className="flex items-center">
-                      <div className="w-2 h-2 bg-brand-red rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-brand-beige text-sm">
-                        {highlight}
-                      </span>
-                    </div>
-                  ))}
+                {/* Content */}
+                <div className="ml-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-red-800 transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Campus Section - Updated Design */}
+      <section className="w-full bg-slate-900 py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-amber-200 font-lora mb-4 sm:mb-6 md:mb-8 leading-tight">
+              Our Campus
+            </h2>
+          </div>
+
+          <div className="space-y-0">
+            {/* Main Building Section */}
+            <div className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden mb-0">
+              <div className="absolute inset-0 bg-slate-900">
+                {/* Geometric Red Accent Shapes - Top Right - Hidden on mobile */}
+                <div className="absolute inset-0 overflow-hidden hidden md:block">
+                  <div className="absolute top-0 right-0 w-full sm:w-3/4 md:w-2/3 h-2/3">
+                    <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-red-800 to-red-900 transform rotate-6 sm:rotate-12 origin-top-right opacity-90"></div>
+                    <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-3/4 h-3/4 bg-gradient-to-bl from-red-700 to-red-800 transform -rotate-3 sm:-rotate-6 opacity-70"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+                <div className="flex flex-col items-center space-y-6 md:grid md:grid-cols-2 md:gap-8 lg:gap-12 xl:gap-16 md:items-center md:space-y-0">
+                  {/* Title Section - Always first on mobile, right on desktop */}
+                  <div className="text-center md:text-right order-1 md:order-2">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-lora mb-4 sm:mb-6 md:mb-8 leading-tight">
+                      Main Building
+                    </h3>
+                  </div>
+
+                  {/* Images Section - Second on mobile, left on desktop */}
+                  <div className="relative order-2 md:order-1">
+                    {/* Main Image */}
+                    <div className="relative group mb-4 sm:mb-6">
+                      <div className="w-full h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[400px] overflow-hidden shadow-xl border-2 sm:border-4 border-white/20 group-hover:border-brand-beige transition-all duration-300">
+                        <img
+                          src="./building1.jpg"
+                          alt="Main Building"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Three Small Circular Images */}
+                    <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center">
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./building2.jpg"
+                            alt="Building view 2"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./building3.jpg"
+                            alt="Building view 3"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./building4.jpg"
+                            alt="Building view 4"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Library Section */}
+            <div className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden mb-0">
+              <div className="absolute inset-0 bg-slate-900">
+                {/* Geometric Red Accent Shapes - Bottom Left - Hidden on mobile */}
+                <div className="absolute inset-0 overflow-hidden hidden md:block">
+                  <div className="absolute bottom-0 left-0 w-full sm:w-3/4 md:w-2/3 h-2/3">
+                    <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-red-800 to-red-900 transform -rotate-6 sm:-rotate-12 origin-bottom-left opacity-90"></div>
+                    <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-3/4 h-3/4 bg-gradient-to-tr from-red-700 to-red-800 transform rotate-3 sm:rotate-6 opacity-70"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+                <div className="flex flex-col items-center space-y-6 md:grid md:grid-cols-2 md:gap-8 lg:gap-12 xl:gap-16 md:items-center md:space-y-0">
+                  {/* Title Section - Always first on mobile, left on desktop */}
+                  <div className="text-center md:text-left order-1">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-lora mb-4 sm:mb-6 md:mb-8 leading-tight">
+                      Library
+                    </h3>
+                  </div>
+
+                  {/* Images Section - Second on mobile, right on desktop */}
+                  <div className="relative order-2">
+                    {/* Main Image */}
+                    <div className="relative group mb-4 sm:mb-6">
+                      <div className="w-full h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[400px] overflow-hidden shadow-xl border-2 sm:border-4 border-white/20 group-hover:border-brand-beige transition-all duration-300">
+                        <img
+                          src="./library1.jpg"
+                          alt="Library"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Three Small Circular Images */}
+                    <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center">
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./library2.jpg"
+                            alt="Library view 2"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./library3.jpg"
+                            alt="Library view 3"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./library4.jpg"
+                            alt="Library view 4"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Lecture Room Section */}
+            <div className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden mb-0">
+              <div className="absolute inset-0 bg-slate-900">
+                {/* Geometric Red Accent Shapes - Top Right - Hidden on mobile */}
+                <div className="absolute inset-0 overflow-hidden hidden md:block">
+                  <div className="absolute top-0 right-0 w-full sm:w-3/4 md:w-2/3 h-2/3">
+                    <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-red-800 to-red-900 transform rotate-6 sm:rotate-12 origin-top-right opacity-90"></div>
+                    <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-3/4 h-3/4 bg-gradient-to-bl from-red-700 to-red-800 transform -rotate-3 sm:-rotate-6 opacity-70"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+                <div className="flex flex-col items-center space-y-6 md:grid md:grid-cols-2 md:gap-8 lg:gap-12 xl:gap-16 md:items-center md:space-y-0">
+                  {/* Title Section - Always first on mobile, right on desktop */}
+                  <div className="text-center md:text-right order-1 md:order-2">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-lora mb-4 sm:mb-6 md:mb-8 leading-tight">
+                      Lecture Room
+                    </h3>
+                  </div>
+
+                  {/* Images Section - Second on mobile, left on desktop */}
+                  <div className="relative order-2 md:order-1">
+                    {/* Main Image */}
+                    <div className="relative group mb-4 sm:mb-6">
+                      <div className="w-full h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[400px] overflow-hidden shadow-xl border-2 sm:border-4 border-white/20 group-hover:border-brand-beige transition-all duration-300">
+                        <img
+                          src="./class1.jpg"
+                          alt="Lecture Room"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Three Small Circular Images */}
+                    <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center">
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./class2.jpg"
+                            alt="Class view 2"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./class3.jpg"
+                            alt="Class view 3"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./class4.jpg"
+                            alt="Class view 4"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Gymnasium Section */}
+            <div className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden mb-0">
+              <div className="absolute inset-0 bg-slate-900">
+                {/* Geometric Red Accent Shapes - Bottom Left - Hidden on mobile */}
+                <div className="absolute inset-0 overflow-hidden hidden md:block">
+                  <div className="absolute bottom-0 left-0 w-full sm:w-3/4 md:w-2/3 h-2/3">
+                    <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-red-800 to-red-900 transform -rotate-6 sm:-rotate-12 origin-bottom-left opacity-90"></div>
+                    <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-3/4 h-3/4 bg-gradient-to-tr from-red-700 to-red-800 transform rotate-3 sm:rotate-6 opacity-70"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+                <div className="flex flex-col items-center space-y-6 md:grid md:grid-cols-2 md:gap-8 lg:gap-12 xl:gap-16 md:items-center md:space-y-0">
+                  {/* Title Section - Always first on mobile, left on desktop */}
+                  <div className="text-center md:text-left order-1">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white font-lora mb-4 sm:mb-6 md:mb-8 leading-tight">
+                      Gymnasium
+                    </h3>
+                  </div>
+
+                  {/* Images Section - Second on mobile, right on desktop */}
+                  <div className="relative order-2">
+                    {/* Main Image */}
+                    <div className="relative group mb-4 sm:mb-6">
+                      <div className="w-full h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[400px] overflow-hidden shadow-xl border-2 sm:border-4 border-white/20 group-hover:border-brand-beige transition-all duration-300">
+                        <img
+                          src="./gym1.jpg"
+                          alt="Gymnasium"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Three Small Circular Images */}
+                    <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center">
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./gym2.jpg"
+                            alt="Gym view 2"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./gym3.jpg"
+                            alt="Gym view 3"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./gym4.jpg"
+                            alt="Gym view 4"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Accommodation Section */}
+            <div className="relative w-full min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 bg-slate-900">
+                {/* Geometric Red Accent Shapes - Top Right - Hidden on mobile */}
+                <div className="absolute inset-0 overflow-hidden hidden md:block">
+                  <div className="absolute top-0 right-0 w-full sm:w-3/4 md:w-2/3 h-2/3">
+                    <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-red-800 to-red-900 transform rotate-6 sm:rotate-12 origin-top-right opacity-90"></div>
+                    <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-3/4 h-3/4 bg-gradient-to-bl from-red-700 to-red-800 transform -rotate-3 sm:-rotate-6 opacity-70"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+                <div className="flex flex-col items-center space-y-6 md:grid md:grid-cols-2 md:gap-8 lg:gap-12 xl:gap-16 md:items-center md:space-y-0">
+                  {/* Title Section - Always first on mobile, right on desktop */}
+                  <div className="text-center md:text-right order-1 md:order-2">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white font-lora mb-4 sm:mb-6 md:mb-8 leading-tight">
+                      Accommodation
+                    </h3>
+                  </div>
+
+                  {/* Images Section - Second on mobile, left on desktop */}
+                  <div className="relative order-2 md:order-1">
+                    {/* Main Image */}
+                    <div className="relative group mb-4 sm:mb-6">
+                      <div className="w-full h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[400px] overflow-hidden shadow-xl border-2 sm:border-4 border-white/20 group-hover:border-brand-beige transition-all duration-300">
+                        <img
+                          src="./accommodation1.jpg"
+                          alt="Accommodation"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Three Small Circular Images */}
+                    <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center">
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./accommodation2.jpg"
+                            alt="Accommodation view 2"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./accommodation3.jpg"
+                            alt="Accommodation view 3"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="relative group">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden shadow-lg border-2 sm:border-3 border-white/30 group-hover:border-brand-beige transition-all duration-300 group-hover:scale-110">
+                          <img
+                            src="./accommodation4.jpg"
+                            alt="Accommodation view 4"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -398,41 +905,27 @@ const GEDPage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('./graduation.jpg')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
           }}
         >
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-lora mb-8 text-brand-beige">
-            Ready to Start?
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora mb-8 text-brand-beige">
+            Ready to Start Your GED Journey?
           </h2>
           <p className="text-xl md:text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed">
-            Take the first step toward achieving your educational goals. Our
-            comprehensive GED preparation program provides the support,
-            resources, and guidance you need to succeed and unlock new
-            opportunities.
+            Take the first step toward achieving your educational goals. Join
+            Bridge International and unlock your pathway to the world's top
+            universities.
           </p>
 
-          <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl">
+          <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl rounded-lg">
             ENROLL NOW
           </button>
         </div>
       </section>
-
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 };
