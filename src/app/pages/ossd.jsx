@@ -1,9 +1,20 @@
-"use client";
+"use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react"
 
 const OssdPage = () => {
-  const [activePathway, setActivePathway] = useState("engineering");
+  const [isLoading, setIsLoading] = useState(true)
+  const [activePathway, setActivePathway] = useState("engineering")
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 6000)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const pathwayData = {
     engineering: {
@@ -66,15 +77,119 @@ const OssdPage = () => {
         { code: "SCH4U", name: "Chemistry - Grade 12 (University)" },
       ],
     },
-  };
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-dark-blue text-white font-manrope">
+        {/* Hero Banner Skeleton */}
+        <section className="relative h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-end justify-start overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 animate-pulse">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+            <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-brand-red/20 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-1/4 left-1/3 w-32 h-32 bg-brand-beige/20 rounded-full animate-pulse"></div>
+          </div>
+
+          <div className="relative z-10 px-4 sm:px-6 md:px-8 mb-4 sm:mb-6 md:mb-10 ml-2 sm:ml-6 md:ml-12 max-w-full sm:max-w-3xl">
+            <div className="h-16 sm:h-20 md:h-24 lg:h-28 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg mb-3 sm:mb-4 animate-pulse"></div>
+            <div className="space-y-3">
+              <div className="h-4 sm:h-5 md:h-6 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg animate-pulse"></div>
+              <div className="h-4 sm:h-5 md:h-6 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg w-5/6 animate-pulse"></div>
+              <div className="h-4 sm:h-5 md:h-6 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg w-4/5 animate-pulse"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Full Width Image Skeleton */}
+        <section className="relative h-[400px] sm:h-[500px] md:h-[660px] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse">
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-red/90 via-brand-red/60 to-transparent"></div>
+          </div>
+          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg
+              className="block w-full h-13 sm:h-16 md:h-18"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              viewBox="0 0 1200 120"
+            >
+              <path d="M0,0 C250,100 950,-50 1200,60 L1200,120 L0,120 Z" fill="#82062c" />
+            </svg>
+          </div>
+        </section>
+
+        {/* Content Sections Skeleton */}
+        {[1, 2, 3].map((section) => (
+          <section key={section} className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-dark-blue">
+            <div className="max-w-7xl mx-auto">
+              <div className="h-12 sm:h-16 md:h-20 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg mb-12 md:mb-20 mx-auto w-1/2 animate-pulse"></div>
+              <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div className="space-y-6 md:space-y-8">
+                  <div className="space-y-4">
+                    <div className="h-6 md:h-8 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg animate-pulse"></div>
+                    <div className="h-6 md:h-8 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg w-5/6 animate-pulse"></div>
+                    <div className="h-6 md:h-8 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg w-4/5 animate-pulse"></div>
+                  </div>
+                  <div className="bg-gradient-to-r from-black to-gray-900 p-6 md:p-8 border-l-4 border-brand-red">
+                    <div className="h-8 md:h-10 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg mb-4 md:mb-6 animate-pulse"></div>
+                    <div className="space-y-3 md:space-y-4">
+                      {[1, 2, 3].map((item) => (
+                        <div key={item} className="flex items-center">
+                          <div className="w-3 h-3 bg-brand-red rounded-full mr-4 animate-pulse"></div>
+                          <div className="h-5 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg flex-1 animate-pulse"></div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-center mt-8 lg:mt-0">
+                  <div className="bg-white p-4 sm:p-6 md:p-8 shadow-2xl max-w-sm w-full">
+                    <div className="h-32 bg-gradient-to-r from-gray-300 to-gray-200 rounded-lg animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        ))}
+
+        {/* Programs Section Skeleton */}
+        <section className="relative py-20 md:py-32 px-4 sm:px-6 md:px-8 bg-dark-blue overflow-hidden">
+          <div className="relative max-w-7xl mx-auto">
+            <div className="text-center mb-20">
+              <div className="h-16 md:h-20 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg mb-6 mx-auto w-1/2 animate-pulse"></div>
+              <div className="h-6 md:h-8 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg mx-auto w-3/4 animate-pulse"></div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6 mb-20">
+              {[1, 2, 3].map((btn) => (
+                <div
+                  key={btn}
+                  className="h-16 w-48 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg animate-pulse"
+                ></div>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+              {[1, 2, 3, 4, 5, 6].map((item) => (
+                <div key={item} className="bg-gray-900 backdrop-blur-sm border-l-4 border-brand-red p-6">
+                  <div className="flex flex-col gap-4 mb-4">
+                    <div className="flex items-center justify-between">
+                      <div className="h-10 w-20 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg animate-pulse"></div>
+                      <div className="h-6 w-16 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg animate-pulse"></div>
+                    </div>
+                    <div className="h-4 w-32 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg animate-pulse"></div>
+                  </div>
+                  <div className="h-6 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg animate-pulse"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-dark-blue text-white font-manrope">
       <section className="relative h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-end justify-start overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(./ossd.jpg)" }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(./ossd.jpg)" }}>
           {/* Subtle bottom gradient for readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
         </div>
@@ -85,30 +200,16 @@ const OssdPage = () => {
             What is <span className="text-brand-red">OSSD</span>?
           </h1>
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed mb-2 sm:mb-3">
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              O
-            </span>
-            ntario{" "}
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              S
-            </span>
-            econdary{" "}
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              S
-            </span>
-            chool{" "}
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              D
-            </span>
-            iploma (OSSD) is a diploma granted to secondary school graduates by
-            the Canadian province of Ontario.
+            <span className="text-brand-red font-bold text-lg sm:text-xl">O</span>
+            ntario <span className="text-brand-red font-bold text-lg sm:text-xl">S</span>
+            econdary <span className="text-brand-red font-bold text-lg sm:text-xl">S</span>
+            chool <span className="text-brand-red font-bold text-lg sm:text-xl">D</span>
+            iploma (OSSD) is a diploma granted to secondary school graduates by the Canadian province of Ontario.
           </p>
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed">
             OSSD is recognized by most universities in{" "}
-            <span className="text-brand-red font-semibold">
-              USA, Canada, UK, Hong Kong, Australia
-            </span>{" "}
-            and other English-speaking countries.
+            <span className="text-brand-red font-semibold">USA, Canada, UK, Hong Kong, Australia</span> and other
+            English-speaking countries.
           </p>
         </div>
       </section>
@@ -131,10 +232,7 @@ const OssdPage = () => {
             preserveAspectRatio="none"
             viewBox="0 0 1200 120"
           >
-            <path
-              d="M0,0 C250,100 950,-50 1200,60 L1200,120 L0,120 Z"
-              fill="#82062c"
-            />
+            <path d="M0,0 C250,100 950,-50 1200,60 L1200,120 L0,120 Z" fill="#82062c" />
           </svg>
         </div>
       </section>
@@ -148,25 +246,14 @@ const OssdPage = () => {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="space-y-6 md:space-y-8">
               <p className="text-lg md:text-xl leading-relaxed text-gray-200">
-                <span className="text-brand-red font-semibold text-xl md:text-2xl">
-                  Rosedale Global High School
-                </span>
-                , is operated under
-                <span className="text-brand-beige font-semibold">
-                  {" "}
-                  Rosedale International Education Inc
-                </span>
-                . The school is dedicated to building strong partnerships with
-                top secondary schools around the world to provide students with
-                access to{" "}
-                <span className="text-brand-red font-semibold">
-                  differentiated education
-                </span>{" "}
-                with an emphasis on{" "}
-                <span className="text-brand-beige font-semibold">
-                  higher order thinking skills
-                </span>
-                , while studying in their local school's classroom.
+                <span className="text-brand-red font-semibold text-xl md:text-2xl">Rosedale Global High School</span>,
+                is operated under
+                <span className="text-brand-beige font-semibold"> Rosedale International Education Inc</span>. The
+                school is dedicated to building strong partnerships with top secondary schools around the world to
+                provide students with access to{" "}
+                <span className="text-brand-red font-semibold">differentiated education</span> with an emphasis on{" "}
+                <span className="text-brand-beige font-semibold">higher order thinking skills</span>, while studying in
+                their local school's classroom.
               </p>
 
               <div className="bg-gradient-to-r from-black to-gray-900 p-6 md:p-8 border-l-4 border-brand-red shadow-xl">
@@ -189,8 +276,7 @@ const OssdPage = () => {
                   <li className="flex items-center group">
                     <div className="w-3 h-3 bg-brand-red rounded-full mr-4 group-hover:scale-125 transition-transform duration-300 flex-shrink-0"></div>
                     <span className="text-brand-red font-semibold group-hover:text-brand-beige transition-colors duration-300">
-                      Partners with NUS, University of Toronto, HKU, University
-                      of Waterloo
+                      Partners with NUS, University of Toronto, HKU, University of Waterloo
                     </span>
                   </li>
                 </ul>
@@ -271,9 +357,8 @@ const OssdPage = () => {
               </h2>
             </div>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mt-12 leading-relaxed font-light">
-              Depending on the student's background education record and the
-              pathway they are interested in pursuing at the university,
-              students can choose from the following specialized programmes.
+              Depending on the student's background education record and the pathway they are interested in pursuing at
+              the university, students can choose from the following specialized programmes.
             </p>
           </div>
 
@@ -284,9 +369,7 @@ const OssdPage = () => {
                 key={key}
                 onClick={() => setActivePathway(key)}
                 className={`group relative px-10 py-6 font-bold text-xl transition-all duration-500 overflow-hidden ${
-                  activePathway === key
-                    ? "text-white"
-                    : "text-brand-beige hover:text-white"
+                  activePathway === key ? "text-white" : "text-brand-beige hover:text-white"
                 }`}
               >
                 {/* Button background */}
@@ -345,9 +428,7 @@ const OssdPage = () => {
                     </div>
 
                     {/* University level badge */}
-                    <div className="text-brand-beige/80 text-xs font-medium">
-                      University Level Course
-                    </div>
+                    <div className="text-brand-beige/80 text-xs font-medium">University Level Course</div>
                   </div>
 
                   {/* Course name */}
@@ -364,8 +445,7 @@ const OssdPage = () => {
             {/* Call to action */}
             <div className="text-center mt-16 pt-12 border-t border-gray-700">
               <p className="text-gray-300 text-lg mb-8 font-light">
-                Ready to begin your academic journey with{" "}
-                {pathwayData[activePathway].title}?
+                Ready to begin your academic journey with {pathwayData[activePathway].title}?
               </p>
               <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:shadow-xl hover:shadow-brand-red/30 border border-brand-red hover:border-red-700">
                 Learn More About This Pathway
@@ -422,7 +502,7 @@ const OssdPage = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13m0-13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                   />
                 </svg>
               </div>
@@ -499,17 +579,15 @@ const OssdPage = () => {
                       Global Recognition
                     </h3>
                     <p className="text-white text-base md:text-lg leading-relaxed">
-                      Accepted by top universities worldwide including Ivy
-                      League institutions
+                      Accepted by top universities worldwide including Ivy League institutions
                     </p>
                   </div>
-                  <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-brand-beige transition-all duration-500 transform hover:translate-x-2 group">
+                  <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-brand-red transition-all duration-500 transform hover:translate-x-2 group">
                     <h3 className="text-xl md:text-2xl font-bold text-brand-beige mb-3 md:mb-4 group-hover:text-brand-red transition-colors duration-300">
                       Flexible Learning
                     </h3>
                     <p className="text-white text-base md:text-lg leading-relaxed">
-                      Study in your local environment while earning a Canadian
-                      diploma
+                      Study in your local environment while earning a Canadian diploma
                     </p>
                   </div>
                   <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-white transition-all duration-500 transform hover:translate-x-2 group">
@@ -517,8 +595,7 @@ const OssdPage = () => {
                       University Preparation
                     </h3>
                     <p className="text-white text-base md:text-lg leading-relaxed">
-                      Comprehensive curriculum designed for higher education
-                      success
+                      Comprehensive curriculum designed for higher education success
                     </p>
                   </div>
                 </div>
@@ -543,9 +620,8 @@ const OssdPage = () => {
             Ready to Apply?
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 md:mb-12 leading-relaxed font-light">
-            Join a community where your success is our priority. We offer
-            personalized learning, state-of-the-art facilities, and a supportive
-            environment that nurtures every student's potential.
+            Join a community where your success is our priority. We offer personalized learning, state-of-the-art
+            facilities, and a supportive environment that nurtures every student's potential.
           </p>
           <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 md:py-6 md:px-16 text-lg sm:text-xl md:text-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-red/30 border-2 border-brand-red hover:border-red-700">
             APPLY NOW
@@ -575,7 +651,7 @@ const OssdPage = () => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default OssdPage;
+export default OssdPage
