@@ -999,6 +999,183 @@ export default function HomePage() {
             </div>
           </section>
 
+          {/* Activities Section */}
+          <section className="py-16 md:py-24 bg-dark-blue relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0">
+              <div className="absolute top-20 left-10 w-32 h-32 bg-brand-red/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 right-10 w-40 h-40 bg-brand-beige/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-1/2 left-1/4 w-2 h-20 bg-brand-red/20 rotate-45 rounded-full"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-16 h-2 bg-brand-beige/20 rounded-full"></div>
+            </div>
+
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="text-left mb-12 md:mb-16">
+                <div className="mb-6">
+                  <span className="text-brand-red text-sm md:text-base font-manrope font-semibold tracking-wider uppercase mb-2 block">
+                    Student Experience
+                  </span>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-lora font-bold text-white mb-4 bg-gradient-to-r from-white via-brand-red to-brand-beige bg-clip-text text-transparent">
+                    Beyond the Classroom
+                  </h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-brand-red to-brand-beige rounded-full"></div>
+                </div>
+
+                <div className="max-w-5xl space-y-6">
+                  <div className="relative">
+                    <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
+                      At{" "}
+                      <span className="text-brand-red font-semibold">
+                        Bridge International
+                      </span>
+                      , education extends far beyond textbooks and lectures. Our
+                      comprehensive activities program is designed to develop{" "}
+                      <span className="text-brand-beige font-medium">
+                        well-rounded individuals
+                      </span>{" "}
+                      who are prepared for success in both academic and personal
+                      endeavors.
+                    </p>
+                  </div>
+                  <div className="relative">
+                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+                      From{" "}
+                      <span className="text-brand-red font-medium">
+                        cultural celebrations
+                      </span>{" "}
+                      and{" "}
+                      <span className="text-brand-red font-medium">
+                        sports competitions
+                      </span>{" "}
+                      to academic clubs and community service projects, our
+                      students engage in{" "}
+                      <span className="text-brand-beige font-medium">
+                        meaningful experiences
+                      </span>{" "}
+                      that build character, leadership skills, and lifelong
+                      friendships.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12 md:mt-16">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl md:text-3xl font-lora font-semibold text-white mb-2">
+                    Campus Life in{" "}
+                    <span className="text-brand-red">Motion</span>
+                  </h3>
+                  <p className="text-gray-400 text-sm md:text-base">
+                    Experience our{" "}
+                    <span className="text-brand-red font-medium">
+                      vibrant community
+                    </span>{" "}
+                    through these exclusive glimpses
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
+                  {/* Video 1 */}
+                  <div className="group relative">
+                    <div className="relative">
+                      <div className="relative aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-2 border-white/10 hover:border-brand-red/60 transition-all duration-700 shadow-2xl hover:shadow-brand-red/20">
+                        <iframe
+                          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                          title="Student Life at Bridge International"
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+                        <div className="absolute top-4 right-4 w-3 h-3 bg-brand-red rounded-full opacity-80 animate-pulse"></div>
+                      </div>
+
+                      {/* Enhanced video description */}
+                      <div className="mt-6 text-center">
+                        <h4 className="text-xl md:text-2xl font-lora font-bold text-white mb-3 group-hover:text-brand-red transition-colors duration-300">
+                          Student Life &{" "}
+                          <span className="text-brand-red">Activities</span>
+                        </h4>
+                        <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                          Discover the energy and passion that drives our campus
+                          community every day
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Video 2 */}
+                  <div className="group relative">
+                    <div className="relative">
+                      <div className="relative aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-2 border-white/10 hover:border-brand-red/60 transition-all duration-700 shadow-2xl hover:shadow-brand-red/20">
+                        <iframe
+                          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                          title="Academic Excellence at Bridge International"
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+                        <div className="absolute top-4 right-4 w-3 h-3 bg-brand-red rounded-full opacity-80 animate-pulse"></div>
+                      </div>
+
+                      {/* Enhanced video description */}
+                      <div className="mt-6 text-center">
+                        <h4 className="text-xl md:text-2xl font-lora font-bold text-white mb-3 group-hover:text-brand-red transition-colors duration-300">
+                          Academic{" "}
+                          <span className="text-brand-red">Excellence</span>
+                        </h4>
+                        <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                          Experience our innovative learning environment and
+                          academic achievements
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Activity Gallery - keeping existing design */}
+              <div className="mt-16 md:mt-20">
+                <div className="text-center mb-12">
+                  <h3 className="text-3xl md:text-4xl font-lora font-bold text-brand-red mb-4">
+                    Activity Galleries
+                  </h3>
+                  <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Explore the vibrant moments that showcase our dynamic
+                    student community and diverse campus experiences
+                  </p>
+                </div>
+
+                {/* Photo Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+                  {[1, 2, 3, 4, 5, 6].map((num) => (
+                    <div
+                      key={num}
+                      className="group relative aspect-square overflow-hidden rounded-2xl bg-gray-800/50 border border-white/10 hover:border-brand-beige/50 transition-all duration-500"
+                    >
+                      <img
+                        src={`/act${num}.jpg`}
+                        alt={`Student Activity ${num}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                        <div className="text-white">
+                          <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center mb-2">
+                            <div className="w-4 h-4 bg-white rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section
             className="w-full bg-cover bg-center bg-no-repeat relative"
             style={{ backgroundImage: "url('./shirt.jpg')" }}
