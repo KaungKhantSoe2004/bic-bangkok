@@ -1,20 +1,21 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const IGCSEPage = () => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [activePathway, setActivePathway] = useState("Business & Economics")
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [activePathway, setActivePathway] = useState("Business & Economics");
+  const navigate = useNavigate();
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
 
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 6000)
+    // const timer = setTimeout(() => {
+    //   setIsLoading(false);
+    // }, 6000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    // return () => clearTimeout(timer);
+  }, []);
 
   const pathways = {
     "Business & Economics": [
@@ -53,32 +54,48 @@ const IGCSEPage = () => {
       "ICT or Computer Science",
       "Business",
     ],
-  }
+  };
 
   const postIGCSEPathways = [
     {
       title: "A-Levels",
       description:
         "A-Levels are subject-based qualifications typically pursued over two years. They offer in-depth study in specific subjects, allowing students to specialize in areas aligned with their career aspirations.",
-      highlights: ["2-year program", "Subject specialization", "University preparation"],
+      highlights: [
+        "2-year program",
+        "Subject specialization",
+        "University preparation",
+      ],
     },
     {
       title: "Ontario Secondary School Diploma",
       description:
         "The OSSD provides a comprehensive pathway to North American universities, offering flexibility and global recognition.",
-      highlights: ["North American pathway", "Flexible curriculum", "Global recognition"],
+      highlights: [
+        "North American pathway",
+        "Flexible curriculum",
+        "Global recognition",
+      ],
     },
     {
       title: "IB Diploma Programme",
       description:
         "The International Baccalaureate Diploma Programme is a rigorous, internationally recognized qualification that develops comprehensive skills.",
-      highlights: ["Rigorous curriculum", "International recognition", "Holistic development"],
+      highlights: [
+        "Rigorous curriculum",
+        "International recognition",
+        "Holistic development",
+      ],
     },
     {
       title: "International Foundation Year",
       description:
         "Foundation programs bridge the gap between secondary education and university study, providing intensive preparation for undergraduate degrees.",
-      highlights: ["University bridge", "Intensive preparation", "Academic adaptation"],
+      highlights: [
+        "University bridge",
+        "Intensive preparation",
+        "Academic adaptation",
+      ],
     },
     {
       title: "US University System",
@@ -86,7 +103,7 @@ const IGCSEPage = () => {
         "Students who complete the IGCSE program are well-equipped with the academic foundation to pursue direct admission into US universities.",
       highlights: ["Direct admission", "Strong foundation", "US pathway"],
     },
-  ]
+  ];
 
   if (isLoading) {
     return (
@@ -163,7 +180,10 @@ const IGCSEPage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div key={item} className="bg-black/30 backdrop-blur-sm p-6 border border-brand-beige/20">
+                <div
+                  key={item}
+                  className="bg-black/30 backdrop-blur-sm p-6 border border-brand-beige/20"
+                >
                   <div className="flex items-center space-x-3">
                     <div className="w-3 h-3 bg-brand-red rounded-full animate-pulse"></div>
                     <div className="h-6 bg-gradient-to-r from-gray-700 to-gray-600 rounded-lg flex-1 animate-pulse"></div>
@@ -174,7 +194,7 @@ const IGCSEPage = () => {
           </div>
         </section>
       </div>
-    )
+    );
   }
 
   return (
@@ -197,9 +217,10 @@ const IGCSEPage = () => {
                 IGCSE
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
-                IGCSE is an internationally recognized qualification for students aged 14 to 16. Offered by the leading
-                examination board Pearson Edexcel, it provides a robust academic framework that prepares students for
-                advanced studies and global opportunities.
+                IGCSE is an internationally recognized qualification for
+                students aged 14 to 16. Offered by the leading examination board
+                Pearson Edexcel, it provides a robust academic framework that
+                prepares students for advanced studies and global opportunities.
               </p>
             </div>
           </div>
@@ -244,13 +265,15 @@ const IGCSEPage = () => {
               Our IGCSE Programme
             </h2>
             <p className="text-lg md:text-xl text-white leading-relaxed mb-6">
-              IGCSE is widely recognized by universities and employers worldwide, including top universities in the UK,
-              US, Canada, Australia, and Europe. The IGCSE program allows students to select subjects according to their
-              interests and future study goals.
+              IGCSE is widely recognized by universities and employers
+              worldwide, including top universities in the UK, US, Canada,
+              Australia, and Europe. The IGCSE program allows students to select
+              subjects according to their interests and future study goals.
             </p>
             <p className="text-lg md:text-xl text-white leading-relaxed">
-              There is no core set of required subjects, which means students can tailor their learning experience to
-              align with their academic strengths and career aspirations.
+              There is no core set of required subjects, which means students
+              can tailor their learning experience to align with their academic
+              strengths and career aspirations.
             </p>
           </div>
         </div>
@@ -260,14 +283,18 @@ const IGCSEPage = () => {
       <section className="relative min-h-screen flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 bg-gray-900 flex items-center order-2 lg:order-1">
           <div className="p-8 md:p-12 lg:p-16 xl:p-20">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-brand-red">Pathways</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-8 text-brand-red">
+              Pathways
+            </h2>
             <p className="text-lg md:text-xl text-white leading-relaxed mb-6">
-              IGCSE is a common pathway for students aiming to continue with A Levels, the International Baccalaureate
-              (IB), or other pre-university qualifications.
+              IGCSE is a common pathway for students aiming to continue with A
+              Levels, the International Baccalaureate (IB), or other
+              pre-university qualifications.
             </p>
             <p className="text-lg md:text-xl text-white leading-relaxed">
-              IGCSE provides an excellent foundation for A Levels, especially in subjects like Mathematics and Sciences,
-              where a solid understanding of key concepts is crucial for further study.
+              IGCSE provides an excellent foundation for A Levels, especially in
+              subjects like Mathematics and Sciences, where a solid
+              understanding of key concepts is crucial for further study.
             </p>
           </div>
         </div>
@@ -292,11 +319,13 @@ const IGCSEPage = () => {
           </h2>
           <div className="max-w-4xl mx-auto">
             <p className="text-lg md:text-xl text-white leading-relaxed">
-              At BIC, the IGCSE program is a vital stage in a student's journey, laying the groundwork for academic and
-              personal excellence. With a curriculum that balances essential subjects such as Mathematics, Science, and
-              Humanities, we provide a comprehensive learning experience. Our focus on critical thinking,
-              problem-solving, and global awareness ensures students are equipped to excel in advanced studies and
-              thrive in an ever-evolving world.
+              At BI, the IGCSE program is a vital stage in a student's journey,
+              laying the groundwork for academic and personal excellence. With a
+              curriculum that balances essential subjects such as Mathematics,
+              Science, and Humanities, we provide a comprehensive learning
+              experience. Our focus on critical thinking, problem-solving, and
+              global awareness ensures students are equipped to excel in
+              advanced studies and thrive in an ever-evolving world.
             </p>
           </div>
         </div>
@@ -310,7 +339,8 @@ const IGCSEPage = () => {
               IGCSE Pathways
             </h2>
             <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
-              Guided by our expert team, you'll choose subjects that align with your interests and career goals.
+              Guided by our expert team, you'll choose subjects that align with
+              your interests and career goals.
             </p>
           </div>
 
@@ -344,7 +374,9 @@ const IGCSEPage = () => {
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-brand-red rounded-full"></div>
-                  <h3 className="text-lg font-semibold text-white">{subject}</h3>
+                  <h3 className="text-lg font-semibold text-white">
+                    {subject}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -362,17 +394,32 @@ const IGCSEPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
               <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                <svg
+                  className="w-8 h-8 text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-brand-beige mb-4">Age</h3>
-              <p className="text-white">Applicants must be at least 15 years old to be eligible for enrollment.</p>
+              <p className="text-white">
+                Applicants must be at least 15 years old to be eligible for
+                enrollment.
+              </p>
             </div>
 
             <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
               <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="w-8 h-8 text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
@@ -380,13 +427,22 @@ const IGCSEPage = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-brand-beige mb-4">English Level</h3>
-              <p className="text-white">Academic International English Language Testing System (IELTS) 5.5.</p>
+              <h3 className="text-xl font-bold text-brand-beige mb-4">
+                English Level
+              </h3>
+              <p className="text-white">
+                Academic International English Language Testing System (IELTS)
+                5.5.
+              </p>
             </div>
 
             <div className="text-center p-8 bg-dark-blue border border-brand-beige/20">
               <div className="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="w-8 h-8 text-black"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
@@ -394,9 +450,12 @@ const IGCSEPage = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-brand-beige mb-4">Entry Assessment</h3>
+              <h3 className="text-xl font-bold text-brand-beige mb-4">
+                Entry Assessment
+              </h3>
               <p className="text-white">
-                You'll be asked to sit admissions tests in your chosen subjects, as well as an online aptitude test.
+                You'll be asked to sit admissions tests in your chosen subjects,
+                as well as an online aptitude test.
               </p>
             </div>
           </div>
@@ -412,7 +471,8 @@ const IGCSEPage = () => {
 
           <div className="text-center mb-12">
             <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
-              Completing the IGCSE unlocks a range of educational opportunities. Here are some pathways to explore:
+              Completing the IGCSE unlocks a range of educational opportunities.
+              Here are some pathways to explore:
             </p>
           </div>
 
@@ -425,13 +485,17 @@ const IGCSEPage = () => {
                 <h3 className="text-xl font-bold text-brand-beige mb-4 group-hover:text-white transition-colors">
                   {pathway.title}
                 </h3>
-                <p className="text-white text-sm leading-relaxed mb-6">{pathway.description}</p>
+                <p className="text-white text-sm leading-relaxed mb-6">
+                  {pathway.description}
+                </p>
 
                 <div className="space-y-2">
                   {pathway.highlights.map((highlight, idx) => (
                     <div key={idx} className="flex items-center">
                       <div className="w-2 h-2 bg-brand-red rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-brand-beige text-sm">{highlight}</span>
+                      <span className="text-brand-beige text-sm">
+                        {highlight}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -457,12 +521,18 @@ const IGCSEPage = () => {
             Ready to Apply?
           </h2>
           <p className="text-xl md:text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed">
-            Become part of a community where your success drives everything we do. With tailored learning experiences,
-            world-class facilities, and an environment designed to inspire, we empower every student to reach their full
-            potential.
+            Become part of a community where your success drives everything we
+            do. With tailored learning experiences, world-class facilities, and
+            an environment designed to inspire, we empower every student to
+            reach their full potential.
           </p>
 
-          <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl">
+          <button
+            onClick={() => {
+              navigate("/enquire");
+            }}
+            className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
             APPLY NOW
           </button>
         </div>
@@ -481,7 +551,7 @@ const IGCSEPage = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default IGCSEPage
+export default IGCSEPage;

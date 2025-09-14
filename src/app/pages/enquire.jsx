@@ -1,64 +1,58 @@
-"use client"
+"use client";
 
-import { Link } from "react-router-dom"
-import emailjs from "@emailjs/browser"
-import { useRef, useState, useEffect } from "react"
+import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import { useRef, useState, useEffect } from "react";
 
 export default function ContactPage() {
-  const form = useRef()
-  const [isLoading, setIsLoading] = useState(false)
-  const [isMailed, setIsMailed] = useState(false)
-  const [errorMessage, setErrorMessage] = useState("")
-  const [loading, setLoading] = useState(true)
+  const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMailed, setIsMailed] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 6000)
-
-    return () => clearTimeout(timer)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (isMailed || errorMessage) {
       const timer = setTimeout(() => {
-        setIsMailed(false)
-        setErrorMessage("")
-      }, 4000)
+        setIsMailed(false);
+        setErrorMessage("");
+      }, 4000);
 
-      return () => clearTimeout(timer)
+      return () => clearTimeout(timer);
     }
-  }, [isMailed, errorMessage])
+  }, [isMailed, errorMessage]);
 
   const submit = (e) => {
-    e.preventDefault() // prevent page reload
-    setIsLoading(true)
-    setIsMailed(false)
-    setErrorMessage("")
+    e.preventDefault(); // prevent page reload
+    setIsLoading(true);
+    setIsMailed(false);
+    setErrorMessage("");
 
     emailjs
       .sendForm(
         "service_q4hkje2", // your service ID
         "template_cb400bp", // your template ID
         form.current,
-        "taWHxGleX6BjcDvid", // your public key
+        "taWHxGleX6BjcDvid" // your public key
       )
       .then(
         (result) => {
-          console.log(result.text)
-          setIsMailed(true)
-          setIsLoading(false)
-          form.current.reset()
+          console.log(result.text);
+          setIsMailed(true);
+          setIsLoading(false);
+          form.current.reset();
         },
         (error) => {
-          console.log(error.text)
-          setErrorMessage("❌ Failed to send message. Please try again.")
-          setIsLoading(false)
-        },
-      )
-  }
+          console.log(error.text);
+          setErrorMessage("❌ Failed to send message. Please try again.");
+          setIsLoading(false);
+        }
+      );
+  };
 
   if (loading) {
     return (
@@ -80,8 +74,14 @@ export default function ContactPage() {
             {/* Decorative animated dots */}
             <div className="flex justify-center space-x-2 mt-8">
               <div className="w-3 h-3 bg-brand-red rounded-full animate-pulse"></div>
-              <div className="w-3 h-3 bg-brand-red rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
-              <div className="w-3 h-3 bg-brand-red rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
+              <div
+                className="w-3 h-3 bg-brand-red rounded-full animate-pulse"
+                style={{ animationDelay: "0.2s" }}
+              ></div>
+              <div
+                className="w-3 h-3 bg-brand-red rounded-full animate-pulse"
+                style={{ animationDelay: "0.4s" }}
+              ></div>
             </div>
           </div>
         </section>
@@ -138,7 +138,10 @@ export default function ContactPage() {
               </div>
               <div className="space-y-6">
                 {[1, 2].map((i) => (
-                  <div key={i} className="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+                  <div
+                    key={i}
+                    className="bg-gray-800 rounded-2xl p-6 border border-gray-700"
+                  >
                     <div className="flex items-center space-x-3 mb-4">
                       <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full animate-pulse"></div>
                       <div className="h-6 bg-gray-600 rounded animate-pulse flex-1"></div>
@@ -196,7 +199,7 @@ export default function ContactPage() {
           </div>
         </section>
       </div>
-    )
+    );
   }
 
   return (
@@ -217,8 +220,9 @@ export default function ContactPage() {
           </h1>
           <div className="max-w-4xl mx-auto">
             <p className="text-base sm:text-lg md:text-2xl text-gray-200 leading-relaxed font-light font-manrope">
-              We're here to answer your questions and help you take the next step in your educational journey. Contact
-              us today to learn more about Bridge International School.
+              We're here to answer your questions and help you take the next
+              step in your educational journey. Contact us today to learn more
+              about Bridge International School.
             </p>
           </div>
           <div className="w-16 md:w-24 h-1 bg-brand-red mx-auto"></div>
@@ -242,7 +246,10 @@ export default function ContactPage() {
               preserveAspectRatio="none"
               viewBox="0 0 1200 120"
             >
-              <path d="M0,0 C300,30 900,30 1200,0 L1200,120 L0,120 Z" fill="#82062c" />
+              <path
+                d="M0,0 C300,30 900,30 1200,0 L1200,120 L0,120 Z"
+                fill="#82062c"
+              />
             </svg>
           </div>
         </div>
@@ -258,7 +265,8 @@ export default function ContactPage() {
               Get In <span className="text-brand-red">Touch</span>
             </h2>
             <p className="text-lg md:text-xl text-brand-beige max-w-3xl mx-auto leading-relaxed font-manrope">
-              We'd love to hear from you. Reach out through any of these channels.
+              We'd love to hear from you. Reach out through any of these
+              channels.
             </p>
           </div>
 
@@ -331,11 +339,16 @@ export default function ContactPage() {
                   Call Us
                 </h3>
                 <p className="text-brand-beige font-manrope text-md">
-                  <a href="tel:+66980904960" className="hover:text-brand-red transition-colors duration-300 block py-2">
+                  <a
+                    href="tel:+66980904960"
+                    className="hover:text-brand-red transition-colors duration-300 block py-2"
+                  >
                     +66 98 090 4960
                   </a>
                 </p>
-                <p className="text-gray-400 text-sm mt-2 font-manrope">Mon-Fri, 8:00 AM - 4:30 PM</p>
+                <p className="text-gray-400 text-sm mt-2 font-manrope">
+                  Mon-Fri, 8:00 AM - 4:30 PM
+                </p>
               </div>
             </div>
 
@@ -371,15 +384,21 @@ export default function ContactPage() {
                     admin@bic-bangkok.com
                   </a>
                 </p>
-                <p className="text-gray-400 text-sm mt-2 font-manrope">We respond within 24 hours</p>
+                <p className="text-gray-400 text-sm mt-2 font-manrope">
+                  We respond within 24 hours
+                </p>
               </div>
             </div>
           </div>
 
           {/* Additional Information */}
           <div className="text-center mt-16 pt-8">
-            <p className="text-gray-400 font-manrope">Follow us on social media for updates and news</p>
-            <div className="flex justify-center space-x-5 mt-4">{/* Social media icons would go here */}</div>
+            <p className="text-gray-400 font-manrope">
+              Follow us on social media for updates and news
+            </p>
+            <div className="flex justify-center space-x-5 mt-4">
+              {/* Social media icons would go here */}
+            </div>
           </div>
         </div>
       </section>
@@ -396,7 +415,12 @@ export default function ContactPage() {
           {/* Header */}
           <div className="text-center mb-12 md:mb-20 space-y-4 md:space-y-6">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-800 rounded-full mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -415,7 +439,8 @@ export default function ContactPage() {
               Find <span className="text-brand-red">Us</span>
             </h2>
             <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-manrope">
-              Located in the vibrant heart of Bangkok, our modern campus awaits your visit
+              Located in the vibrant heart of Bangkok, our modern campus awaits
+              your visit
             </p>
           </div>
 
@@ -441,14 +466,28 @@ export default function ContactPage() {
                   <div className="flex items-center space-x-3">
                     <div className="flex-shrink-0">
                       <div className="w-8 h-8 bg-gradient-to-r from-brand-red to-red-600 rounded-full flex items-center justify-center">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        <svg
+                          className="w-5 h-5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                       </div>
                     </div>
                     <div>
-                      <h3 className="font-bold text-white font-lora text-sm md:text-base">Wannasorn Building</h3>
-                      <p className="text-xs text-gray-300 font-manrope">7th Floor, Phaya Thai Road</p>
+                      <h3 className="font-bold text-white font-lora text-sm md:text-base">
+                        Wannasorn Building
+                      </h3>
+                      <p className="text-xs text-gray-300 font-manrope">
+                        7th Floor, Phaya Thai Road
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -460,7 +499,12 @@ export default function ContactPage() {
               <div className="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -469,16 +513,22 @@ export default function ContactPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-white font-lora">Office Hours</h3>
+                  <h3 className="font-bold text-white font-lora">
+                    Office Hours
+                  </h3>
                 </div>
                 <div className="space-y-2 text-sm text-gray-300 font-manrope">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
-                    <span className="font-semibold text-white">8:00 AM - 5:00 PM</span>
+                    <span className="font-semibold text-white">
+                      8:00 AM - 5:00 PM
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday</span>
-                    <span className="font-semibold text-white">9:00 AM - 3:00 PM</span>
+                    <span className="font-semibold text-white">
+                      9:00 AM - 3:00 PM
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sunday</span>
@@ -490,7 +540,12 @@ export default function ContactPage() {
               <div className="bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -499,7 +554,9 @@ export default function ContactPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-white font-lora">Getting Here</h3>
+                  <h3 className="font-bold text-white font-lora">
+                    Getting Here
+                  </h3>
                 </div>
                 <div className="space-y-3 text-sm text-gray-300 font-manrope">
                   <div className="flex items-center space-x-2">
@@ -545,8 +602,9 @@ export default function ContactPage() {
               </h2>
             </div>
             <p className="text-base md:text-xl text-brand-beige leading-relaxed font-light font-manrope">
-              Interested in seeing BIC in person? Our campus is open for tours, and we would love to show you around.
-              Check out our location on the map and schedule a visit today.
+              Interested in seeing BI in person? Our campus is open for tours,
+              and we would love to show you around. Check out our location on
+              the map and schedule a visit today.
             </p>
             <div className="pt-2 md:pt-4">
               <Link
@@ -560,7 +618,12 @@ export default function ContactPage() {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </div>
@@ -578,7 +641,8 @@ export default function ContactPage() {
               Need More <span className="text-brand-red">Information?</span>
             </h2>
             <p className="text-base md:text-xl text-brand-beige max-w-3xl mx-auto leading-relaxed font-manrope">
-              Fill out our inquiry form, and a member of our team will get back to you promptly.
+              Fill out our inquiry form, and a member of our team will get back
+              to you promptly.
             </p>
           </div>
 
@@ -587,7 +651,8 @@ export default function ContactPage() {
               style={{
                 marginBottom: "32px",
                 padding: "20px 24px",
-                background: "linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(21, 128, 61, 0.1) 100%)",
+                background:
+                  "linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(21, 128, 61, 0.1) 100%)",
                 border: "1px solid rgba(34, 197, 94, 0.3)",
                 borderRadius: "12px",
                 backdropFilter: "blur(10px)",
@@ -607,7 +672,8 @@ export default function ContactPage() {
                   style={{
                     width: "40px",
                     height: "40px",
-                    background: "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
+                    background:
+                      "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
@@ -621,7 +687,12 @@ export default function ContactPage() {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
                 <div style={{ textAlign: "center" }}>
@@ -644,7 +715,8 @@ export default function ContactPage() {
                       fontFamily: "inherit",
                     }}
                   >
-                    Thank you for contacting us. We'll get back to you within 24 hours.
+                    Thank you for contacting us. We'll get back to you within 24
+                    hours.
                   </p>
                 </div>
               </div>
@@ -656,7 +728,8 @@ export default function ContactPage() {
               style={{
                 marginBottom: "32px",
                 padding: "20px 24px",
-                background: "linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(185, 28, 28, 0.1) 100%)",
+                background:
+                  "linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(185, 28, 28, 0.1) 100%)",
                 border: "1px solid rgba(239, 68, 68, 0.3)",
                 borderRadius: "12px",
                 backdropFilter: "blur(10px)",
@@ -676,7 +749,8 @@ export default function ContactPage() {
                   style={{
                     width: "40px",
                     height: "40px",
-                    background: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
+                    background:
+                      "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
@@ -690,7 +764,12 @@ export default function ContactPage() {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </div>
                 <div style={{ textAlign: "center" }}>
@@ -713,7 +792,8 @@ export default function ContactPage() {
                       fontFamily: "inherit",
                     }}
                   >
-                    {errorMessage.replace("❌ ", "")} Please try again or contact us directly.
+                    {errorMessage.replace("❌ ", "")} Please try again or
+                    contact us directly.
                   </p>
                 </div>
               </div>
@@ -725,7 +805,10 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {/* Full Name */}
               <div className="space-y-2">
-                <label htmlFor="fullName" className="block text-white font-semibold font-manrope text-sm md:text-base">
+                <label
+                  htmlFor="fullName"
+                  className="block text-white font-semibold font-manrope text-sm md:text-base"
+                >
                   Full Name *
                 </label>
                 <input
@@ -740,7 +823,10 @@ export default function ContactPage() {
 
               {/* Email Address */}
               <div className="space-y-2">
-                <label htmlFor="email" className="block text-white font-semibold font-manrope text-sm md:text-base">
+                <label
+                  htmlFor="email"
+                  className="block text-white font-semibold font-manrope text-sm md:text-base"
+                >
                   Email Address *
                 </label>
                 <input
@@ -756,7 +842,10 @@ export default function ContactPage() {
 
             {/* Contact Phone */}
             <div className="space-y-2">
-              <label htmlFor="phone" className="block text-white font-semibold font-manrope text-sm md:text-base">
+              <label
+                htmlFor="phone"
+                className="block text-white font-semibold font-manrope text-sm md:text-base"
+              >
                 Contact Phone *
               </label>
               <input
@@ -771,7 +860,10 @@ export default function ContactPage() {
 
             {/* Subject */}
             <div className="space-y-2">
-              <label htmlFor="subject" className="block text-white font-semibold font-manrope text-sm md:text-base">
+              <label
+                htmlFor="subject"
+                className="block text-white font-semibold font-manrope text-sm md:text-base"
+              >
                 Subject *
               </label>
               <input
@@ -786,7 +878,10 @@ export default function ContactPage() {
 
             {/* Message */}
             <div className="space-y-2">
-              <label htmlFor="message" className="block text-white font-semibold font-manrope text-sm md:text-base">
+              <label
+                htmlFor="message"
+                className="block text-white font-semibold font-manrope text-sm md:text-base"
+              >
                 Message *
               </label>
               <textarea
@@ -828,5 +923,5 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

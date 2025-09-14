@@ -1,21 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const GEDPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-
-    console.log("[v0] GED page loading started");
-    const timer = setTimeout(() => {
-      console.log("[v0] GED page loading completed");
-      setIsLoading(false);
-    }, 1000); // Reduced from 1500ms to 1000ms
-
-    return () => clearTimeout(timer);
   }, []);
 
   const facilities = [
@@ -921,7 +914,12 @@ const GEDPage = () => {
             universities.
           </p>
 
-          <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl rounded-lg">
+          <button
+            onClick={() => {
+              navigate("/enquire");
+            }}
+            className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg hover:shadow-xl rounded-lg"
+          >
             ENROLL NOW
           </button>
         </div>

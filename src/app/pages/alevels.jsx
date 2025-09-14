@@ -1,20 +1,15 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ALevelsPage() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [activePathway, setActivePathway] = useState("Business & Economics")
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [activePathway, setActivePathway] = useState("Business & Economics");
+  const navigate = useNavigate();
   useEffect(() => {
-    window.scrollTo(0, 0)
-
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 6000)
-
-    return () => clearTimeout(timer)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   const pathways = {
     "Business & Economics": [
@@ -53,7 +48,7 @@ export default function ALevelsPage() {
       "ICT or Computer Science",
       "Business",
     ],
-  }
+  };
 
   if (isLoading) {
     return (
@@ -82,7 +77,10 @@ export default function ALevelsPage() {
 
         {/* Content Sections Skeleton */}
         {[1, 2, 3].map((section) => (
-          <section key={section} className="flex flex-col lg:flex-row min-h-screen">
+          <section
+            key={section}
+            className="flex flex-col lg:flex-row min-h-screen"
+          >
             <div className="lg:w-1/2 h-64 lg:h-auto">
               <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-700 animate-pulse"></div>
             </div>
@@ -117,7 +115,7 @@ export default function ALevelsPage() {
           </div>
         </section>
       </div>
-    )
+    );
   }
 
   return (
@@ -137,8 +135,11 @@ export default function ALevelsPage() {
             What is A-Levels?
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-brand-beige leading-relaxed">
-            <span className="text-brand-red font-semibold">Global Recognition:</span> A-levels (Advanced Levels) is an
-            internationally recognized UK qualification for students aged 16–19.
+            <span className="text-brand-red font-semibold">
+              Global Recognition:
+            </span>{" "}
+            A-levels (Advanced Levels) is an internationally recognized UK
+            qualification for students aged 16–19.
           </p>
         </div>
       </section>
@@ -168,9 +169,12 @@ export default function ALevelsPage() {
 
         <div className="lg:w-1/2 bg-gray-900 flex items-center">
           <div className="p-8 md:p-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-8">Global Recognition</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-8">
+              Global Recognition
+            </h2>
             <p className="text-lg md:text-xl text-white mb-8 leading-relaxed">
-              A-levels (Advanced Levels) is an internationally recognized UK qualification for students aged 16–19.
+              A-levels (Advanced Levels) is an internationally recognized UK
+              qualification for students aged 16–19.
             </p>
             <p className="text-lg text-brand-beige mb-6 font-semibold">
               Accepted by top universities worldwide, including:
@@ -201,10 +205,13 @@ export default function ALevelsPage() {
       <section className="flex flex-col lg:flex-row min-h-screen">
         <div className="lg:w-1/2 bg-dark-blue flex items-center">
           <div className="p-8 md:p-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-8">OUR A-LEVEL COURSES</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-8">
+              OUR A-LEVEL COURSES
+            </h2>
             <p className="text-lg md:text-xl text-white leading-relaxed">
-              At BIC, we offer a two-year pathway. Both offer an entirely personalized journey for each student – from
-              the first advisor meeting to the final university destination.
+              At BI, we offer a two-year pathway. Both offer an entirely
+              personalized journey for each student – from the first advisor
+              meeting to the final university destination.
             </p>
           </div>
         </div>
@@ -232,46 +239,58 @@ export default function ALevelsPage() {
 
         <div className="lg:w-1/2 bg-dark-blue flex items-center">
           <div className="p-8 md:p-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-8">GLOBAL STRATEGIC PATHWAY</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-8">
+              GLOBAL STRATEGIC PATHWAY
+            </h2>
             <p className="text-lg md:text-xl text-white leading-relaxed">
-              Every student follows their own Global Strategic Pathway at BIC. This will map out your learning journey
-              from start to finish, creating a tailored academic, personal, and career-focused programme that's entirely
-              based around your talents and interests, aims and aspirations.
+              Every student follows their own Global Strategic Pathway at BI.
+              This will map out your learning journey from start to finish,
+              creating a tailored academic, personal, and career-focused
+              programme that's entirely based around your talents and interests,
+              aims and aspirations.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why A-Levels at BIC - Key Facts Section */}
+      {/* Why A-Levels at BI - Key Facts Section */}
       <section className="bg-gray-900 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red text-center mb-16">
-            Why A-Levels at BIC?
+            Why A-Levels at BI?
           </h2>
 
           <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-brand-beige mb-8 text-center">Key Facts</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-brand-beige mb-8 text-center">
+              Key Facts
+            </h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-brand-red rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <p className="text-white">Pearson Edexcel A-levels is offered</p>
+                  <p className="text-white">
+                    Pearson Edexcel A-levels is offered
+                  </p>
                 </div>
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-brand-red rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <p className="text-white">15 - 18 months program (fast track)</p>
+                  <p className="text-white">
+                    15 - 18 months program (fast track)
+                  </p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-brand-red rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                  <p className="text-white">Students can choose to study 3 to 4 subjects of their choice</p>
+                  <p className="text-white">
+                    Students can choose to study 3 to 4 subjects of their choice
+                  </p>
                 </div>
                 <div className="flex items-start">
                   <div className="w-3 h-3 bg-brand-red rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <p className="text-white">
-                    There will be 2 Exams: AS and A2, AS Exam taking place in the mid of the program and A2 Exam at the
-                    end
+                    There will be 2 Exams: AS and A2, AS Exam taking place in
+                    the mid of the program and A2 Exam at the end
                   </p>
                 </div>
               </div>
@@ -285,39 +304,54 @@ export default function ALevelsPage() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <h3 className="text-xl font-bold text-brand-red mb-4">In-Depth Subject Mastery</h3>
+              <h3 className="text-xl font-bold text-brand-red mb-4">
+                In-Depth Subject Mastery
+              </h3>
               <p className="text-white text-sm leading-relaxed">
-                Builds strong academic foundations in your chosen field (e.g., Medicine, Law, Engineering)
+                Builds strong academic foundations in your chosen field (e.g.,
+                Medicine, Law, Engineering)
               </p>
             </div>
 
             <div className="text-center">
-              <h3 className="text-xl font-bold text-brand-red mb-4">Flexibility & Customization</h3>
+              <h3 className="text-xl font-bold text-brand-red mb-4">
+                Flexibility & Customization
+              </h3>
               <p className="text-white text-sm leading-relaxed">
-                Choose subjects that align with your strengths, interests, and career goals. Create a personalized
-                academic path with expert advisors.
+                Choose subjects that align with your strengths, interests, and
+                career goals. Create a personalized academic path with expert
+                advisors.
               </p>
             </div>
 
             <div className="text-center">
-              <h3 className="text-xl font-bold text-brand-red mb-4">University Mentorship</h3>
-              <p className="text-white text-sm leading-relaxed">Expert guidance for competitive university admission</p>
+              <h3 className="text-xl font-bold text-brand-red mb-4">
+                University Mentorship
+              </h3>
+              <p className="text-white text-sm leading-relaxed">
+                Expert guidance for competitive university admission
+              </p>
             </div>
 
             <div className="text-center">
-              <h3 className="text-xl font-bold text-brand-red mb-4">Skills for University & Beyond</h3>
+              <h3 className="text-xl font-bold text-brand-red mb-4">
+                Skills for University & Beyond
+              </h3>
               <p className="text-white text-sm leading-relaxed">
-                Develops critical thinking, problem-solving, independent research, and academic writing. Prepares you
-                for top universities and competitive careers.
+                Develops critical thinking, problem-solving, independent
+                research, and academic writing. Prepares you for top
+                universities and competitive careers.
               </p>
             </div>
           </div>
 
           <div className="text-center mt-12">
-            <h3 className="text-2xl font-bold text-brand-beige mb-4">Recognized & Respected Worldwide</h3>
+            <h3 className="text-2xl font-bold text-brand-beige mb-4">
+              Recognized & Respected Worldwide
+            </h3>
             <p className="text-white max-w-3xl mx-auto leading-relaxed">
-              Pearson Edexcel A-Levels are known for high standards and academic rigour. Trusted by universities and
-              employers for over 60 years.
+              Pearson Edexcel A-Levels are known for high standards and academic
+              rigour. Trusted by universities and employers for over 60 years.
             </p>
           </div>
         </div>
@@ -327,10 +361,12 @@ export default function ALevelsPage() {
       <section className="bg-gray-900 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-6">A-Level Subjects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-lora text-brand-red mb-6">
+              A-Level Subjects
+            </h2>
             <p className="text-lg text-white max-w-3xl mx-auto leading-relaxed">
-              Guided by our expert team, you'll choose three or four A-level subjects. We offer a wide range of options,
-              which include:
+              Guided by our expert team, you'll choose three or four A-level
+              subjects. We offer a wide range of options, which include:
             </p>
           </div>
 
@@ -358,8 +394,12 @@ export default function ALevelsPage() {
                 key={index}
                 className="bg-gray-900 p-6 border-l-4 border-brand-red hover:bg-gray-800 transition-all duration-300"
               >
-                <h3 className="text-lg font-semibold text-white mb-2">{subject}</h3>
-                <p className="text-brand-beige text-sm">{activePathway} Pathway</p>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {subject}
+                </h3>
+                <p className="text-brand-beige text-sm">
+                  {activePathway} Pathway
+                </p>
               </div>
             ))}
           </div>
@@ -376,7 +416,12 @@ export default function ALevelsPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-brand-red rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -386,12 +431,20 @@ export default function ALevelsPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-brand-beige mb-4">Age</h3>
-              <p className="text-white">Applicants must be at least 15 years old to be eligible for enrollment.</p>
+              <p className="text-white">
+                Applicants must be at least 15 years old to be eligible for
+                enrollment.
+              </p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-brand-red rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -400,13 +453,23 @@ export default function ALevelsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-brand-beige mb-4">English Level</h3>
-              <p className="text-white">Academic International English Language Testing System (IELTS) 5.5.</p>
+              <h3 className="text-xl font-bold text-brand-beige mb-4">
+                English Level
+              </h3>
+              <p className="text-white">
+                Academic International English Language Testing System (IELTS)
+                5.5.
+              </p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-brand-red rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -415,9 +478,12 @@ export default function ALevelsPage() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-brand-beige mb-4">Entry Assessment</h3>
+              <h3 className="text-xl font-bold text-brand-beige mb-4">
+                Entry Assessment
+              </h3>
               <p className="text-white">
-                You'll be asked to sit admissions tests in your chosen subjects, as well as an online aptitude test.
+                You'll be asked to sit admissions tests in your chosen subjects,
+                as well as an online aptitude test.
               </p>
             </div>
           </div>
@@ -436,16 +502,24 @@ export default function ALevelsPage() {
         </div>
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-8">
-          <h2 className="text-4xl md:text-5xl font-bold font-lora text-white mb-8">Ready to Apply?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-lora text-white mb-8">
+            Ready to Apply?
+          </h2>
           <p className="text-lg md:text-xl text-brand-beige mb-12 leading-relaxed">
-            Join a community where your success is our priority. We offer personalized learning, state-of-the-art
-            facilities, and a supportive environment that nurtures every student's potential.
+            Join a community where your success is our priority. We offer
+            personalized learning, state-of-the-art facilities, and a supportive
+            environment that nurtures every student's potential.
           </p>
-          <button className="bg-brand-red text-white px-12 py-4 text-lg font-semibold hover:bg-red-700 transition-colors duration-300">
+          <button
+            onClick={() => {
+              navigate("/enquire");
+            }}
+            className="bg-brand-red text-white px-12 py-4 text-lg font-semibold hover:bg-red-700 transition-colors duration-300"
+          >
             APPLY NOW
           </button>
         </div>
       </section>
     </div>
-  )
+  );
 }

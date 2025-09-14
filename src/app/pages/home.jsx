@@ -4,6 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import Banner from "../components/banner";
 import { FiArrowRight, FiAward, FiBook, FiGlobe } from "react-icons/fi";
 import { FaGlobeAsia } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import {
+  setStoreReduxGallery,
+  setStoreReduxText,
+  setStoreReduxVideo,
+} from "../../reducer/gallerySlice";
 
 const homeImages = [
   "./1.jpg",
@@ -49,9 +56,16 @@ function SkeletonText({ className }) {
 }
 
 export default function HomePage() {
+  const backend_domain_name = `http://bicadmin.z256600-ll9lz.ps02.zwhhosting.com`;
   const [isLoading, setIsLoading] = useState(true);
   const [activeLifeSection, setActiveLifeSection] = useState(0);
+  const ReduxGallerySection = useSelector((store) => store.galleries);
+  const [galleries, setGalleries] = useState(ReduxGallerySection.galleries);
+  const [videos, setVideos] = useState(ReduxGallerySection.video);
+  const [galleryText, setGalleryText] = useState(ReduxGallerySection.text);
+  // const [galleryHeader, setgalleryHeader] = useState("Bridge International");
   const sectionRefs = useRef([]);
+  const dispatch = useDispatch();
 
   const lifeSections = [
     {
@@ -104,31 +118,35 @@ export default function HomePage() {
     },
   ];
 
+  const fetchData = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(`${backend_domain_name}/api/galleries`);
+      if (response.status == 200) {
+        console.log(response.data);
+        dispatch(setStoreReduxVideo(response.data.data.video));
+        dispatch(setStoreReduxGallery(response.data.data.galleries));
+        dispatch(setStoreReduxText(response.data.data.text));
+        setGalleryText(response.data.data.text);
+        setVideos(response.data.data.video);
+        setGalleries(response.data.data.galleries);
+        console.log(response.data.data.text);
+        // dispatch(setReduxMainSponsors(response.data.mainSponsors));
+        // dispatch(setReduxDiamondSponsors(response.data.diamondSponsors));
+        // dispatch(setReduxPrevSponsors(response.data.prevSponsors));
+        // dispatch(setStoreReduxFaq(response.data.faqs));
+      } else {
+        console.log("error");
+      }
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error in fetchApi:", error);
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const sectionElements = sectionRefs.current;
-
-      sectionElements.forEach((section, index) => {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const isVisible =
-            rect.top <= window.innerHeight / 2 &&
-            rect.bottom >= window.innerHeight / 2;
-
-          if (isVisible) {
-            setActiveLifeSection(index);
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    // Scroll to top when component mounts
+    fetchData();
     window.scrollTo(0, 0);
 
     const timer = setTimeout(() => {
@@ -453,8 +471,8 @@ export default function HomePage() {
                 Second One I Just Created
               </h2>
               <p className="text-base md:text-lg font-manrope text-gray-300 max-w-xl">
-                At BIC, we are committed to fostering academic excellence
-                through our rigorous University preparation programmes:{" "}
+                At BI, we are committed to fostering academic excellence through
+                our rigorous University preparation programmes:{" "}
                 <strong className=" text-brand-red">GED</strong>,{" "}
                 <strong className=" text-brand-red">IGCSE</strong>, and
                 <strong className=" text-brand-red"> A Levels</strong>, tailored
@@ -592,7 +610,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Link
-                    to="/programs/igcse"
+                    to="/igcse"
                     className="px-4 md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm md:text-base"
                   >
                     Learn More
@@ -630,7 +648,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Link
-                    to="/programs/ossd"
+                    to="/ossd"
                     className="px-4 md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm md:text-base"
                   >
                     Learn More
@@ -685,7 +703,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Link
-                    to="/programs/a-levels"
+                    to="/alevels"
                     className="px-4 md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm md:text-base"
                   >
                     Learn More
@@ -724,7 +742,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Link
-                    to="/programs/ged"
+                    to="/ged"
                     className="px-4 md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm md:text-base"
                   >
                     Learn More
@@ -802,14 +820,14 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="flex flex-wrap justify-center gap-4 pt-6">
-                  <Link
+                  {/* <Link
                     to="/about"
                     className="px-6 md:px-8 py-3 md:py-4 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-base md:text-lg"
                   >
                     Discover More
-                  </Link>
+                  </Link> */}
                   <Link
-                    to="/contact"
+                    to="/enquire"
                     className="px-6 md:px-8 py-3 md:py-4 bg-transparent border border-brand-beige hover:bg-brand-beige hover:text-dark-primary text-brand-beige font-semibold rounded-xl transition hover-lift font-manrope text-base md:text-lg"
                   >
                     Contact Us
@@ -954,7 +972,7 @@ export default function HomePage() {
               {/* CTA button */}
               <div className="text-center md:text-left">
                 <Link
-                  to="/faculty"
+                  to="/admission"
                   className="inline-flex items-center px-6 md:px-8 py-3 md:py-4 bg-brand-red hover:bg-red-700 text-white font-manrope font-semibold rounded-xl shadow-lg hover:shadow-brand-red/30 transition-all duration-300 hover-lift text-base md:text-lg"
                 >
                   Meet Our Faculty
@@ -1016,44 +1034,15 @@ export default function HomePage() {
                     Student Experience
                   </span>
                   <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-lora font-bold text-white mb-4 bg-gradient-to-r from-white via-brand-red to-brand-beige bg-clip-text text-transparent">
-                    Beyond the Classroom
+                    {galleryText.title}
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-brand-red to-brand-beige rounded-full"></div>
                 </div>
 
                 <div className="max-w-5xl space-y-6">
                   <div className="relative">
-                    <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
-                      At{" "}
-                      <span className="text-brand-red font-semibold">
-                        Bridge International
-                      </span>
-                      , education extends far beyond textbooks and lectures. Our
-                      comprehensive activities program is designed to develop{" "}
-                      <span className="text-brand-beige font-medium">
-                        well-rounded individuals
-                      </span>{" "}
-                      who are prepared for success in both academic and personal
-                      endeavors.
-                    </p>
-                  </div>
-                  <div className="relative">
                     <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                      From{" "}
-                      <span className="text-brand-red font-medium">
-                        cultural celebrations
-                      </span>{" "}
-                      and{" "}
-                      <span className="text-brand-red font-medium">
-                        sports competitions
-                      </span>{" "}
-                      to academic clubs and community service projects, our
-                      students engage in{" "}
-                      <span className="text-brand-beige font-medium">
-                        meaningful experiences
-                      </span>{" "}
-                      that build character, leadership skills, and lifelong
-                      friendships.
+                      {galleryText.description}
                     </p>
                   </div>
                 </div>
@@ -1075,65 +1064,39 @@ export default function HomePage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
-                  {/* Video 1 */}
-                  <div className="group relative">
-                    <div className="relative">
-                      <div className="relative aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-2 border-white/10 hover:border-brand-red/60 transition-all duration-700 shadow-2xl hover:shadow-brand-red/20">
-                        <iframe
-                          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                          title="Student Life at Bridge International"
-                          className="w-full h-full"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
-                        <div className="absolute top-4 right-4 w-3 h-3 bg-brand-red rounded-full opacity-80 animate-pulse"></div>
-                      </div>
+                  {videos?.map((video) => (
+                    <div key={video.id} className="group relative">
+                      <div className="relative">
+                        {/* Video iframe */}
+                        <div className="relative aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-2 border-white/10 hover:border-brand-red/60 transition-all duration-700 shadow-2xl hover:shadow-brand-red/20">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${video.embed_id}`}
+                            title={video.title}
+                            className="w-full h-full"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+                          <div className="absolute top-4 right-4 w-3 h-3 bg-brand-red rounded-full opacity-80 animate-pulse"></div>
+                        </div>
 
-                      {/* Enhanced video description */}
-                      <div className="mt-6 text-center">
-                        <h4 className="text-xl md:text-2xl font-lora font-bold text-white mb-3 group-hover:text-brand-red transition-colors duration-300">
-                          Student Life &{" "}
-                          <span className="text-brand-red">Activities</span>
-                        </h4>
-                        <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
-                          Discover the energy and passion that drives our campus
-                          community every day
-                        </p>
+                        {/* Video description */}
+                        <div className="mt-6 text-center">
+                          <h4 className="text-xl md:text-2xl font-lora font-bold text-white mb-3 group-hover:text-brand-red transition-colors duration-300">
+                            {video.title}
+                          </h4>
+                          <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                            {video.description}
+                          </p>
+                          <p className="text-gray-500 text-xs mt-2">
+                            Uploaded:{" "}
+                            {new Date(video.created_at).toLocaleDateString()}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Video 2 */}
-                  <div className="group relative">
-                    <div className="relative">
-                      <div className="relative aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-gray-800/80 to-gray-900/80 border-2 border-white/10 hover:border-brand-red/60 transition-all duration-700 shadow-2xl hover:shadow-brand-red/20">
-                        <iframe
-                          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                          title="Academic Excellence at Bridge International"
-                          className="w-full h-full"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
-                        <div className="absolute top-4 right-4 w-3 h-3 bg-brand-red rounded-full opacity-80 animate-pulse"></div>
-                      </div>
-
-                      {/* Enhanced video description */}
-                      <div className="mt-6 text-center">
-                        <h4 className="text-xl md:text-2xl font-lora font-bold text-white mb-3 group-hover:text-brand-red transition-colors duration-300">
-                          Academic{" "}
-                          <span className="text-brand-red">Excellence</span>
-                        </h4>
-                        <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
-                          Experience our innovative learning environment and
-                          academic achievements
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
@@ -1150,28 +1113,54 @@ export default function HomePage() {
                 </div>
 
                 {/* Photo Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-                  {[1, 2, 3, 4, 5, 6].map((num) => (
-                    <div
-                      key={num}
-                      className="group relative aspect-square overflow-hidden rounded-2xl bg-gray-800/50 border border-white/10 hover:border-brand-beige/50 transition-all duration-500"
-                    >
-                      <img
-                        src={`/act${num}.jpg`}
-                        alt={`Student Activity ${num}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                        <div className="text-white">
-                          <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center mb-2">
-                            <div className="w-4 h-4 bg-white rounded-full"></div>
+                {galleries.length == 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+                    {[1, 2, 3, 4, 5, 6].map((num) => (
+                      <div
+                        key={num}
+                        className="group relative aspect-square overflow-hidden rounded-2xl bg-gray-800/50 border border-white/10 hover:border-brand-beige/50 transition-all duration-500"
+                      >
+                        <img
+                          src={`/act${num}.jpg`}
+                          alt={`Student Activity ${num}`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                          <div className="text-white">
+                            <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center mb-2">
+                              <div className="w-4 h-4 bg-white rounded-full"></div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                )}
+                {galleries.length != 0 && (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+                    {galleries.map((item) => (
+                      <div
+                        key={item.id}
+                        className="group relative aspect-square overflow-hidden rounded-2xl bg-gray-800/50 border border-white/10 hover:border-brand-beige/50 transition-all duration-500"
+                      >
+                        <img
+                          src={`${backend_domain_name}/public/storage/${item.gallery}`}
+                          alt={`Gallery ${item.id}`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                          <div className="text-white">
+                            <div className="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center mb-2">
+                              <div className="w-4 h-4 bg-white rounded-full"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </section>
@@ -1347,7 +1336,7 @@ export default function HomePage() {
                 </p>
 
                 <Link
-                  to="/apply"
+                  to="/enquire"
                   className="inline-block bg-brand-red hover:bg-red-700 text-white font-manrope font-extrabold text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 shadow-lg transition-all hover-lift rounded-xl"
                 >
                   Apply Now

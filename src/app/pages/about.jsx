@@ -2,20 +2,37 @@
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setStoreReduxBlog } from "../../reducer/blogSlice";
+import axios from "axios";
 
 export default function AboutPage() {
+  const backend_domain_name = `http://bicadmin.z256600-ll9lz.ps02.zwhhosting.com`;
   const [isLoading, setIsLoading] = useState(true);
-
+  const ReduxBlogSection = useSelector((store) => store.blogs);
+  const dispatch = useDispatch();
+  const [blogs, setBlogs] = useState(ReduxBlogSection.blogs);
+  const fetchData = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(`${backend_domain_name}/api/blogs`);
+      if (response.status == 200) {
+        console.log(response.data);
+        dispatch(setStoreReduxBlog(response.data.data));
+        setBlogs(response.data.data);
+      } else {
+        console.log("error");
+      }
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error in fetchApi:", error);
+      setIsLoading(false);
+    }
+  };
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 6000);
-
-    return () => clearTimeout(timer);
+    fetchData();
   }, []);
 
   const SkeletonLoader = () => (
@@ -392,24 +409,6 @@ export default function AboutPage() {
               been the cornerstone of our institution's growth and development
               over the decades.
             </p>
-            <div className="pt-4">
-              <div className="inline-flex items-center text-brand-beige font-semibold hover:text-brand-red transition-colors duration-300">
-                <span>Explore our timeline</span>
-                <svg
-                  className="w-5 h-5 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -432,7 +431,7 @@ export default function AboutPage() {
           <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-manrope">
             At{" "}
             <span className="text-brand-red font-semibold">
-              Bridge International (BIC)
+              Bridge International (BI)
             </span>
             , we provide{" "}
             <span className="text-brand-beige font-medium">
@@ -629,168 +628,62 @@ export default function AboutPage() {
           </div>
 
           {/* Blog Boxes Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            {/* Blog Box 1 */}
-            <div className="group bg-gray-900 overflow-hidden shadow-2xl hover:shadow-brand-red/20 transition-all duration-500 hover:-translate-y-2">
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="University Acceptance Success"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-brand-red text-white px-3 py-1 text-sm font-semibold font-manrope">
-                    Achievement
-                  </span>
-                </div>
-              </div>
-              <div className="p-6 md:p-8 space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold font-lora text-white group-hover:text-brand-red transition-colors duration-300">
-                  100% University Acceptance Rate Achieved
-                </h3>
-                <p className="text-gray-400 leading-relaxed font-manrope text-sm md:text-base">
-                  Our Class of 2024 achieved a remarkable milestone with every
-                  graduate securing placement at their preferred universities,
-                  including Oxford, Cambridge, and Ivy League institutions.
-                </p>
-                <div className="flex items-center justify-between pt-4">
-                  <span className="text-brand-beige text-sm font-manrope">
-                    December 15, 2024
-                  </span>
-                  <div className="w-8 h-8 bg-brand-red flex items-center justify-center group-hover:bg-brand-beige transition-colors duration-300">
-                    <svg
-                      className="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Blog Box 2 */}
-            <div className="group bg-gray-900 overflow-hidden shadow-2xl hover:shadow-brand-red/20 transition-all duration-500 hover:-translate-y-2">
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="New Campus Facilities"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-brand-red text-white px-3 py-1 text-sm font-semibold font-manrope">
-                    Campus News
-                  </span>
-                </div>
-              </div>
-              <div className="p-6 md:p-8 space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold font-lora text-white group-hover:text-brand-red transition-colors duration-300">
-                  State-of-the-Art Science Labs Unveiled
-                </h3>
-                <p className="text-gray-400 leading-relaxed font-manrope text-sm md:text-base">
-                  Bridge International proudly opens its new cutting-edge
-                  science laboratories, featuring advanced equipment and
-                  technology to enhance our STEM education programs.
-                </p>
-                <div className="flex items-center justify-between pt-4">
-                  <span className="text-brand-beige text-sm font-manrope">
-                    November 28, 2024
-                  </span>
-                  <div className="w-8 h-8 bg-brand-red flex items-center justify-center group-hover:bg-brand-beige transition-colors duration-300">
-                    <svg
-                      className="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Blog Box 3 */}
-            <div className="group bg-gray-900 overflow-hidden shadow-2xl hover:shadow-brand-red/20 transition-all duration-500 hover:-translate-y-2 md:col-span-2 lg:col-span-1">
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="International Student Exchange"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-brand-red text-white px-3 py-1 text-sm font-semibold font-manrope">
-                    Global Program
-                  </span>
-                </div>
-              </div>
-              <div className="p-6 md:p-8 space-y-4">
-                <h3 className="text-xl md:text-2xl font-bold font-lora text-white group-hover:text-brand-red transition-colors duration-300">
-                  International Exchange Program Expansion
-                </h3>
-                <p className="text-gray-400 leading-relaxed font-manrope text-sm md:text-base">
-                  We're excited to announce partnerships with 15 new
-                  international schools, offering our students unprecedented
-                  global learning opportunities and cultural exchange
-                  experiences.
-                </p>
-                <div className="flex items-center justify-between pt-4">
-                  <span className="text-brand-beige text-sm font-manrope">
-                    October 20, 2024
-                  </span>
-                  <div className="w-8 h-8 bg-brand-red flex items-center justify-center group-hover:bg-brand-beige transition-colors duration-300">
-                    <svg
-                      className="w-4 h-4 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* View All News Button */}
-          <div className="text-center mt-12 md:mt-16">
-            <button className="group inline-flex items-center px-8 md:px-12 py-4 md:py-6 bg-transparent border-2 border-brand-red hover:bg-brand-red text-brand-red hover:text-white font-bold text-lg md:text-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 rounded-lg">
-              View All News
-              <svg
-                className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
+            {blogs.map((blog) => (
+              <div
+                key={blog.id}
+                className="group relative bg-gray-900 overflow-hidden rounded-3xl shadow-2xl hover:shadow-brand-red/30 transition-all duration-500 hover:-translate-y-2"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </button>
+                {/* Image */}
+                <div className="relative w-full aspect-video overflow-hidden rounded-t-3xl">
+                  <img
+                    src={`${backend_domain_name}/public/storage/${blog.image}`}
+                    alt={blog.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-brand-red text-white px-3 py-1 text-sm font-semibold font-manrope rounded-full shadow-sm">
+                      {blog.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-4 md:p-6 space-y-3">
+                  <h3 className="text-lg md:text-xl font-bold font-lora text-white group-hover:text-brand-red transition-colors duration-300">
+                    {blog.title}
+                  </h3>
+                  <p className="text-gray-400 font-manrope text-sm md:text-base leading-relaxed line-clamp-3">
+                    {blog.description}
+                  </p>
+                  <div className="flex items-center justify-between pt-3">
+                    <span className="text-brand-beige text-xs md:text-sm font-manrope">
+                      {new Date(blog.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </span>
+                    {/* <div className="w-8 h-8 bg-brand-red flex items-center justify-center rounded-full group-hover:bg-brand-beige transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer">
+                      <svg
+                        className="w-4 h-4 text-white group-hover:text-gray-900 transition-colors duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </div> */}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -821,7 +714,7 @@ export default function AboutPage() {
             </p>
             <div className="pt-8">
               <Link
-                to="/apply"
+                to="/enquire"
                 className="group inline-flex items-center px-12 md:px-16 py-6 md:py-8 bg-brand-red hover:bg-brand-red/90 text-white font-bold text-xl md:text-2xl shadow-2xl hover:shadow-brand-red/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-2 border-brand-red hover:border-brand-beige rounded-lg"
               >
                 APPLY NOW

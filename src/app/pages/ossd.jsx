@@ -1,20 +1,15 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OssdPage = () => {
-  const [isLoading, setIsLoading] = useState(true)
-  const [activePathway, setActivePathway] = useState("engineering")
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [activePathway, setActivePathway] = useState("engineering");
+  const navigate = useNavigate();
   useEffect(() => {
-    window.scrollTo(0, 0)
-
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 6000)
-
-    return () => clearTimeout(timer)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   const pathwayData = {
     engineering: {
@@ -77,7 +72,7 @@ const OssdPage = () => {
         { code: "SCH4U", name: "Chemistry - Grade 12 (University)" },
       ],
     },
-  }
+  };
 
   if (isLoading) {
     return (
@@ -112,14 +107,20 @@ const OssdPage = () => {
               preserveAspectRatio="none"
               viewBox="0 0 1200 120"
             >
-              <path d="M0,0 C250,100 950,-50 1200,60 L1200,120 L0,120 Z" fill="#82062c" />
+              <path
+                d="M0,0 C250,100 950,-50 1200,60 L1200,120 L0,120 Z"
+                fill="#82062c"
+              />
             </svg>
           </div>
         </section>
 
         {/* Content Sections Skeleton */}
         {[1, 2, 3].map((section) => (
-          <section key={section} className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-dark-blue">
+          <section
+            key={section}
+            className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8 bg-dark-blue"
+          >
             <div className="max-w-7xl mx-auto">
               <div className="h-12 sm:h-16 md:h-20 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg mb-12 md:mb-20 mx-auto w-1/2 animate-pulse"></div>
               <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
@@ -168,7 +169,10 @@ const OssdPage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
               {[1, 2, 3, 4, 5, 6].map((item) => (
-                <div key={item} className="bg-gray-900 backdrop-blur-sm border-l-4 border-brand-red p-6">
+                <div
+                  key={item}
+                  className="bg-gray-900 backdrop-blur-sm border-l-4 border-brand-red p-6"
+                >
                   <div className="flex flex-col gap-4 mb-4">
                     <div className="flex items-center justify-between">
                       <div className="h-10 w-20 bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg animate-pulse"></div>
@@ -183,13 +187,16 @@ const OssdPage = () => {
           </div>
         </section>
       </div>
-    )
+    );
   }
 
   return (
     <div className="min-h-screen bg-dark-blue text-white font-manrope">
       <section className="relative h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-end justify-start overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url(./ossd.jpg)" }}>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(./ossd.jpg)" }}
+        >
           {/* Subtle bottom gradient for readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
         </div>
@@ -200,16 +207,30 @@ const OssdPage = () => {
             What is <span className="text-brand-red">OSSD</span>?
           </h1>
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed mb-2 sm:mb-3">
-            <span className="text-brand-red font-bold text-lg sm:text-xl">O</span>
-            ntario <span className="text-brand-red font-bold text-lg sm:text-xl">S</span>
-            econdary <span className="text-brand-red font-bold text-lg sm:text-xl">S</span>
-            chool <span className="text-brand-red font-bold text-lg sm:text-xl">D</span>
-            iploma (OSSD) is a diploma granted to secondary school graduates by the Canadian province of Ontario.
+            <span className="text-brand-red font-bold text-lg sm:text-xl">
+              O
+            </span>
+            ntario{" "}
+            <span className="text-brand-red font-bold text-lg sm:text-xl">
+              S
+            </span>
+            econdary{" "}
+            <span className="text-brand-red font-bold text-lg sm:text-xl">
+              S
+            </span>
+            chool{" "}
+            <span className="text-brand-red font-bold text-lg sm:text-xl">
+              D
+            </span>
+            iploma (OSSD) is a diploma granted to secondary school graduates by
+            the Canadian province of Ontario.
           </p>
           <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed">
             OSSD is recognized by most universities in{" "}
-            <span className="text-brand-red font-semibold">USA, Canada, UK, Hong Kong, Australia</span> and other
-            English-speaking countries.
+            <span className="text-brand-red font-semibold">
+              USA, Canada, UK, Hong Kong, Australia
+            </span>{" "}
+            and other English-speaking countries.
           </p>
         </div>
       </section>
@@ -232,7 +253,10 @@ const OssdPage = () => {
             preserveAspectRatio="none"
             viewBox="0 0 1200 120"
           >
-            <path d="M0,0 C250,100 950,-50 1200,60 L1200,120 L0,120 Z" fill="#82062c" />
+            <path
+              d="M0,0 C250,100 950,-50 1200,60 L1200,120 L0,120 Z"
+              fill="#82062c"
+            />
           </svg>
         </div>
       </section>
@@ -246,14 +270,25 @@ const OssdPage = () => {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="space-y-6 md:space-y-8">
               <p className="text-lg md:text-xl leading-relaxed text-gray-200">
-                <span className="text-brand-red font-semibold text-xl md:text-2xl">Rosedale Global High School</span>,
-                is operated under
-                <span className="text-brand-beige font-semibold"> Rosedale International Education Inc</span>. The
-                school is dedicated to building strong partnerships with top secondary schools around the world to
-                provide students with access to{" "}
-                <span className="text-brand-red font-semibold">differentiated education</span> with an emphasis on{" "}
-                <span className="text-brand-beige font-semibold">higher order thinking skills</span>, while studying in
-                their local school's classroom.
+                <span className="text-brand-red font-semibold text-xl md:text-2xl">
+                  Rosedale Global High School
+                </span>
+                , is operated under
+                <span className="text-brand-beige font-semibold">
+                  {" "}
+                  Rosedale International Education Inc
+                </span>
+                . The school is dedicated to building strong partnerships with
+                top secondary schools around the world to provide students with
+                access to{" "}
+                <span className="text-brand-red font-semibold">
+                  differentiated education
+                </span>{" "}
+                with an emphasis on{" "}
+                <span className="text-brand-beige font-semibold">
+                  higher order thinking skills
+                </span>
+                , while studying in their local school's classroom.
               </p>
 
               <div className="bg-gradient-to-r from-black to-gray-900 p-6 md:p-8 border-l-4 border-brand-red shadow-xl">
@@ -276,7 +311,8 @@ const OssdPage = () => {
                   <li className="flex items-center group">
                     <div className="w-3 h-3 bg-brand-red rounded-full mr-4 group-hover:scale-125 transition-transform duration-300 flex-shrink-0"></div>
                     <span className="text-brand-red font-semibold group-hover:text-brand-beige transition-colors duration-300">
-                      Partners with NUS, University of Toronto, HKU, University of Waterloo
+                      Partners with NUS, University of Toronto, HKU, University
+                      of Waterloo
                     </span>
                   </li>
                 </ul>
@@ -357,8 +393,9 @@ const OssdPage = () => {
               </h2>
             </div>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mt-12 leading-relaxed font-light">
-              Depending on the student's background education record and the pathway they are interested in pursuing at
-              the university, students can choose from the following specialized programmes.
+              Depending on the student's background education record and the
+              pathway they are interested in pursuing at the university,
+              students can choose from the following specialized programmes.
             </p>
           </div>
 
@@ -369,7 +406,9 @@ const OssdPage = () => {
                 key={key}
                 onClick={() => setActivePathway(key)}
                 className={`group relative px-10 py-6 font-bold text-xl transition-all duration-500 overflow-hidden ${
-                  activePathway === key ? "text-white" : "text-brand-beige hover:text-white"
+                  activePathway === key
+                    ? "text-white"
+                    : "text-brand-beige hover:text-white"
                 }`}
               >
                 {/* Button background */}
@@ -428,7 +467,9 @@ const OssdPage = () => {
                     </div>
 
                     {/* University level badge */}
-                    <div className="text-brand-beige/80 text-xs font-medium">University Level Course</div>
+                    <div className="text-brand-beige/80 text-xs font-medium">
+                      University Level Course
+                    </div>
                   </div>
 
                   {/* Course name */}
@@ -445,7 +486,8 @@ const OssdPage = () => {
             {/* Call to action */}
             <div className="text-center mt-16 pt-12 border-t border-gray-700">
               <p className="text-gray-300 text-lg mb-8 font-light">
-                Ready to begin your academic journey with {pathwayData[activePathway].title}?
+                Ready to begin your academic journey with{" "}
+                {pathwayData[activePathway].title}?
               </p>
               <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-12 text-lg transition-all duration-300 hover:shadow-xl hover:shadow-brand-red/30 border border-brand-red hover:border-red-700">
                 Learn More About This Pathway
@@ -579,7 +621,8 @@ const OssdPage = () => {
                       Global Recognition
                     </h3>
                     <p className="text-white text-base md:text-lg leading-relaxed">
-                      Accepted by top universities worldwide including Ivy League institutions
+                      Accepted by top universities worldwide including Ivy
+                      League institutions
                     </p>
                   </div>
                   <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-brand-red transition-all duration-500 transform hover:translate-x-2 group">
@@ -587,7 +630,8 @@ const OssdPage = () => {
                       Flexible Learning
                     </h3>
                     <p className="text-white text-base md:text-lg leading-relaxed">
-                      Study in your local environment while earning a Canadian diploma
+                      Study in your local environment while earning a Canadian
+                      diploma
                     </p>
                   </div>
                   <div className="bg-dark-blue p-6 md:p-8 border-2 border-white/30 hover:border-white transition-all duration-500 transform hover:translate-x-2 group">
@@ -595,7 +639,8 @@ const OssdPage = () => {
                       University Preparation
                     </h3>
                     <p className="text-white text-base md:text-lg leading-relaxed">
-                      Comprehensive curriculum designed for higher education success
+                      Comprehensive curriculum designed for higher education
+                      success
                     </p>
                   </div>
                 </div>
@@ -620,10 +665,16 @@ const OssdPage = () => {
             Ready to Apply?
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 md:mb-12 leading-relaxed font-light">
-            Join a community where your success is our priority. We offer personalized learning, state-of-the-art
-            facilities, and a supportive environment that nurtures every student's potential.
+            Join a community where your success is our priority. We offer
+            personalized learning, state-of-the-art facilities, and a supportive
+            environment that nurtures every student's potential.
           </p>
-          <button className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 md:py-6 md:px-16 text-lg sm:text-xl md:text-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-red/30 border-2 border-brand-red hover:border-red-700">
+          <button
+            onClick={() => {
+              navigate("/enquire");
+            }}
+            className="bg-brand-red hover:bg-red-700 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 md:py-6 md:px-16 text-lg sm:text-xl md:text-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-red/30 border-2 border-brand-red hover:border-red-700"
+          >
             APPLY NOW
           </button>
         </div>
@@ -651,7 +702,7 @@ const OssdPage = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default OssdPage
+export default OssdPage;
