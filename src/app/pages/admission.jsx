@@ -567,36 +567,39 @@ export default function AdmissionsPage() {
           </section>
 
           {/* Final CTA Section */}
-          <section className="w-screen relative">
-            <img
-              src="./contactbb.jpg"
-              alt="Bridge International School Community"
-              className="w-screen h-auto object-cover"
-            />
+ <section className="w-screen relative">
+  {/* Background image */}
+  <img
+    src="./contactbb.jpg"
+    alt="Bridge International School Community"
+    className="w-screen h-[60vh] md:h-auto object-cover"
+  />
 
-            <div className="absolute inset-0 bg-black/60"></div>
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
 
-            <div className="absolute inset-0 flex items-center justify-center px-4 md:px-6">
-              <div className="text-center max-w-4xl space-y-6 md:space-y-8 z-10">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-lora font-extrabold text-gray-300 leading-tight drop-shadow-lg">
-                  Ready to Apply?
-                </h2>
-                <p className="text-lg md:text-2xl lg:text-3xl font-manrope font-bold text-brand-beige leading-relaxed drop-shadow-md">
-                  Join a community where your success is our priority. We offer
-                  personalized learning, state-of-the-art facilities, and a
-                  supportive environment that nurtures every student's
-                  potential.
-                </p>
+  {/* Content */}
+  <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
+    <div className="text-center max-w-3xl space-y-4 sm:space-y-6 md:space-y-8 z-10">
+      <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-lora font-extrabold text-gray-200 leading-snug drop-shadow-lg">
+        Ready to Apply?
+      </h2>
+      <p className="text-base sm:text-lg md:text-2xl font-manrope font-semibold text-brand-beige leading-relaxed drop-shadow-md">
+        Join a community where your success is our priority. We offer
+        personalized learning, state-of-the-art facilities, and a supportive
+        environment that nurtures every student's potential.
+      </p>
 
-                <Link
-                  to="/enquire"
-                  className="inline-block bg-brand-red hover:bg-red-700 text-white font-manrope font-extrabold text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 shadow-lg transition-all hover-lift rounded-xl"
-                >
-                  Apply Now
-                </Link>
-              </div>
-            </div>
-          </section>
+      <Link
+        to="/enquire"
+        className="inline-block bg-brand-red hover:bg-red-700 text-white font-manrope font-bold text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg transition-transform hover:scale-105 rounded-lg sm:rounded-xl"
+      >
+        Apply Now
+      </Link>
+    </div>
+  </div>
+</section>
+
         </>
       )}
     </div>
