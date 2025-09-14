@@ -21,7 +21,7 @@ function SkeletonText({ className }) {
 }
 
 export default function AdmissionsPage() {
-  const backend_domain_name = `http://bicadmin.z256600-ll9lz.ps02.zwhhosting.com`;
+  const backend_domain_name = `https://bicadmin.z256600-ll9lz.ps02.zwhhosting.com`;
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
