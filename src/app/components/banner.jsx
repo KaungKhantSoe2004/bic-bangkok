@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FaArrowRight, FaPlus, FaPlay, FaPause } from "react-icons/fa";
+import { FaPlay, FaPause } from "react-icons/fa";
 
 export default function Banner({ title, subtitle }) {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -65,21 +65,6 @@ export default function Banner({ title, subtitle }) {
             <p className="text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-6 md:mb-10 max-w-2xl drop-shadow-xl">
               {subtitle}
             </p>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-              <button className="group relative inline-flex items-center justify-center px-6 md:px-10 py-3 md:py-4 text-sm md:text-lg font-semibold text-white bg-gradient-to-r from-red-600 to-red-700 rounded-full hover:from-red-500 hover:to-red-600 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden">
-                <span className="relative z-10">Explore Programs</span>
-                <FaArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
-              </button>
-
-              <button className="group relative inline-flex items-center justify-center px-6 md:px-10 py-3 md:py-4 text-sm md:text-lg font-semibold text-gray-900 bg-gradient-to-r from-white to-gray-100 rounded-full hover:from-gray-100 hover:to-white transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden">
-                <span className="relative z-10">Apply Now</span>
-                <FaPlus className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
-              </button>
-            </div>
           </div>
         </div>
       </div>
