@@ -1,7 +1,6 @@
 "use client"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
-import Banner from "../components/banner"
 import { FiArrowRight, FiAward, FiBook, FiGlobe } from "react-icons/fi"
 import { FaGlobeAsia } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
@@ -133,12 +132,10 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="relative min-h-screen font-lora">
-      <Banner
-        title="Welcome to Bridge International  Bangkok"
-        subtitle="Discover an unparalleled educational experience in the heart of Bangkok."
-      />
-
+    <div
+      className="min-h-screen bg-dark-primary text-white font-manrope"
+      style={{ overflowX: "hidden", width: "100%", maxWidth: "100vw" }} // Added inline styles to prevent horizontal overflow
+    >
       {isLoading ? (
         <div className="space-y-0">
           <section className="w-full flex flex-col md:flex-row items-stretch">
@@ -241,7 +238,50 @@ export default function HomePage() {
         </div>
       ) : (
         <>
-          <section className="w-full flex flex-col md:flex-row items-stretch">
+          {/* Hero Section */}
+          <section
+            className="relative h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center"
+            style={{
+              backgroundImage: "url('./hero-bg.jpg')",
+              width: "100%",
+              maxWidth: "100vw", // Prevent width from exceeding viewport
+              overflowX: "hidden",
+            }}
+          >
+            <div className="absolute inset-0 z-0">
+              <img src="/banner.jpg" alt="Bridge International Bangkok Campus" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/40"></div>
+            </div>
+
+            <div className="relative z-10 max-w-full mx-auto text-center space-y-4 sm:space-y-6 lg:space-y-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lora font-bold text-white leading-tight drop-shadow-lg">
+                Welcome to Bridge International Bangkok
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl font-manrope font-semibold text-brand-beige leading-relaxed drop-shadow-md">
+                Discover an unparalleled educational experience in the heart of Bangkok.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 pt-3 sm:pt-4">
+                <Link
+                  to="/about"
+                  className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm sm:text-base md:text-lg"
+                >
+                  Learn More
+                </Link>
+                <Link
+                  to="/admissions"
+                  className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 bg-transparent border border-brand-beige hover:bg-brand-beige hover:text-dark-primary text-brand-beige font-semibold rounded-xl transition hover-lift font-manrope text-sm sm:text-base md:text-lg"
+                >
+                  Apply Now
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* What is Bridge International Section */}
+          <section
+            className="w-full flex flex-col lg:flex-row items-stretch"
+            style={{ maxWidth: "100vw", overflowX: "hidden" }} // Added width constraints
+          >
             {/* Left side: just an image */}
             <div className="w-full md:w-1/2">
               <img
@@ -293,8 +333,10 @@ export default function HomePage() {
             </div>
           </section>
 
-         
-          <section className="w-full bg-grey-blue flex flex-wrap">
+          <section
+            className="w-full bg-grey-blue flex flex-wrap"
+            style={{ maxWidth: "100vw", overflowX: "hidden" }} // Added width constraints
+          >
             {[
               {
                 alt: "IGCSE",
@@ -315,12 +357,12 @@ export default function HomePage() {
             ].map(({ alt, src }) => (
               <div
                 key={alt}
-                className="w-1/2 md:w-1/4 p-2 bg-grey-blue flex justify-center items-center filter grayscale hover:grayscale-0 transition duration-300"
+                className="w-1/2 md:w-1/4 p-2 sm:p-3 md:p-4 bg-grey-blue flex justify-center items-center filter grayscale hover:grayscale-0 transition duration-300"
               >
                 <img
                   src={src || "/placeholder.svg"}
                   alt={alt}
-                  className="max-w-full max-h-33 object-contain"
+                  className="max-w-full max-h-20 sm:max-h-28 md:max-h-33 object-contain"
                   loading="lazy"
                 />
               </div>
@@ -434,7 +476,11 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section className="w-full flex flex-col md:flex-row items-start py-6 sm:py-8 md:py-14 px-4 md:px-6 gap-6 sm:gap-8 md:gap-12 relative overflow-hidden">
+          {/* Why Choose Us Section */}
+          <section
+            className="w-full flex flex-col lg:flex-row items-start py-6 sm:py-8 lg:py-14 px-4 sm:px-6 gap-6 sm:gap-8 lg:gap-12 relative overflow-hidden"
+            style={{ maxWidth: "100vw" }} // Added width constraints
+          >
             <div className="w-full md:w-1/2 flex flex-col mt-2 sm:mt-4 justify-start">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-lora font-semibold text-brand-beige mb-4 sm:mb-6 md:mb-8">
                 Why Choose Us
@@ -479,7 +525,7 @@ export default function HomePage() {
                 />
               </div>
               {/* Thumbnails */}
-              <div className="grid grid-cols-3 gap-2 md:gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {["lRbBGBDqFsI", "i4fJI-_zbqs", "86CzKrRi8hE"].map((id, index) => (
                   <button
                     key={id}
@@ -1157,12 +1203,16 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section className="w-screen relative">
+          <section
+            className="w-full relative" // Changed from w-screen to w-full
+            style={{ maxWidth: "100vw", overflowX: "hidden" }} // Added width constraints
+          >
             {/* Full background image */}
             <img
               src="./cstu.jpg"
               alt="Trust us to guide your academic journey"
-              className="w-screen h-[50vh] sm:h-[60vh] md:h-auto object-cover"
+              className="w-full h-[50vh] sm:h-[60vh] lg:h-auto object-cover" // Changed from w-screen to w-full
+              style={{ maxWidth: "100vw" }} // Prevent image from exceeding viewport
             />
 
             {/* Dark overlay */}
