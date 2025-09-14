@@ -198,36 +198,36 @@ const IGCSEPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white font-manrope">
+    <div className="min-h-screen bg-dark-blue text-white font-manrope">
       {/* Hero Banner Section */}
- <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style={{
-      backgroundImage: `url('./IGCSE.jpg')`,
-    }}
-  >
-    <div className="absolute inset-0 bg-black/60"></div>
-  </div>
+      <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('./IGCSE.jpg')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
 
-  {/* Content */}
-  <div className="relative z-10 h-full flex items-end pb-10 sm:pb-14 md:pb-20 lg:pb-24">
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora mb-4 sm:mb-6 text-brand-beige">
-          IGCSE
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
-          IGCSE is an internationally recognized qualification for students aged
-          14 to 16. Offered by the leading examination board Pearson Edexcel, it
-          provides a robust academic framework that prepares students for
-          advanced studies and global opportunities.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-end pb-10 sm:pb-14 md:pb-20 lg:pb-24">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora mb-4 sm:mb-6 text-brand-beige">
+                IGCSE
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
+                IGCSE is an internationally recognized qualification for
+                students aged 14 to 16. Offered by the leading examination board
+                Pearson Edexcel, it provides a robust academic framework that
+                prepares students for advanced studies and global opportunities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Full Width Image with Flow Animation */}
       <section className="relative h-100 md:h-[700px] overflow-hidden">
@@ -249,38 +249,37 @@ const IGCSEPage = () => {
       </section>
 
       {/* Our IGCSE Programme Section */}
-   <section className="relative flex flex-col lg:flex-row min-h-screen">
-  {/* Left Side (Image) */}
-  <div className="w-full lg:w-1/2 relative h-64 sm:h-80 md:h-[400px] lg:h-auto">
-    <div
-      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('./igbro.webp')` }}
-    >
-      <div className="absolute inset-0 bg-black/40"></div>
-    </div>
-  </div>
+      <section className="relative flex flex-col lg:flex-row min-h-screen">
+        {/* Left Side (Image) */}
+        <div className="w-full lg:w-1/2 relative h-64 sm:h-80 md:h-[400px] lg:h-auto">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('./igbro.webp')` }}
+          >
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+        </div>
 
-  {/* Right Side (Content) */}
-  <div className="w-full lg:w-1/2 bg-gray-900 flex items-center">
-    <div className="p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 text-center lg:text-left">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-6 sm:mb-8 text-brand-beige">
-        Our IGCSE Programme
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed mb-4 sm:mb-6">
-        IGCSE is widely recognized by universities and employers worldwide,
-        including top universities in the UK, US, Canada, Australia, and Europe.
-        The IGCSE program allows students to select subjects according to their
-        interests and future study goals.
-      </p>
-      <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-        There is no core set of required subjects, which means students can
-        tailor their learning experience to align with their academic strengths
-        and career aspirations.
-      </p>
-    </div>
-  </div>
-</section>
-
+        {/* Right Side (Content) */}
+        <div className="w-full lg:w-1/2 bg-gray-900 flex items-center">
+          <div className="p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20 text-center lg:text-left">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-lora mb-6 sm:mb-8 text-brand-beige">
+              Our IGCSE Programme
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed mb-4 sm:mb-6">
+              IGCSE is widely recognized by universities and employers
+              worldwide, including top universities in the UK, US, Canada,
+              Australia, and Europe. The IGCSE program allows students to select
+              subjects according to their interests and future study goals.
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
+              There is no core set of required subjects, which means students
+              can tailor their learning experience to align with their academic
+              strengths and career aspirations.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Pathways Section */}
       <section className="relative min-h-screen flex flex-col lg:flex-row">

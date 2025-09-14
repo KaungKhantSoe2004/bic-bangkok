@@ -119,7 +119,7 @@ export default function ALevelsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white font-manrope">
+    <div className="min-h-screen bg-dark-blue text-white font-manrope">
       {/* Hero Banner Section */}
       <section className="relative h-[300px] sm:h-[400px] md:h-screen flex items-end justify-start w-full">
         <div
@@ -202,57 +202,57 @@ export default function ALevelsPage() {
       </section>
 
       {/* Our A-Level Courses Section - Left Text, Right Image */}
- {/* A-Level Courses Section */}
-<section className="flex flex-col lg:flex-row lg:min-h-screen">
-  {/* Left Text */}
-  <div className="lg:w-1/2 bg-dark-blue flex items-center">
-    <div className="p-6 sm:p-8 md:p-12 lg:p-16 text-center lg:text-left">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-lora text-brand-red mb-6 sm:mb-8">
-        OUR A-LEVEL COURSES
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-        At BI, we offer a two-year pathway. Both offer an entirely personalized
-        journey for each student – from the first advisor meeting to the final
-        university destination.
-      </p>
-    </div>
-  </div>
+      {/* A-Level Courses Section */}
+      <section className="flex flex-col lg:flex-row lg:min-h-screen">
+        {/* Left Text */}
+        <div className="lg:w-1/2 bg-dark-blue flex items-center">
+          <div className="p-6 sm:p-8 md:p-12 lg:p-16 text-center lg:text-left">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-lora text-brand-red mb-6 sm:mb-8">
+              OUR A-LEVEL COURSES
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
+              At BI, we offer a two-year pathway. Both offer an entirely
+              personalized journey for each student – from the first advisor
+              meeting to the final university destination.
+            </p>
+          </div>
+        </div>
 
-  {/* Right Image */}
-  <div className="lg:w-1/2 h-56 sm:h-64 md:h-80 lg:h-auto">
-    <div
-      className="w-full h-full bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('./clas.jpg')` }}
-    ></div>
-  </div>
-</section>
+        {/* Right Image */}
+        <div className="lg:w-1/2 h-56 sm:h-64 md:h-80 lg:h-auto">
+          <div
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('./clas.jpg')` }}
+          ></div>
+        </div>
+      </section>
 
-{/* Global Strategic Pathway Section */}
-<section className="flex flex-col lg:flex-row lg:min-h-screen">
-  {/* Left Image */}
-  <div className="lg:w-1/2 h-56 sm:h-64 md:h-80 lg:h-auto">
-    <div
-      className="w-full h-full bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('./aglobal.webp')` }}
-    ></div>
-  </div>
+      {/* Global Strategic Pathway Section */}
+      <section className="flex flex-col lg:flex-row lg:min-h-screen">
+        {/* Left Image */}
+        <div className="lg:w-1/2 h-56 sm:h-64 md:h-80 lg:h-auto">
+          <div
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('./aglobal.webp')` }}
+          ></div>
+        </div>
 
-  {/* Right Text */}
-  <div className="lg:w-1/2 bg-dark-blue flex items-center">
-    <div className="p-6 sm:p-8 md:p-12 lg:p-16 text-center lg:text-left">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-lora text-brand-red mb-6 sm:mb-8">
-        GLOBAL STRATEGIC PATHWAY
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-        Every student follows their own Global Strategic Pathway at BI. This
-        will map out your learning journey from start to finish, creating a
-        tailored academic, personal, and career-focused programme that's
-        entirely based around your talents and interests, aims and aspirations.
-      </p>
-    </div>
-  </div>
-</section>
-
+        {/* Right Text */}
+        <div className="lg:w-1/2 bg-dark-blue flex items-center">
+          <div className="p-6 sm:p-8 md:p-12 lg:p-16 text-center lg:text-left">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-lora text-brand-red mb-6 sm:mb-8">
+              GLOBAL STRATEGIC PATHWAY
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
+              Every student follows their own Global Strategic Pathway at BI.
+              This will map out your learning journey from start to finish,
+              creating a tailored academic, personal, and career-focused
+              programme that's entirely based around your talents and interests,
+              aims and aspirations.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Why A-Levels at BI - Key Facts Section */}
       <section className="bg-gray-900 py-16 md:py-24">
