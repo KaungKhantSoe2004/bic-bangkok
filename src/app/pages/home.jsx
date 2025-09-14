@@ -56,7 +56,7 @@ function SkeletonText({ className }) {
 }
 
 export default function HomePage() {
-  const backend_domain_name = `http://bicadmin.z256600-ll9lz.ps02.zwhhosting.com`;
+  const backend_domain_name = `https://bicadmin.z256600-ll9lz.ps02.zwhhosting.com`;
   const [isLoading, setIsLoading] = useState(true);
   const [activeLifeSection, setActiveLifeSection] = useState(0);
   const ReduxGallerySection = useSelector((store) => store.galleries);
