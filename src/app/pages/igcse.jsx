@@ -198,7 +198,7 @@ const IGCSEPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-blue text-white font-manrope">
+    <div className="min-h-screen bg-gray-900 text-white font-manrope">
       {/* Hero Banner Section */}
       <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
         {/* Background Image */}
