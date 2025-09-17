@@ -419,13 +419,13 @@ export default function HomePage() {
                   <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
                     <Link
                       to="/programs"
-                      className="px-4 md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm md:text-base"
+                      className="px-4 text-center  md:px-6 py-2 md:py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-xl shadow-md transition hover-lift font-manrope text-sm md:text-base"
                     >
                       View Programs
                     </Link>
                     <Link
                       to="/admissions"
-                      className="px-4 md:px-6 py-2 md:py-3 bg-transparent border border-brand-beige hover:bg-brand-beige hover:text-dark-primary text-brand-beige font-semibold rounded-xl transition hover-lift font-manrope text-sm md:text-base"
+                      className="px-4 text-center md:px-6 py-2 md:py-3 bg-transparent border border-brand-beige hover:bg-brand-beige hover:text-dark-primary text-brand-beige font-semibold rounded-xl transition hover-lift font-manrope text-sm md:text-base"
                     >
                       Apply Now
                     </Link>
