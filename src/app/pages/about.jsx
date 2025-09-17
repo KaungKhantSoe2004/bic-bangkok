@@ -247,32 +247,7 @@ export default function AboutPage() {
   return (
     <div className="relative min-h-screen bg-dark-primary">
       {/* Hero Section - Our Story */}
-      <section className="relative w-full h-screen flex items-end justify-start overflow-hidden">
-        <img
-          src="https://www.bic-bangkok.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fea2tlhaw%2Fproduction%2F9597a20381ab4c36c2b1436376fe7c5d7bb5b1c5-6000x4000.jpg&w=1920&q=75"
-          alt="Bridge International School Campus"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-brand-red/10 to-black/90"></div>
-
-        <div className="relative z-10 max-w-2xl text-left px-6 md:px-12 pb-16 md:pb-24 space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-lora leading-tight">
-            <span className="text-white">Our </span>
-            <span className="text-brand-red">Story</span>
-          </h1>
-
-          <div className="w-24 h-1 bg-brand-red rounded-full"></div>
-
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 leading-relaxed font-light font-manrope tracking-wide drop-shadow-md bg-black/30 p-4 rounded-lg">
-            Bridge International is dedicated to being Asia's leading
-            pre-university institution, offering globally recognized programs
-            like IGCSE, A Levels, and OSSD. We empower students to excel
-            academically, think critically, and secure placements at top
-            universities worldwide.
-          </p>
-        </div>
-      </section>
-
+      cccc
       {/* Full Width Image with Angled Design */}
       <section className="w-full relative overflow-hidden">
         <div className="relative h-[100vh] md:h-[100vh]">
@@ -290,7 +265,6 @@ export default function AboutPage() {
           ></div>
         </div>
       </section>
-
       {/* Founders Experience Section */}
       <section className="w-full flex flex-col lg:flex-row items-stretch min-h-screen">
         {/* Left side: Image */}
@@ -340,7 +314,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Philosophy Section */}
       <section className="w-full flex flex-col-reverse lg:flex-row items-stretch min-h-screen">
         {/* Left side: Text content */}
@@ -373,7 +346,6 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-brand-red/10 to-brand-red/30"></div>
         </div>
       </section>
-
       {/* Our History Section */}
       <section className="w-full flex flex-col lg:flex-row items-stretch min-h-screen">
         {/* Left side: Image */}
@@ -412,7 +384,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Overview Section */}
       <section className="w-full py-28 md:py-40 px-4 md:px-6 bg-dark-blue relative overflow-hidden">
         {/* Background decorative glow */}
@@ -462,7 +433,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Our Values Section */}
       <section className="w-full py-20 md:py-32 px-4 md:px-6 bg-gray-900 relative">
         <div className="max-w-7xl mx-auto">
@@ -611,7 +581,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* News & Highlights Section */}
       <section className="w-full py-20 md:py-32 px-4 md:px-6 bg-dark-blue relative">
         <div className="max-w-7xl mx-auto">
@@ -687,7 +656,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Ready to Apply CTA Section */}
       <section className="w-full relative bg-cover bg-center bg-no-repeat min-h-screen flex items-center">
         <img

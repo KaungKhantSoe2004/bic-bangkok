@@ -295,7 +295,7 @@ export default function Navigation() {
     {
       key: "/igcse",
       label: "IGCSE",
-      desc: "International General Certificate of Secondary Education",
+      desc: "International Generaddddl Certificate of Secondary Education",
     },
     {
       key: "/alevels",
@@ -512,6 +512,102 @@ export default function Navigation() {
             </div>
           </div>
         )}
+      </div>
+    </nav>
+  );
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-gray-900/98 backdrop-blur-md shadow-2xl border-b border-gray-700/50"
+          : "bg-gray-900/95 backdrop-blur-sm border-b border-gray-800/30"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          {/* ... (keep your logo and desktop menu code exactly as is) */}
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden relative w-12 h-12 text-gray-300 focus:outline-none transition-all duration-300 hover:bg-gray-800/50 rounded-lg flex items-center justify-center"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <FaTimes className="w-5 h-5 transition-transform duration-300 rotate-180" />
+            ) : (
+              <FaBars className="w-5 h-5 transition-transform duration-300" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu with improved animation */}
+        <div
+          className={`lg:hidden fixed inset-0 z-40 mt-20 bg-gray-900/95 backdrop-blur-md overflow-y-auto pb-20 transition-all duration-500 ease-in-out ${
+            isMobileMenuOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full pointer-events-none"
+          }`}
+        >
+          <div className="container mx-auto px-4 py-6">
+            {/* Mobile Navigation Items */}
+            <div className="space-y-2 mb-6">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    location.pathname === item.path
+                      ? "text-rose-400 bg-gray-700/50 border-l-4 border-rose-400"
+                      : "text-gray-300 hover:text-rose-400 hover:bg-gray-700/30"
+                  }`}
+                >
+                  <item.icon className="w-4 h-4 mr-3" />
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Mobile Courses Section */}
+            <div className="mb-6">
+              <div className="flex items-center px-4 py-3 text-gray-300 font-semibold text-sm border-b border-gray-700/50 mb-3">
+                <FaGraduationCap className="w-4 h-4 mr-3" />
+                COURSES
+              </div>
+              <div className="space-y-2">
+                {courses.map((course, index) => (
+                  <Link
+                    key={course.key}
+                    to={course.key}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block px-4 py-3 rounded-lg transition-all duration-300 ${
+                      location.pathname === course.key
+                        ? "text-rose-400 bg-gray-700/50"
+                        : "text-gray-300 hover:bg-gray-700/50"
+                    }`}
+                    style={{ transitionDelay: `${index * 50}ms` }}
+                  >
+                    <div className="font-medium text-sm">{course.label}</div>
+                    <div className="text-xs text-gray-500 mt-1">
+                      {course.desc}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Enquire Button */}
+            <Link
+              to="/enquire"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center justify-center w-full px-6 py-4 text-sm font-semibold text-white bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 rounded-full border border-rose-500/30 shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              <FaEnvelope className="w-4 h-4 mr-2" />
+              ENQUIRE
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
