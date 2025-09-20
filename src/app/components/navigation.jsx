@@ -330,7 +330,7 @@ export default function Navigation() {
               <div className="w-14 h-14 bg-gradient-to-br from-rose-500/20 via-rose-400/10 to-rose-600/20 rounded-xl flex items-center justify-center mr-4 group-hover:scale-105 transition-all duration-300 border border-gray-700/50 overflow-hidden shadow-lg">
                 <img
                   src="./logos.png"
-                  alt="Bridge International College Logo"
+                  alt="Bridge International Logo"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -340,7 +340,7 @@ export default function Navigation() {
                 Bridge
               </div>
               <div className="text-xs leading-tight text-gray-400 font-medium tracking-wide">
-                International College
+                International
               </div>
             </div>
           </Link>

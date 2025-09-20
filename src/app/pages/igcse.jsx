@@ -200,25 +200,23 @@ const IGCSEPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white font-manrope">
       {/* Hero Banner Section */}
-      <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
+      <section className="relative h-[45vh] sm:h-[60vh] md:h-[80vh] lg:h-screen overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('./IGCSE.jpg')`,
-          }}
+          style={{ backgroundImage: `url('./IGCSE.jpg')` }}
         >
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex items-end pb-10 sm:pb-14 md:pb-20 lg:pb-24">
+        <div className="relative z-10 h-full flex items-end pb-1 sm:pb-10 md:pb-16 lg:pb-24">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora mb-4 sm:mb-6 text-brand-beige">
+            <div className="max-w-2xl text-left">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora mb-1 sm:mb-6 text-brand-beige">
                 IGCSE
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
                 IGCSE is an internationally recognized qualification for
                 students aged 14 to 16. Offered by the leading examination board
                 Pearson Edexcel, it provides a robust academic framework that

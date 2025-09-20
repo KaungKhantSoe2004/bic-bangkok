@@ -121,26 +121,29 @@ export default function ALevelsPage() {
   return (
     <div className="min-h-screen bg-dark-blue text-white font-manrope">
       {/* Hero Banner Section */}
-      <section className="relative h-[300px] sm:h-[400px] md:h-screen flex items-end justify-start w-full">
+      <section className="relative h-[40vh] sm:h-[60vh] md:h-[80vh] lg:h-screen flex items-end w-full overflow-hidden">
+        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center w-full h-full"
           style={{ backgroundImage: "url(./alevels.jpg)" }}
         >
-          {/* Subtle bottom gradient for readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 p-4 sm:p-8 md:p-16 max-w-2xl text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-lora text-white mb-4 sm:mb-6 leading-tight">
-            What is A-Levels?
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-brand-beige leading-relaxed">
-            <span className="text-brand-red font-semibold">
-              Global Recognition:
-            </span>{" "}
-            A-levels (Advanced Levels) is an internationally recognized UK
-            qualification for students aged 16–19.
-          </p>
+        {/* Content (Bottom-Left) */}
+        <div className="relative z-10 w-full max-w-full px-2 sm:px-6 md:px-12 lg:px-20">
+          <div className="max-w-2xl text-left pb-6 sm:pb-6 md:pb-16 lg:pb-24">
+            <h1 className="text-lg sm:text-lg md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora text-white mb-1 sm:mb-3 leading-tight">
+              What is A-Levels?
+            </h1>
+            <p className="text-xs sm:text-xs md:text-lg lg:text-xl xl:text-2xl text-brand-beige leading-relaxed">
+              <span className="text-brand-red font-semibold">
+                Global Recognition:
+              </span>{" "}
+              A-levels (Advanced Levels) is an internationally recognized UK
+              qualification for students aged 16–19.
+            </p>
+          </div>
         </div>
       </section>
 

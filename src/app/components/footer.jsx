@@ -145,18 +145,25 @@ export default function Footer({ language }) {
               {t.quickLinks}
             </h3>
             <div className="space-y-3">
-              {["HOME", "ABOUT", "ADMISSION", "CONTACT", "NEWS", "EVENTS"].map(
-                (link, i) => (
-                  <div key={i}>
-                    <a
-                      href="#"
-                      className="text-slate-400 hover:text-red-400 transition-colors duration-300 block py-1 hover:translate-x-2 transform transition-transform azonix-font"
-                    >
-                      {link}
-                    </a>
-                  </div>
-                )
-              )}
+              {[
+                { label: "HOME", href: "/" },
+                { label: "ABOUT", href: "/about" },
+                { label: "ADMISSION", href: "/admission" },
+                { label: "ENQUIRE", href: "/enquire" },
+                { label: "IGCSE", href: "/igcse" },
+                { label: "ALEVELS", href: "/alevels" },
+                { label: "GED", href: "/ged" },
+                { label: "OSSD", href: "/ossd" },
+              ].map((link, i) => (
+                <div key={i}>
+                  <a
+                    href={link.href}
+                    className="text-slate-400 hover:text-red-400 transition-colors duration-300 block py-1 hover:translate-x-2 transform transition-transform azonix-font"
+                  >
+                    {link.label}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -166,13 +173,18 @@ export default function Footer({ language }) {
               {t.programs}
             </h3>
             <div className="space-y-3">
-              {["IGCSE", "A LEVELS", "OSSD", "GED"].map((program, i) => (
+              {[
+                { label: "IGCSE", href: "/igcse" },
+                { label: "A LEVELS", href: "/alevels" },
+                { label: "OSSD", href: "/ossd" },
+                { label: "GED", href: "/ged" },
+              ].map((program, i) => (
                 <div key={i}>
                   <a
-                    href="#"
+                    href={program.href}
                     className="text-slate-400 hover:text-red-400 transition-colors duration-300 block py-1 hover:translate-x-2 transform transition-transform azonix-font"
                   >
-                    {program}
+                    {program.label}
                   </a>
                 </div>
               ))}

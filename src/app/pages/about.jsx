@@ -12,6 +12,7 @@ export default function AboutPage() {
   const ReduxBlogSection = useSelector((store) => store.blogs);
   const dispatch = useDispatch();
   const [blogs, setBlogs] = useState(ReduxBlogSection.blogs);
+  const [expanded, setExpanded] = useState(false);
   const fetchData = async () => {
     try {
       setIsLoading(true);
@@ -599,6 +600,59 @@ export default function AboutPage() {
           {/* Blog Boxes Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
             {blogs.map((blog) => (
+              // <div
+              //   key={blog.id}
+              //   className="group relative bg-gray-900 overflow-hidden rounded-3xl shadow-2xl hover:shadow-brand-red/30 transition-all duration-500 hover:-translate-y-2"
+              // >
+              //   {/* Image */}
+              //   <div className="relative w-full aspect-video overflow-hidden rounded-t-3xl">
+              //     <img
+              //       src={`${backend_domain_name}/public/storage/${blog.image}`}
+              //       alt={blog.title}
+              //       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              //     />
+              //     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              //     <div className="absolute top-4 left-4">
+              //       <span className="bg-brand-red text-white px-3 py-1 text-sm font-semibold font-manrope rounded-full shadow-sm">
+              //         {blog.category}
+              //       </span>
+              //     </div>
+              //   </div>
+
+              //   {/* Content */}
+              //   <div className="p-4 md:p-6 space-y-3">
+              //     <h3 className="text-lg md:text-xl font-bold font-lora text-white group-hover:text-brand-red transition-colors duration-300">
+              //       {blog.title}
+              //     </h3>
+              //     <p className="text-gray-400 font-manrope text-sm md:text-base leading-relaxed line-clamp-3">
+              //       {blog.description}
+              //     </p>
+              //     <div className="flex items-center justify-between pt-3">
+              //       <span className="text-brand-beige text-xs md:text-sm font-manrope">
+              //         {new Date(blog.date).toLocaleDateString("en-US", {
+              //           year: "numeric",
+              //           month: "long",
+              //           day: "numeric",
+              //         })}
+              //       </span>
+              //       {/* <div className="w-8 h-8 bg-brand-red flex items-center justify-center rounded-full group-hover:bg-brand-beige transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer">
+              //         <svg
+              //           className="w-4 h-4 text-white group-hover:text-gray-900 transition-colors duration-300"
+              //           fill="none"
+              //           stroke="currentColor"
+              //           viewBox="0 0 24 24"
+              //         >
+              //           <path
+              //             strokeLinecap="round"
+              //             strokeLinejoin="round"
+              //             strokeWidth={2}
+              //             d="M17 8l4 4m0 0l-4 4m4-4H3"
+              //           />
+              //         </svg>
+              //       </div> */}
+              //     </div>
+              //   </div>
+              // </div>
               <div
                 key={blog.id}
                 className="group relative bg-gray-900 overflow-hidden rounded-3xl shadow-2xl hover:shadow-brand-red/30 transition-all duration-500 hover:-translate-y-2"
@@ -623,9 +677,35 @@ export default function AboutPage() {
                   <h3 className="text-lg md:text-xl font-bold font-lora text-white group-hover:text-brand-red transition-colors duration-300">
                     {blog.title}
                   </h3>
-                  <p className="text-gray-400 font-manrope text-sm md:text-base leading-relaxed line-clamp-3">
+
+                  {/* Description */}
+                  <div
+                    className={`text-gray-400 font-manrope text-sm md:text-base leading-relaxed transition-all duration-500 overflow-hidden`}
+                    style={{
+                      maxHeight: expanded ? "1000px" : "4.5rem", // about 3 lines
+                    }}
+                  >
                     {blog.description}
-                  </p>
+                  </div>
+
+                  {/* Read More / Less button */}
+                  <button
+                    onClick={() => setExpanded(!expanded)}
+                    className="flex items-center gap-1 text-sm font-semibold px-3 py-1.5 rounded-full 
+             bg-gray-800 text-white hover:bg-brand-red hover:text-white 
+             transition-all duration-300 mt-2"
+                  >
+                    {expanded ? (
+                      <>
+                        Read Less <span className="text-xs">▲</span>
+                      </>
+                    ) : (
+                      <>
+                        Read More <span className="text-xs">▼</span>
+                      </>
+                    )}
+                  </button>
+
                   <div className="flex items-center justify-between pt-3">
                     <span className="text-brand-beige text-xs md:text-sm font-manrope">
                       {new Date(blog.date).toLocaleDateString("en-US", {
@@ -634,21 +714,6 @@ export default function AboutPage() {
                         day: "numeric",
                       })}
                     </span>
-                    {/* <div className="w-8 h-8 bg-brand-red flex items-center justify-center rounded-full group-hover:bg-brand-beige transition-colors duration-300 shadow-md hover:shadow-lg cursor-pointer">
-                      <svg
-                        className="w-4 h-4 text-white group-hover:text-gray-900 transition-colors duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div> */}
                   </div>
                 </div>
               </div>

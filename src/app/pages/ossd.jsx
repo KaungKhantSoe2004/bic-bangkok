@@ -192,46 +192,50 @@ const OssdPage = () => {
 
   return (
     <div className="min-h-screen bg-dark-blue text-white font-manrope">
-      <section className="relative h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-end justify-start overflow-hidden">
+      <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+        {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(./ossd.jpg)" }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/ossd.jpg')" }}
         >
-          {/* Subtle bottom gradient for readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
         </div>
 
-        {/* Text at bottom-left */}
-        <div className="relative z-10 px-4 sm:px-6 md:px-8 mb-4 sm:mb-6 md:mb-10 ml-2 sm:ml-6 md:ml-12 max-w-full sm:max-w-3xl">
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-lora font-bold text-white leading-tight mb-3 sm:mb-4">
-            What is <span className="text-brand-red">OSSD</span>?
-          </h1>
-          <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed mb-2 sm:mb-3">
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              O
-            </span>
-            ntario{" "}
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              S
-            </span>
-            econdary{" "}
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              S
-            </span>
-            chool{" "}
-            <span className="text-brand-red font-bold text-lg sm:text-xl">
-              D
-            </span>
-            iploma (OSSD) is a diploma granted to secondary school graduates by
-            the Canadian province of Ontario.
-          </p>
-          <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed">
-            OSSD is recognized by most universities in{" "}
-            <span className="text-brand-red font-semibold">
-              USA, Canada, UK, Hong Kong, Australia
-            </span>{" "}
-            and other English-speaking countries.
-          </p>
+        {/* Content (Bottom-Left) */}
+        <div className="relative z-10 h-full flex items-end pb-4 sm:pb-8 md:pb-14 lg:pb-20">
+          <div className="px-3 sm:px-6 md:px-12 lg:px-20 w-full max-w-full">
+            <div className="text-left">
+              <h1 className="text-lg sm:text-3xl md:text-5xl lg:text-7xl font-lora font-bold text-white leading-snug mb-2 sm:mb-5">
+                What is <span className="text-brand-red">OSSD</span>?
+              </h1>
+              <p className="text-white text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed mb-1 sm:mb-3">
+                <span className="text-brand-red font-bold text-sm sm:text-base md:text-xl">
+                  O
+                </span>
+                ntario{" "}
+                <span className="text-brand-red font-bold text-sm sm:text-base md:text-xl">
+                  S
+                </span>
+                econdary{" "}
+                <span className="text-brand-red font-bold text-sm sm:text-base md:text-xl">
+                  S
+                </span>
+                chool{" "}
+                <span className="text-brand-red font-bold text-sm sm:text-base md:text-xl">
+                  D
+                </span>
+                iploma (OSSD) is a diploma granted to secondary school graduates
+                by the Canadian province of Ontario.
+              </p>
+              <p className="text-white text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed">
+                OSSD is recognized by most universities in{" "}
+                <span className="text-brand-red font-semibold">
+                  USA, Canada, UK, Hong Kong, Australia
+                </span>{" "}
+                and other English-speaking countries.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

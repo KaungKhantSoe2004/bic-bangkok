@@ -102,34 +102,34 @@ const GEDPage = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white font-manrope">
       {/* Hero Banner Section - IGCSE Style */}
-   <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style={{
-      backgroundImage: `url('/ged.jpg')`,
-    }}
-  >
-    <div className="absolute inset-0 bg-black/60"></div>
-  </div>
+      <section className="relative h-[45vh] sm:h-[60vh] md:h-[80vh] lg:h-screen overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('/alevels.jpg')` }}
+        >
+          {/* Gradient for readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+        </div>
 
-  {/* Content */}
-  <div className="relative z-10 h-full flex items-end pb-10 sm:pb-14 md:pb-20 lg:pb-24">
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora mb-4 sm:mb-6 text-brand-beige">
-          GED
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
-          Your Pathway to the World's Top Universities. The General Educational
-          Development (GED) is a globally recognized high school equivalency
-          credential designed for individuals who did not complete traditional
-          high school.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-end pb-6 sm:pb-10 md:pb-16 lg:pb-24">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-lora mb-3 sm:mb-6 text-brand-beige">
+                A-Levels
+              </h1>
+              <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-white leading-relaxed">
+                <span className="text-brand-red font-semibold">
+                  Global Recognition:
+                </span>{" "}
+                A-levels (Advanced Levels) is an internationally recognized UK
+                qualification for students aged 16–19.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="relative h-96 md:h-[700px] overflow-hidden">
         <div
