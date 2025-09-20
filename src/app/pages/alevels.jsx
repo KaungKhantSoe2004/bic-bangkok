@@ -119,7 +119,7 @@ export default function ALevelsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white font-manrope">
+    <div className="min-h-screen bg-dark-blue text-white font-manrope">
       {/* Hero Banner Section */}
       <section className="relative h-[300px] sm:h-[400px] md:h-screen flex items-end justify-start w-full">
         <div

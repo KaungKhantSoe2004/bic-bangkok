@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { useRef, useState, useEffect } from "react";
+import axios from "axios";
 
 export default function ContactPage() {
   const form = useRef();
@@ -53,6 +54,40 @@ export default function ContactPage() {
         }
       );
   };
+
+  // const submit = async (e) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   setIsMailed(false);
+  //   setErrorMessage("");
+
+  //   const formData = {
+  //     fullName: form.current.fullName.value,
+  //     email: form.current.email.value,
+  //     subject: form.current.subject.value,
+  //     phone: form.current.phone.value,
+  //     message: form.current.message.value,
+  //   };
+
+  //   try {
+  //     const response = await axios.post(
+  //       "http://127.0.0.1:8000/api/send-contact-email",
+  //       formData
+  //     );
+
+  //     if (response.data.success) {
+  //       setIsMailed(true);
+  //       form.current.reset();
+  //     } else {
+  //       setErrorMessage("❌ Failed to send message. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     setErrorMessage("❌ Failed to send message. Please try again.");
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   if (loading) {
     return (
